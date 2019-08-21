@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
-
+import Masonry from 'react-masonry-css'
 export default class GalleryIndexPage extends React.Component {
   render() {
     return (
@@ -45,7 +45,15 @@ export default class GalleryIndexPage extends React.Component {
             <div className="content">
               
 
-              
+            <Masonry
+  breakpointCols={3}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column">
+  <div>My Element</div>
+  <div>My Element</div>
+  <div>My Element</div>
+  <div>My Element</div>
+</Masonry>
 
 
 

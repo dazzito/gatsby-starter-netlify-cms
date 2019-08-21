@@ -23,10 +23,12 @@ collections:
   - name: "gallery"
     label: "Gallery Page"
     folder: "src/pages/gallery"
+    identifier_field: name
     create: true
     fields:
+      - {label: "Gallery Name", name: "name", widget: "string"}
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
-      - {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
+      - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
   - name: "pages"
     label: "Pages"
     files:
