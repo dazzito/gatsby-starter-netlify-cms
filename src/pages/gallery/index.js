@@ -43,32 +43,19 @@ export default class GalleryIndexPage extends React.Component {
         <section className="section section--gradient" style={{background:'white'}}>
           <div className="container">
             <div className="content">
-              <BlogRoll />
-            </div>
-          </div>
-        </section>
-
-
-        <h1
-            className="has-text-weight-bold is-size-3"
-            style={{
               
-              backgroundColor: 'rgb(133, 182, 255)',
-              color: 'whitesmoke',
-              padding: '1rem',
-              textAlign:'center'
-            }}
-          >
-            Other Posts
-          </h1>
 
-          <section className="section section--gradient" style={{background:'white'}}>
-          <div className="container">
-            <div className="content">
-              <BlogRoll />
+              
+
+
+
+
             </div>
           </div>
         </section>
+
+
+     
       </Layout>
     )
   }
