@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 
-export default class BlogIndexPage extends React.Component {
+export default class GalleryIndexPage extends React.Component {
   render() {
     return (
       <Layout>
@@ -34,10 +34,10 @@ export default class BlogIndexPage extends React.Component {
               backgroundColor: 'rgb(133, 182, 255)',
               color: 'whitesmoke',
               padding: '1rem',
-              textAlign:'center'
+              textAlign:'center' 
             }}
           >
-            Latest Stories
+           Gallery
           </h1>
 
         <section className="section section--gradient" style={{background:'white'}}>
