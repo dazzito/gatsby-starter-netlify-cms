@@ -3,6 +3,8 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 import Masonry from 'react-masonry-css'
+
+import Fade from 'react-reveal/Fade';
 export default class GalleryIndexPage extends React.Component {
   render() {
     return (
@@ -40,26 +42,35 @@ export default class GalleryIndexPage extends React.Component {
            Gallery
           </h1>
 
-        <section className="section section--gradient" style={{background:'white'}}>
-          <div className="container">
-            <div className="content">
-              
-
-            <Masonry
-  breakpointCols={3}
+        <section className="section section--gradient" style={{background:'#212121', paddingTop:20}}>
+       
+       <Fade>
+        <Masonry
+  breakpointCols={6}
   className="my-masonry-grid"
   columnClassName="my-masonry-grid_column">
-  <div>My Element</div>
-  <div>My Element</div>
-  <div>My Element</div>
-  <div>My Element</div>
+
+   <img src="/img/jumbotron.jpg" style={{height:285}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:350}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:200}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:450}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:350}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:200}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:285}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:350}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:200}}/> 
+     <img src="/img/jumbotron.jpg" style={{height:450}}/> 
+   <img src="/img/jumbotron.jpg" style={{height:350}}/> 
+   <img src="/img/jumbotron.jpg" style={{height:200}}/>
+   <img src="/img/jumbotron.jpg" style={{height:450}}/>
+    <img src="/img/jumbotron.jpg" style={{height:350}}/> 
+    <img src="/img/jumbotron.jpg" style={{height:350}}/> 
+    
 </Masonry>
 
+</Fade>
 
-
-
-            </div>
-          </div>
+ 
         </section>
 
 
@@ -68,3 +79,42 @@ export default class GalleryIndexPage extends React.Component {
     )
   }
 }
+
+// export const pageQuery = graphql`
+//   query IndexPageTemplate {
+//     markdownRemark(frontmatter: { templateKey: { eq: "gallery-page" } }) {
+//       frontmatter {
+//         title
+//         image {
+//           childImageSharp {
+//             fluid(maxWidth: 2048, quality: 100) {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//         heading
+//         subheading
+//         mainpitch {
+//           title
+//           description
+//         }
+//         description
+//         intro {
+//           blurbs {
+//             image {
+//               childImageSharp {
+//                 fluid(maxWidth: 240, quality: 64) {
+//                   ...GatsbyImageSharpFluid
+//                 }
+//               }
+//             }
+//             text
+//           }
+//           heading
+//           description
+//         }
+//       }
+//     }
+//   }
+// `;
+
