@@ -1,103 +1,102 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import Img from 'gatsby-image'
+import Masonry from 'react-masonry-css'
+import Layout from "../components/Layout";
+import Features from "../components/Features";
+import BlogRoll from "../components/BlogRoll";
+import ContactForm from "../components/ContactForm";
+import Fade from 'react-reveal/Fade';
 
-export const GalleryPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content
 
-  return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+export const GalleryPageTemplate = ({
+  images
+}) => (
+  <div>
 
-GalleryPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-}
+    
+<h1
+            className="has-text-weight-bold is-size-3"
+            style={{
+              
+              backgroundColor: 'rgb(133, 182, 255)',
+              color: 'whitesmoke',
+              padding: '1rem',
+              textAlign:'center' 
+            }}
+          >
+           Gallery
+          </h1>
 
-const  GalleryPost = ({ data }) => {
-  const { markdownRemark: post } = data
+          <section className="section section--gradient" style={{background:'#212121', padding:0, height:'calc(100vh - 52px'}}>
+       
+      
+        <Masonry
+  breakpointCols={5}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column">
+
+
+
+{images.map(i =>  <Fade> <Img fluid={i.image.childImageSharp.fluid}  /></Fade> )}
+
+
+
+    
+</Masonry>
+
+
+
+ 
+        </section>
+
+
+
+  </div>
+);
+
+GalleryPageTemplate.propTypes = {
+  images: PropTypes.array
+};
+
+const GalleryPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
-      <GalleryPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
+      <GalleryPageTemplate
+        images={frontmatter.images}
       />
     </Layout>
-  )
-}
+  ); 
+};
 
-GalleryPost.propTypes = {
+GalleryPage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object
+    })
+  })
+};
 
-export default GalleryPost
 
-// export const pageQuery = graphql`
-//   query BlogPostByID($id: String!) {
-//     markdownRemark(id: { eq: $id }) {
-//       id
-//       html
-//       frontmatter {
-//         date(formatString: "MMMM DD, YYYY")
-//         title
-//         description
-//         tags
-//       }
-//     }
-//   }
-// `
+export default GalleryPage;
+
+export const GalleryPageQuery = graphql`
+query GalleryPage {
+  markdownRemark(frontmatter: { templateKey: { eq: "gallery-page" } }) {
+    frontmatter { 
+      images {
+        text
+        image {
+          childImageSharp {
+            fluid(maxWidth: 480, quality: 64) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
