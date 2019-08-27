@@ -49,75 +49,43 @@ export const GalleryPageTemplate = ({
 
 
  <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
+    <Link  to="/profile">
+    <div className="team-item">
+    <img className="team-img" src={Avatar} /> 
+    </div>
+    </Link>
  </Fade>
 
+ <Fade>
+    <Link  to="/profile">
+    <div className="team-item">
+    <img className="team-img" src={Avatar} /> 
+    </div>
+    </Link>
+ </Fade>
+ <Fade>
+    <Link  to="/profile">
+    <div className="team-item">
+    <img className="team-img" src={Avatar} /> 
+    </div>
+    </Link>
+ </Fade>
+ <Fade>
+    <Link  to="/profile">
+    <div className="team-item">
+    <img className="team-img" src={Avatar} /> 
+    </div>
+    </Link>
+ </Fade>
+ <Fade>
+    <Link  to="/profile">
+    <div className="team-item">
+    <img className="team-img" src={Avatar} /> 
+    </div>
+    </Link>
+ </Fade>
  
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
-
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
-
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
  
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
-
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
-
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
- <Fade>
- <div className="team-item">
- <img className="team-img" src={Avatar} /> 
- </div>
- </Fade>
-
 
 
 
