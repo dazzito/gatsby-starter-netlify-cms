@@ -31,13 +31,13 @@ export default class BlogIndexPage extends React.Component {
             className="has-text-weight-bold is-size-3"
             style={{
               
-              backgroundColor: 'rgb(133, 182, 255)',
-              color: 'whitesmoke',
+              backgroundColor: '#ffca64',
+              color: 'white',
               padding: '1rem',
               textAlign:'center'
             }}
           >
-            Latest Stories
+            News
           </h1>
 
         <section className="section section--gradient" style={{background:'white'}}>
@@ -48,13 +48,13 @@ export default class BlogIndexPage extends React.Component {
           </div>
         </section>
 
-
+{/* 
         <h1
             className="has-text-weight-bold is-size-3"
             style={{
               
               backgroundColor: 'rgb(133, 182, 255)',
-              color: 'whitesmoke',
+              color: 'white',
               padding: '1rem',
               textAlign:'center'
             }}
@@ -68,7 +68,7 @@ export default class BlogIndexPage extends React.Component {
               <BlogRoll />
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
     )
   }

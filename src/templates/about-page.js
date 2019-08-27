@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
-
+import Fade from "react-reveal/Fade";
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
@@ -12,12 +12,12 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+        
+              <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
                 {title}
               </h2>
               <PageContent className="content" content={content} />
-            </div>
+           
           </div>
         </div>
       </div>
@@ -36,11 +36,14 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <Fade>
+     
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
       />
+       </Fade>
     </Layout>
   )
 }

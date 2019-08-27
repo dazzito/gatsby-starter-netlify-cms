@@ -3,12 +3,14 @@ import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
+import Headroom from 'react-headroom'
+
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       active: false,
-      navBarActiveClass: '',
+      navBarActiveClass: ''
     }
   }
 
@@ -32,20 +34,25 @@ const Navbar = class extends React.Component {
     )
   }
 
+
+
   render() {
     return (
-      <nav
-        className="navbar is-dark"
+     
+     
+      <nav 
+        className="navbar is-fixed-top is-transparent cl-effect-4"
         role="navigation"
         aria-label="main-navigation"
+        style={this.props.isScrolled ? this.props.scrolled : this.props.unscrolled}
       >
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <h1>[Brand Logo]</h1>
+              <h1  style={{color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color, fontWeight:'bolder'}}>[ Logo ]</h1>
             
               {/* <img src={logo} alt="Kaldi" style={{ width: '88px' }} /> */}
-            </Link>
+            </Link>  
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
@@ -62,25 +69,25 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
+              <Link className="navbar-item" to="/about" style={{color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 About
               </Link>
 
-              <Link className="navbar-item" to="/gallery">
-                Gallery
+              <Link className="navbar-item" to="/gallery" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+                Our Team
               </Link>
 
 
-              <Link className="navbar-item" to="/products">
-                Products
+              <Link className="navbar-item" to="/products" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+                Services
               </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
+              <Link className="navbar-item" to="/blog" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+                News
               </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
+              <Link className="navbar-item" to="/contact" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+                Contact Us
               </Link>
-              {/* <Link className="navbar-item" to="/contact/examples">
+              {/* <Link className="navbar-item" to="/contact/examples" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 Form Examples
               </Link> */}
             </div>

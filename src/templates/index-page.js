@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
@@ -6,7 +6,10 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import ContactForm from "../components/ContactForm";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
+
+import { useInView } from 'react-intersection-observer'
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -15,76 +18,118 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro
-}) => (
+}) => {
+  
+  
+
+
+  return(
   <div>
-
     
-{/* 
-<Sticky topOffset={86} disableCompensation> 
-  {({
-            style,
- 
-            // the following are also available but unused in this example
-            isSticky,
-            wasSticky,
-            distanceFromTop=150,
-            distanceFromBottom,
-            calculatedHeight
-          }) => (
-            <div className="tile"  style={{ ...style, zIndex: '998',backgroundColor:'white', color:'white', paddingTop: isSticky ? '62px' : '0px'}}>
-               <h1 className="title">{mainpitch.title}</h1>
 
-          </div>
+
+
+
+   
+    <section
+      className="section section--gradient hero"
+      style={{paddingTop:0, height:'100vh'}}
+    >
+    <div className="container">
+    <Fade delay={150}>
+            <div className="column is-10">
+            <h2 style={{color:'#ffffffd9', fontSize:90} }>“ THE PEOPLE’S GOOD IS THE HIGHEST LAW ”
+            {/* <i style={{fontSize:40}}> — CICERO </i> */}
+            </h2>
+            </div>
             
-          )}
-  </Sticky>  */}
+     </Fade>
 
-  <Fade>
+     <Fade delay={400}>
+     <div className="column is-10">
+              <Link className="btn" to="/about">
+                Learn about us.
+              </Link>
+            </div>
 
-    <section className="section section--gradient" style={{background:'white', height:'calc(100vh - 52px'}}>
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
+     
+            {/* <div className="column is-10">
+            <h3 style={{color:'#ffffffd9', fontSize:45, fontStyle: 'italic',} }></h3>
+            </div> */}
+            
+     </Fade>
+    </div>
+  
+    
+    </section>
+   
+
+    {/* <Fade delay={300}>
+    <section
+      className="section section--gradient hero"
+    ></section>
+    </Fade> */}
+    
+    
+    
+    
+    
+    <Fade>
+{/*      
+    height: "calc(100vh - 52px" }} */}
+     
+     
+     
+     
+     
+{/*      
+      <section
+        className="section section--gradient"
+        style={{ background: "white" }}
+      >
+        <div className="container">
+          
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
                 <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+                  <div className="content">
+                    <div className="tile">
+                      <h1 className="title">{mainpitch.title}</h1>
+                    </div>
+                    <div className="tile">
+                      <h3 className="subtitle">{mainpitch.description}</h3>
+                    </div>
                   </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+
+                  <div className="columns is-multiline">
+            
+
+                    <div className="column is-6">
+                      <ContactForm />
+                    </div>
+
+                    <div className="column is-6" style={{ padding: 30 }}>
+                      <div
+                        style={{
+                          border: "solid black 1px",
+                          borderRadius: 4,
+                          height: "100%"
+                        }}
+                      ></div>
+                    </div>
+
+                    <p>{description}</p>
                   </div>
+
+                  <div></div>
                 </div>
-
-                <div className="columns is-multiline">
-                  {/* <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3> */}
-
-                  <div className="column is-6">
-                    <ContactForm />
-                  </div>
-
-                  <div className="column is-6" style={{ padding: 30 }}>
-                    <div
-                      style={{
-                        border: "solid black 1px",
-                        borderRadius: 4,
-                        height: "100%"
-                      }}
-                    ></div>
-                  </div>
-
-                  <p>{description}</p>
-                </div>
-
-                <div></div>
               </div>
             </div>
-          </div>
+         
         </div>
-      </div>
-    </section>
+      </section> */}
+
+ 
 
     </Fade>
     {/* <section style={{ background: "#212121", color: "white" }}>
@@ -103,27 +148,28 @@ export const IndexPageTemplate = ({
       </div>
     </section> */}
 
-<Fade>
-    <section style={{background:'white'}}>
-      <div className="container">
-        <div className="section">
-        <div className="column is-12">
-            <h3 className="has-text-weight-semibold is-size-2">
-              Latest stories
-            </h3>
-            <BlogRoll />
-            <div className="column is-12 has-text-centered">
-              <Link className="btn" to="/blog">
-                Read more
-              </Link>
+    <Fade>
+      <section style={{ background: "white" }}>
+        <div className="container">
+          <div className="section">
+            <div className="column is-10">
+              <h3 className="has-text-weight-semibold is-size-2">
+                Latest news
+              </h3>
+              <div className="section-break"></div>
+              <BlogRoll />
+              {/* <div className="column is-10 has-text-centered">
+                <Link className="btn" to="/blog">
+                  Read more
+                </Link>
+              </div> */}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </Fade>
   </div>
-);
+)};
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

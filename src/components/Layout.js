@@ -1,18 +1,56 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from "gatsby"
-
+import ScrollAnimation from 'react-animate-on-scroll';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { AnimatedBg, Transition } from 'scroll-background';
+
+import { useInView } from 'react-intersection-observer'
+import DynamicSubNav from '../components/DynamicSubNav'
+
+
 
 const TemplateWrapper = ({ 
   children,
   heading
 }) => {
+ 
+  
+
+
+  const [ref, inView, entry] = useInView({
+    rootMargin: '-52px' 
+  })
+
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const isInitial = useRef(true);
+
+  useEffect(() => {
+
+    if (isInitial.current) {
+      isInitial.current = false;
+      return;
+    }
+
+    if (inView) {
+      setIsScrolled(false)
+      console.log("s")
+    } else {
+      setIsScrolled(true)
+      console.log("e")
+    }
+  }, [inView])
+
   const { title, description } = useSiteMetadata()
+  
+  
+  
   return (
     <div>
       <Helmet>
@@ -101,7 +139,7 @@ const TemplateWrapper = ({
       </div>
     </div>
   */}
-  <Sticky>
+  {/* <Sticky>
   {({
             style,
  
@@ -112,18 +150,27 @@ const TemplateWrapper = ({
             distanceFromBottom,
             calculatedHeight
           }) => (
-            <div style={{ ...style, backgroundColor: 'black', zIndex: '999' }}>
-            <Navbar />
+            <div style={{ ...style, backgroundColor: 'white', zIndex: '999' }}>
 
             
+
           </div>
             
           )}
-  </Sticky>
+  </Sticky> */}
  
 
+  <Navbar isScrolled={isScrolled} 
+  scrolled={{backgroundColor:'white', color:'#4a4a4a', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)'}}  
+  unscrolled={{backgroundColor:'transparent', color:'white'}} 
+  
+  />
 
-     
+
+  <div ref={ref}>
+  <DynamicSubNav />
+  </div> 
+    
       
       <div>{children}</div>
       <Footer />

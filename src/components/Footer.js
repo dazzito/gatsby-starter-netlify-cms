@@ -14,17 +14,17 @@ import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
+      <footer className="footer has-text-white-ter">
         <div className="content has-text-centered">
-          <h1 style={{ color: "white" }}>Brand Logo</h1>
+          <h1 style={{ color: "white" }}>[ Logo ]</h1>
           {/* <img
             src={logo}
             alt="Kaldi"
             style={{ width: '14em', height: '10em' }}
           /> */}
         </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
+        <div className="content has-text-centered  has-text-white-ter">
+          <div className="container has-text-white-ter">
             <div className="columns">
               <div className="column is-4">
                 <section className="menu">
@@ -36,7 +36,7 @@ const Footer = class extends React.Component {
                     </li>
                     <li>
                       <Link className="navbar-item" to="/about">
-                        About Us
+                        About
                       </Link>
                     </li>
                     <li>
@@ -67,12 +67,12 @@ const Footer = class extends React.Component {
                   <ul className="menu-list">
                     <li>
                       <Link className="navbar-item" to="/blog">
-                        Latest Stories
+                        News
                       </Link>
                     </li>
                     <li>
                       <Link className="navbar-item" to="/gallery">
-                        Gallery
+                        Our Team
                       </Link>
                     </li>
                   </ul>
@@ -106,7 +106,7 @@ const Footer = class extends React.Component {
 
          
 
-            <div className="column is-12">
+            {/* <div className="column is-12">
               <div className="column is-12 social">
                 <a title="facebook" href="https://facebook.com">
                   <img
@@ -139,14 +139,19 @@ const Footer = class extends React.Component {
                 </a>
                 </div>
 
-                <div className="column is-12">
+               
+            
+           
+           
+           
+            </div> */}
+          
+            <div className="column is-12">
                 <p class="copyright-text">
                   Copyright &copy; 2019 All Rights Reserved by&nbsp;
                   <a href="#">dz</a>
                 </p>
                 </div>
-            
-            </div>
           </div>
         </div>
       </footer>

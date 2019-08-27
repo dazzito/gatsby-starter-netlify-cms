@@ -9,6 +9,8 @@ import BlogRoll from "../components/BlogRoll";
 import ContactForm from "../components/ContactForm";
 import Fade from 'react-reveal/Fade';
 
+import Avatar from '../img/avatar-placeholder.png'
+
 
 export const GalleryPageTemplate = ({
   images
@@ -20,16 +22,16 @@ export const GalleryPageTemplate = ({
             className="has-text-weight-bold is-size-3"
             style={{
               
-              backgroundColor: 'rgb(133, 182, 255)',
-              color: 'whitesmoke',
+              backgroundColor: '#ffca64',
+              color: 'white',
               padding: '1rem',
               textAlign:'center' 
             }}
           >
-           Gallery
+           Our Team
           </h1>
 
-          <section className="section section--gradient" style={{background:'#212121', padding:0, height:'calc(100vh - 52px'}}>
+          <section className="section section--gradient" style={{background:'#4a4a4a', padding:0, height:'calc(100vh - 52px'}}>
        
       
         <Masonry
@@ -37,9 +39,86 @@ export const GalleryPageTemplate = ({
   className="my-masonry-grid"
   columnClassName="my-masonry-grid_column">
 
-
+{/* 
 
 {images.map(i =>  <Fade> <Img fluid={i.image.childImageSharp.fluid}  /></Fade> )}
+
+
+ */}
+
+
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+ 
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+ 
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+ <Fade>
+ <div className="team-item">
+ <img className="team-img" src={Avatar} /> 
+ </div>
+ </Fade>
+
+
 
 
 

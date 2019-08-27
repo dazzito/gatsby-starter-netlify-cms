@@ -1,43 +1,131 @@
 @import "~bulma/sass/utilities/initial-variables"
-
+@import "~bulma"
 // Config vars
 // Kaldi logo brand color: #FD461E
-$kaldi-red: #5693ef 
+$kaldi-red: #5693ef
 $kaldi-red-invert: #fff
 
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 $body-color: #333
-$black: #2b2523 
+$black: #2b2523
+$footer-background-color: #4a4a4a
+
+$tone1: #ffca64
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
 
 
 
 body
-  // background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%) 
+  font-family: 'Open Sans', sans-serif;
+  // background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)
 
-.my-masonry-grid 
-  display: -webkit-box
+h1
+  font-size: 45px
+
+
+.text-tone-primary
+  color: $tone1
+
+
+.notification
+  border-radius: 0px
+ 
+.notification a:not(.button):not(.dropdown-item)
+  text-decoration: none
+
+.section-break
+    height: 4px;
+    margin: auto;
+    background: #d7d7d7;
+    margin-bottom: 30px
+    margin-top: 15px
+
+.section
+  // box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
+  padding: 2rem 1.5rem;
+
+
+.team-item
+  overflow: hidden
+  
+
+
+.team-item img 
+  background: white
+  transition: transform .5s, filter 1.5s ease-in-out;
+  filter: grayscale(100%);
+ 
+
+
+/* The Transformation */
+.team-item:hover img 
+  filter: grayscale(0);
+  transform: scale(1.1);
+
+
+
+
+
+
+.headroom 
+  top: 0
+  left: 0
+  right: 0
+  zIndex: 30
+
+.headroom--unfixed 
+  position: relative;
+  transform: translateY(0);
+
+
+.headroom--scrolled 
+  transition: transform 200ms ease-in-out;
+
+
+.headroom--unpinned 
+  position: fixed;
+  transform: translateY(-100%);
+
+
+.headroom--pinned 
+  position: fixed;
+  transform: translateY(0%);
+
+
+.copyright-text
+  color: 'grey'
+  text-decoration: none
+ 
+footer.footer 
+  background-color:#4a4a4a
+  padding: 2rem 0rem 0rem
+
+.my-masonry-grid
+  display: -webkit-box 
   display: -ms-flexbox
   display: flex
-  margin-left: -10px
+  // margin-left: -10px
   width: auto
 
-.my-masonry-grid_column 
-  padding-left: 10px
+.my-masonry-grid_column
+  // padding-left: 10px
   background-clip: padding-box
 
- 
+
 // Style your items
-.my-masonry-grid_column > div 
-  background: grey
-  margin-bottom: 10px
+.my-masonry-grid_column > div
+  background: white
 
 
-.page-header 
+
+.page-header
   font-size: 2rem
 
 .sticky
-  position: fixed !important 
+  position: fixed !important
   top: 0
   width: 100%
 
@@ -45,22 +133,79 @@ body
 .navbar-start
   margin-right: 0px !important
   margin-left: auto !important
+
+.navbar
+  transition: background-color .15s linear
+  height: 150px
+  font-size: 20px
   
 
+.subnav
+  background: url("/img/jumbotron.jpg")
+  height: 150px
+  background-attachment: fixed
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+
+.hero
+  background: url("/img/jumbotron.jpg")
+  height: 300px
+  background-attachment: fixed
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
 
 .navbar .navbar-menu
   box-shadow:none !important
+  align-self: center
 
+.navbar-brand
+  align-self: center
 
 a.navbar-item
   color: white
+  height: fit-content
 
 
-.is-transparent
-  background-color: transparent !important
+a.navbar-item:hover
+  color:#ffca64 !important 
+
+
+/* Effect 4: bottom border enlarge */
+.cl-effect-4 a  
+
+
+
+.cl-effect-4 a::after 
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: #fff;
+	content: '';
+	opacity: 0;
+	-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+	transition: height 0.3s, opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	transform: translateY(-10px);
+
+
+.cl-effect-4 a:hover::after,
+.cl-effect-4 a:focus::after 
+	height: 5px;
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+
+
 
 .is-dark
-  background-color: #212121
+  background-color: #4a4a4a
 
 
 
@@ -103,21 +248,25 @@ a.navbar-item
     align-items: center
 
 .btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #CC3700
-    text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #CC3700
-    box-shadow: inset 0 0 0 2px #f40
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
+    display: inline-block;
+    padding: 12px 16px 10px;
+    font-size: 18px;
+    font-size: 2.5rem;
+    line-height: 1.25;
+    background-color: #212121ad;
+    /* border-radius: .25rem; */
+    text-decoration: none;
+    font-weight: 700;
+    color: #ffca64;
+    text-align: center;
+    box-shadow: inset 0 0 0 2px #b9b9b9;
+    -webkit-transition: all .15s ease;
+    transition: all .15s ease;
+
+.btn:hover
+  background: #ffca64
+  box-shadow: inset 0 0 0 2px #ffca64
+
 
 .margin-top-0
   margin-top: 0 !important
@@ -131,9 +280,8 @@ a.navbar-item
   fill: currentColor
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
-footer.footer
-  padding: 3rem 0rem 0rem
-  background-color: transparent
+
+  
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -174,7 +322,7 @@ $menu-label-color: $white-ter
   margin: 0 1.5em 0 0;
 
 
-@import "~bulma"
+
 
 
 // responsiveness
