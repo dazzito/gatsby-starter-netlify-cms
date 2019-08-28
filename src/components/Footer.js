@@ -147,7 +147,7 @@ const Footer = class extends React.Component {
             </div> */}
           
             <div className="column is-12">
-                <p class="copyright-text">
+                <p className="copyright-text">
                   Copyright &copy; 2019 All Rights Reserved by&nbsp;
                   <a href="#">dz</a>
                 </p>

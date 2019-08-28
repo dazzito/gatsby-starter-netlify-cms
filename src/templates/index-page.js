@@ -8,8 +8,14 @@ import BlogRoll from "../components/BlogRoll";
 import ContactForm from "../components/ContactForm";
 import Fade from "react-reveal/Fade";
 
+import Landing from "../components/Landing";
 
 import { useInView } from 'react-intersection-observer'
+
+
+
+
+
 
 export const IndexPageTemplate = ({
   image,
@@ -22,47 +28,25 @@ export const IndexPageTemplate = ({
 }) => {
   
   
+  
 
 
   return(
   <div>
-    <section
-      className="section section--gradient hero"
-      style={{paddingTop:0, height:'100vh'}}
-    >
-    <div className="container">
-    <Fade delay={150}>
-            <div className="column is-10">
-            <h2 style={{color:'#ffffffd9', fontSize:90} }>“ THE PEOPLE’S GOOD IS THE HIGHEST LAW ”
-            {/* <i style={{fontSize:40}}> — CICERO </i> */}
-            </h2>
-            </div>
-            
-    </Fade>
+  
+  <Landing/> 
 
-     <Fade delay={400}>
-     <div className="column is-10">
-              <Link className="btn" to="/about">
-                Learn about us.
-              </Link>
-    </div>        
-     </Fade>
-     
-    </div>
-
-    </section>
-
-      
+{/*       
   
     <section
         className="section section--gradient hero"
-       
+        style={{height:700}}
       >
         <div className="container">
           
             <div className="columns">
             <Fade right delay={350}>
-            <div className="column is-10 hero-content">
+            <div className="column is-10 hero-content" >
         
         <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
           Our Mission
@@ -116,7 +100,7 @@ export const IndexPageTemplate = ({
      
    
    
-
+ */}
 
    
   
