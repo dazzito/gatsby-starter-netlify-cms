@@ -38,21 +38,21 @@ export const ProfilePageTemplate = ({
                     
           <div className="tile is-ancestor">
                 <div className="tile is-vertical">
-                  <div className="tile">
+                  {/* <div className="tile">
                     <div className="tile is-parent is-vertical" >
                       <article className="tile is-child" >
-                        {/* <PreviewCompatibleImage imageInfo={main.image1} /> */}
+                  
                         <img src={Avatar} />
                       </article>
                     </div>
                     <div className="tile is-parent">
                       <article className="tile is-child">
-                        {/* <PreviewCompatibleImage imageInfo={main.image2} /> */}
+                       
                         <img src={Avatar}/>
                       </article>
                     </div>
-                  </div>
-                  <div className="tile is-parent" style={{width: 350}}>
+                  </div> */}
+                  <div className="tile is-parent" >
                     <article className="tile is-child" >
                       {/* <PreviewCompatibleImage imageInfo={main.image3} /> */}
                       <img src={Avatar}/>

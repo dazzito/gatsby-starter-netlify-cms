@@ -72,18 +72,21 @@ export const ProductPageTemplate = ({
                   <div className="tile">
                     <div className="tile is-parent is-vertical">
                       <article className="tile is-child">
-                        <PreviewCompatibleImage imageInfo={main.image1} />
+                      <img src={"https://dummyimage.com/526x350/ffca64/aaa"}/>
+                        {/* <PreviewCompatibleImage imageInfo={main.image1} /> */}
                       </article>
                     </div>
                     <div className="tile is-parent">
                       <article className="tile is-child">
-                        <PreviewCompatibleImage imageInfo={main.image2} />
+                      <img src={"https://dummyimage.com/526x350/ffca64/aaa"}/>
+                        {/* <PreviewCompatibleImage imageInfo={main.image2} /> */}
                       </article>
                     </div>
                   </div>
                   <div className="tile is-parent">
                     <article className="tile is-child">
-                      <PreviewCompatibleImage imageInfo={main.image3} />
+                    <img src={"https://dummyimage.com/1075x820/ffca64/aaa"}/>
+                      {/* <PreviewCompatibleImage imageInfo={main.image3} /> */}
                     </article>
                   </div>
                 </div>

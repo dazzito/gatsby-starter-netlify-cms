@@ -69,7 +69,7 @@ export const IndexPageTemplate = ({
 
  
 
-      <section
+      <section 
         className="section section--gradient hero"
         style={{height:600}}
        
@@ -84,10 +84,7 @@ export const IndexPageTemplate = ({
         
         <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
           Our Vision
-        </h1>
-        <div className="has-text-white is-size-4">
-        <p style={{color:'#b9b9b9'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
- 
+        </h1> 
         </div>
         </div>
         </Fade>
@@ -105,7 +102,7 @@ export const IndexPageTemplate = ({
    
   
       <section style={{ background: "white" }}>
-        <div className="container">
+        <div className="container" style={{zIndex: 999, background:'white'}}>
           <div className="section">
             <div className="column is-10">
               <h3 className="has-text-weight-semibold is-size-2">
