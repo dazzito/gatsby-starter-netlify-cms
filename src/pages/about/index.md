@@ -1,23 +1,11 @@
 ---
 templateKey: about-page
-title: About our values
+title: ABOUT THE COMPANY
 ---
-### Example Page ( About us )
+### Bangkok Legal Consulting
 
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+Bangkok Legal Consulting Co., Ltd. (B.L.C.) was established in 2015 by a team of Legal Professionals having graduated from leading universities both in Thailand and Abroad. Our team has over 15 years of experience working with leading Legal firms and Major business organizations. Bangkok Legal Consulting aims to provide consulting and litigation with a focus in the areas related to Business and Investment. Our clients are primarily Investment companies located both in Thailand and abroad.
 
-### Single origin
+Bangkok legal Consulting is a team of professionals specializing in the areas of Legal, Finance and Economics having over 15 years professional experience in these fields. The quality of consultations provided to our clients provides major benefits with regard to resolutions of problematic issues and new business generation.
 
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
-
-### Sustainable farming
-
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
-
-### Direct sourcing
-
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Additionally, BLC utilizes both a dynamic and systematic work flow ensuring optimum communication with clients to make sure that their needs are efficiently met and targets reached on each project we provide services for. We respect our clients privacy and maintain strict protocols to ensure our work is carried out with the utmost confidentiality. Our clients can feel assured at all times that all material dealt with by us will handled in a professional and secure manner.
