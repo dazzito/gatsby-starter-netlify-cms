@@ -16,16 +16,14 @@ class BlogRoll extends React.Component {
            
 
          
-           <div className="is-parent column is-6" key={post.id}>
+           <div className="is-parent column is-3" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
+                className={`blog-list-item tile is-child box newsbox ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
+
+<PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
                           alt: `featured image thumbnail for post ${
@@ -33,29 +31,45 @@ class BlogRoll extends React.Component {
                           }`,
                         }}
                       />
+                <header style={{padding: 20}}>
+                  {/* {post.frontmatter.featuredimage ? (
+                    <div className="featured-thumbnail">
+                    
                     </div>
-                  ) : null}
+                  ) : null} */}
                   <p className="post-meta">
-                    <Link
+                   
+                   <div>
+                   <Link
                       className="title has-text-primary is-size-4"
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
+                   </div>
+                   
+                   
+                    <div className="subtitle is-size-5" style={{display:'inline'}}>
                       {post.frontmatter.date}
-                    </span>
+                    </div>
+
+                    <div style={{display:'inline', float:'right'}}>  
+                    Read more
+                    </div> 
+                    {/* <Link className="button is-inline-block is-right" to={post.fields.slug}>
+                    Read
+                  </Link> */}
                   </p>
-                </header>
-                <p>
+               
+                </header> 
+                {/* <p>
                   {post.excerpt}
                   <br />
                   <br />
                   <Link className="button" to={post.fields.slug}>
                     Read
                   </Link>
-                </p>
+                </p> */}
               </article>
             </div>
          
@@ -95,8 +109,8 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
-                      ...GatsbyImageSharpFluid
+                    fluid(maxWidth: 480, quality: 100) {
+                      ...GatsbyImageSharpFluid 
                     }
                   }
                 }

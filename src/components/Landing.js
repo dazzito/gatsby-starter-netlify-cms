@@ -4,10 +4,14 @@ import Fade from "react-reveal/Fade";
 import "./transitions.css";
 
 import { StickyContainer, Sticky } from 'react-sticky';
-import { ScrollingProvider, Section,SectionLink} from "react-scroll-section";
+
 import { CSSTransition } from "react-transition-group";
 
+
+import { InView } from 'react-intersection-observer'
+
 import styled from "styled-components";
+import { invoke } from "q";
 
 // const Item = styled.li`
 //   display: inline-block;
@@ -26,7 +30,7 @@ import styled from "styled-components";
 
 const Item = styled.li`
   user-select: none;
-  color: ${props => (props.selected ? "#ffca64" : "beige")};
+  /* color: ${props => (props.selected ? "#ffca64" : "beige")}; */
   display: inline-block;
   padding-right: 17.5px;
 
@@ -34,16 +38,135 @@ const Item = styled.li`
 `;
 
 
+const Statement = ({sectionId, changeSection}) => (
+  <InView onChange={(inView, entry) => {changeSection(inView, sectionId, entry)}} > 
+    {({ inView, ref, entry }) => (
+      <div>
+        {/* <h2>{`Header inside viewport ${inView}.`}</h2> */}
+      
+              <h1 ref={ref} className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary " style={{paddingTop:50}}>
+                OUR VISION
+              </h1>
+              <div className="has-text-white is-size-4">
+                <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+
+              <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
+                OUR MISSION
+              </h1>
+              <div className="has-text-white is-size-4">
+                <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+
+              <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
+                OUR VALUE
+              </h1>
+              <div className="has-text-white is-size-4">
+                <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua.
+                </p>
+              </div>
+      </div>
+    )}
+  </InView>
+)
+
+const History = ({sectionId, changeSection}) => (
+  <InView onChange={(inView, entry) => {changeSection(inView, sectionId, entry)}} > 
+    {({ inView, ref, entry }) => (
+      <div>
+          <h1
+                    style={{
+                      color: "#ffffffd9",
+                      fontSize: 45,
+                      marginBottom: "1.5rem",
+                      paddingTop:70
+                    }}
+                  >
+                    “ LAWS ARE ONLY AS GOOD AS THOSE THAT ENFORCE THEM ”
+                  </h1>
+
+                  <h1 ref={ref} className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
+                    OUR HISTORY
+                  </h1>
+                  <div className="has-text-white is-size-4">
+                    <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip ex ea commodo consequat.<br></br>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                    </p>
+                  </div>
+
+                 
+      </div>
+    )}
+  </InView>
+)
+
+
+const Client = ({sectionId, changeSection}) => (
+  <InView onChange={(inView, entry) => {changeSection(inView, sectionId, entry)}} > 
+    {({ inView, ref, entry }) => (
+      <div>
+         
+
+                  <h1 ref={ref} className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
+                    OUR CLIENTS
+                  </h1>
+                  <div className="columns is-multiline">
+                    <div className="is-parent column is-12">
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                        <div className="clientsph"></div>
+                    </div>
+                  </div>
+                 
+      </div>
+    )}
+  </InView>
+)
+
+
+
 
 const Landing = class extends React.Component {
+
+
   constructor(props) {
     super(props);
     this.state = {
       show: 0,
       slides: [0, 1],
-      showButton: ["Learn about us", "Learn about us"]
+      showButton: ["Learn about us", "Learn about us"],
+      sectionId: -1,
+      prevSection: -1
     };
-
+  
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -56,47 +179,43 @@ const Landing = class extends React.Component {
     });
   }
 
+
+  handleSectionChange = (inView, sectionId, entry) => {
+  
+
+    if(inView && sectionId !== this.state.sectionId ){
+      this.setState({sectionId})
+    } 
+    
+
+   
+
+   
+  }
+
+  // handleSectionChange(sectionId){
+  //   this.setState({sectionId})
+  // }
+
+
+
   render() {  
+
+    
+
     return (
       <StickyContainer>
-      <section
-        className="section section--gradient hero"
-        style={{ paddingTop: 0, height:3200}}
+
+
+
+<section
+        className="hero-2"
       >
+
         <div className="container">
-       
-        <ScrollingProvider scrollBehavior="smooth">
 
-      <div style={{position:'fixed', zIndex:999}}>
-      <SectionLink section={"landing"}>
-         {link => (
-               <Item  className="scthead" onClick={link.onClick} selected={link.isSelected}>
-                [ LOGO ] 
-               </Item>
-             )}
-         
-         </SectionLink>
-
-      <SectionLink section={"s1"}>
-         {link => (
-               <Item  className="scthead" onClick={link.onClick} selected={link.isSelected}>
-               OUR MISSION, VISION & VALUES
-               </Item>
-             )}
-         
-         </SectionLink>
-         
-         <SectionLink section={"s2"}>
-         
-         {link => (
-           <Item className="scthead" onClick={link.onClick} selected={link.isSelected}>
-           OUR HISTORY
-           </Item>
-         )}
-         </SectionLink>
-      </div>
-         <Section id="landing" >
-      <div className="column is-10" style={{marginBottom:600}}>
+     
+         <div className="column is-12" style={{marginBottom:600}}>
       
    
                 <div style={{ color: "#ffffffd9", fontSize: 90, marginTop: 20}}>
@@ -105,99 +224,88 @@ const Landing = class extends React.Component {
               
 
                 <div className="column is-10 slide-relative">
-                <SectionLink section={"s1"}>
-                {link => (
-               <div  className="btn" onClick={link.onClick} selected={link.isSelected}>
-               Learn about us.
-               </div>
-             )}
-             </SectionLink>
+             
             {/* <Link className="btn" to="/" onClick={this.handleClick}>
               {this.state.showButton[this.state.show]}
             </Link> */}
             
           </div>
         </div> 
-        </Section>
-     
-        <Fade>
+        </div>
+        </section>
 
-      <Sticky topOffset={986} >{({ style, isSticky }) => <div style={{...style,
+      
+             <Sticky topOffset={244} disableCompensation >{({ style, isSticky }) => 
+        <div style={{...style,
          marginBottom: isSticky ? '0px' : '0px',
          position: isSticky ? 'fixed' : 'relative',
-         top:86,
+         top: isSticky ? 126 : 0, 
          zIndex: 999
-         }}>   <div className=""  > 
-         
-       
-
-{/* <SectionLink section={"s0"}>
-
-      {link => (
-        
-        <Link className="btn" to="/" onClick={link.onClick} selected={link.isSelected}>
-        LANDING
-        LANDING
-      </Link>
-  )}
-
-</SectionLink> */}
-
-
-   
-  </div>
-</div>}</Sticky>
-</Fade>
-    
-
-
-
-      <Section id="s1" style={{marginTop:130}}>
-      <Fade>
-            <div className="column is-10" style={{marginBottom:500}}>
-                <div>
+         }}>    <div
+         style={{height:25, background:'#232323'}}
+       >  <div className="container"> 
               
-                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary " style={{paddingTop:50}}>
-                    OUR VISION
-                  </h1>
-                  <div className="has-text-white is-size-4">
-                    <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
+              
+              
+              
+               <Item  className="scthead">
+                [ LOGO ] 
+               </Item>
+      
+         
+     
+               <Item  className="scthead" style={{ color: this.state.sectionId == 0 ? '#ffca64' : '#dfdfdf'}}>
+               OUR MISSION, VISION & VALUES
+               </Item>
+ 
+    
+           <Item className="scthead" style={{ color: this.state.sectionId == 1 ? '#ffca64' : '#dfdfdf'}}>
+           OUR HISTORY
+           </Item>
 
-                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
-                    OUR MISSION
-                  </h1>
-                  <div className="has-text-white is-size-4">
-                    <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
+           <Item className="scthead" style={{ color: this.state.sectionId == 2 ? '#ffca64' : '#dfdfdf'}}>
+           CLIENTS
+           </Item>
+        
+ 
+         </div> 
+      </div>
+        </div>}</Sticky>
 
-                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
-                    OUR VALUE
-                  </h1>
-                  <div className="has-text-white is-size-4">
-                    <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua.
-                    </p>
-                  </div>
-                </div>
-            </div>
+          
+      
+
+      <section
+        className="section section--gradient hero"
+        style={{ paddingTop: 0, height:3200}}
+      >
+        <div className="container">
+
+   <Statement sectionId={0} changeSection={this.handleSectionChange}/>  
+    
+    <Fade>
+    <div className="landingimgph" style={{height:500}}></div>
+    </Fade>
+   
+   <History sectionId={1} changeSection={this.handleSectionChange}/>  
+
+   <Fade>
+    <div className="landingimgph" style={{height:250}}></div>
+    </Fade>
+
+    <Fade>
+   <Client sectionId={2} changeSection={this.handleSectionChange}/> 
+     </Fade>
+     
+     
+      {/* <Fade>
+            <div className="column is-10" >
+           </div>
             </Fade>
-      </Section>
+     */}
 
-      <Section id="s2">
-      <Fade bottom>
+ 
+      {/* <Fade bottom>
               <div className="column is-10">
                 <div>
                   <h1
@@ -237,26 +345,9 @@ const Landing = class extends React.Component {
             
             </div>           
             </Fade>
-      </Section>
+ 
 
-          </ScrollingProvider>
-     
-
-
-
-            <div className="slide-container">
-
-            
-           
-         
-            </div>
-
-         
-
-          
-
-          {/* <Fade when={this.state.show}>
-         </Fade> */}
+  */}
         </div>
       </section>
       </StickyContainer>

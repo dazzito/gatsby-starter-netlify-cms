@@ -161,7 +161,7 @@ const TemplateWrapper = ({
  
 
   <Navbar isScrolled={isScrolled} 
-  scrolled={{backgroundColor:'#f1bb53d9', color:'#4a4a4a', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)'}}  
+  scrolled={{backgroundColor:'#212121d9', color:'white', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)'}}  
   unscrolled={{backgroundColor:'transparent', color:'white'}} 
   
   />

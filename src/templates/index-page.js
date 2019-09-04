@@ -101,11 +101,11 @@ export const IndexPageTemplate = ({
 
    
   
-      <section style={{ background: "white" }}>
-        <div className="container" style={{zIndex: 999, background:'white'}}>
-          <div className="section">
-            <div className="column is-10">
-              <h3 className="has-text-weight-semibold is-size-2">
+      <section style={{background: '#232323'}}>
+        <div className="container" style={{zIndex: 999, background: '#232323'}}>
+          <div className="section" >
+            <div className="column is-12">
+              <h3 className="has-text-weight-semibold is-size-2" style={{color:'white'}}>
                 Latest news
               </h3>
               <div className="section-break"></div>
