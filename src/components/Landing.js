@@ -266,6 +266,10 @@ const Landing = class extends React.Component {
            <Item className="scthead" style={{ color: this.state.sectionId == 2 ? '#ffca64' : '#dfdfdf'}}>
            CLIENTS
            </Item>
+
+           <Item className="scthead" style={{ color: this.state.sectionId == 3 ? '#ffca64' : '#dfdfdf'}}>
+           NEWS
+           </Item>
         
  
          </div> 

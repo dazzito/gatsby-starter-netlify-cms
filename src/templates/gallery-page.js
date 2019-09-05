@@ -31,11 +31,11 @@ export const GalleryPageTemplate = ({
            Our Team
           </h1>
 
-          <section className="section section--gradient" style={{background:'#4a4a4a', padding:0, height:'calc(100vh - 52px'}}>
+          <section className="section section--gradient is-10" style={{background:'#4a4a4a', padding:0, height:'calc(100vh - 52px'}}>
        
       
         <Masonry
-  breakpointCols={5}
+  breakpointCols={6}
   className="my-masonry-grid"
   columnClassName="my-masonry-grid_column">
 
@@ -84,7 +84,13 @@ export const GalleryPageTemplate = ({
     </div>
     </Link>
  </Fade>
- 
+ <Fade>
+    <Link  to="/profile">
+    <div className="team-item">
+    <img className="team-img" src={Avatar} /> 
+    </div>
+    </Link>
+ </Fade>
  
 
 
