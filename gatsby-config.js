@@ -9,7 +9,15 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    'gatsby-plugin-root-import',
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        shared: path.join(__dirname, 'src/shared'),
+        component: path.join(__dirname, 'src/components'),
+        scss: path.join(__dirname, 'src/scss')
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
