@@ -14,11 +14,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import styled from "styled-components";
+ 
+import {Row,Col} from "shared/styled.js"
 
-import {Row,Col} from "~shared/styled.js"
 
-
-import * as Constant from "~shared/constant.js"
+import * as Constant from "shared/constant.js" 
 
 
 const List = styled.ul`
