@@ -15,7 +15,7 @@ module.exports = {
         src: path.join(__dirname, 'src'),
         shared: path.join(__dirname, 'src/shared'),
         component: path.join(__dirname, 'src/components'),
-        scss: path.join(__dirname, 'src/scss')
+        scss: path.join(__dirname, 'src/components')
       }
     },
     {
@@ -62,6 +62,12 @@ module.exports = {
             },
           },
           {
+            resolve: 'gatsby-plugin-netlify-cms',
+            options: {
+              modulePath: `${__dirname}/src/cms/cms.js`,
+            },
+          },
+          {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {
               destinationDir: 'static',
@@ -81,12 +87,7 @@ module.exports = {
    
     'gatsby-plugin-netlify', // make sure to keep it last in the array
    
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
+   
     
   ],
   // for avoiding CORS while developing Netlify Functions locally
