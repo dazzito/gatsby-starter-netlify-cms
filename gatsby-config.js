@@ -10,15 +10,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        src: path.join(__dirname, 'src'),
-        shared: path.join(__dirname, 'src/shared'),
-        component: path.join(__dirname, 'src/components'),
-        scss: path.join(__dirname, 'src/components')
-      }
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -62,12 +53,6 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-plugin-netlify-cms',
-            options: {
-              modulePath: `${__dirname}/src/cms/cms.js`,
-            },
-          },
-          {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {
               destinationDir: 'static',
@@ -77,6 +62,23 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        shared: path.join(__dirname, 'src/shared'),
+        component: path.join(__dirname, 'src/components'),
+        scss: path.join(__dirname, 'src/components')
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+
+    
+    {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
@@ -84,10 +86,7 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     `gatsby-plugin-modal-routing`,
-   
     'gatsby-plugin-netlify', // make sure to keep it last in the array
-   
-   
     
   ],
   // for avoiding CORS while developing Netlify Functions locally
