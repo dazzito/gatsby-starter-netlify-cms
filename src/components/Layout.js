@@ -12,6 +12,16 @@ import { AnimatedBg, Transition } from 'scroll-background';
 import { useInView } from 'react-intersection-observer'
 import DynamicSubNav from '../components/DynamicSubNav'
 
+import styled from 'styled-components'
+
+
+import {Row,Col} from "shared/styled.js"
+
+const Container = styled(Col)`
+
+  height: 100%;
+`;
+
 
 
 const TemplateWrapper = ({ 
@@ -50,9 +60,13 @@ const TemplateWrapper = ({
   const { title, description } = useSiteMetadata()
   
   
+
+  const Container = styled.div`
+    height: 100%; 
+  `;
   
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -90,95 +104,27 @@ const TemplateWrapper = ({
       </Helmet>
 
 
-      <StickyContainer>
+
+<Col style={{height: '100%'}}>
+
+<Navbar isScrolled={isScrolled} 
+  scrolled={{backgroundColor:'#ffffff', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
+  unscrolled={{backgroundColor:'transparent', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1),'}} />
 
 
-{/*       
-
-      <div
-      className="full-width-image margin-top-0 "
-      style={{
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          height: "150px",
-          lineHeight: "1",
-          justifyContent: "space-around",
-          alignItems: "left",
-          flexDirection: "column",
-          marginLeft: 100
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            // boxShadow:
-            //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: "white",
-            color: "#212121",
-            lineHeight: "1",
-            padding: "0.4em"
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            width: "fit-content",
-            backgroundColor: "black",
-            color: "white",
-            lineHeight: "1",
-            padding: "0.4em"
-          }}
-        >
-          Sub-header
-        </h3>
-      </div>
-    </div>
-  */}
-  {/* <Sticky>
-  {({
-            style,
- 
-            // the following are also available but unused in this example
-            isSticky,
-            wasSticky,
-            distanceFromTop,
-            distanceFromBottom,
-            calculatedHeight
-          }) => (
-            <div style={{ ...style, backgroundColor: 'white', zIndex: '999' }}>
-
-            
-
-          </div>
-            
-          )}
-  </Sticky> */}
- 
-
-  <Navbar isScrolled={isScrolled} 
-  scrolled={{backgroundColor:'#212121d9', color:'white', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)'}}  
-  unscrolled={{backgroundColor:'transparent', color:'white'}} 
-  
-  />
-
-
-  <div ref={ref}>
+<div ref={ref}>
   <DynamicSubNav />
   </div> 
     
       
-      <div>{children}</div>
+      <div style={{flex:1}}>{children}</div>
+     
+     
       <Footer />
+</Col>
 
 
-      </StickyContainer>
-
-    </div>
+    </>
   )
 }
 

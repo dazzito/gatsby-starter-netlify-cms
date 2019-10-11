@@ -9,20 +9,22 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 
   return (
     <div>
-      <Fade>
+     
       <section className="section section--gradient bg3">
         <div className="container">
           <div className="columns">
             <div className="column is-10 is-offset-1">
+            <Fade>
               <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
                 {title}
               </h2>
               <PageContent className="content" content={content} />
+              </Fade> 
+   
             </div>
           </div>
         </div>
       </section>
-      </Fade>
       <section
         className="section section--gradient hero"
         style={{ height: 150 }}

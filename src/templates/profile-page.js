@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link,graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
@@ -15,6 +15,9 @@ import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg
 import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
 
 import Avatar from '../img/avatar-placeholder.png'
+
+
+import { ModalRoutingContext } from 'gatsby-plugin-modal-routing'
 
 export const ProfilePageTemplate = ({
   image,
@@ -125,23 +128,62 @@ ProfilePageTemplate.propTypes = {
   }),
 }
 
-const ProfilePage = ({ data }) => {
+
+
+
+
+const ProfilePage = ({ data}) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
-      <ProfilePageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        main={frontmatter.main}
-        testimonials={frontmatter.testimonials}
-        fullImage={frontmatter.full_image}
-        pricing={frontmatter.pricing}
-      />
-    </Layout>
+
+
+    <ModalRoutingContext>
+    {({ modal, closeTo }) => (
+      <>
+        {true ? (
+          <>
+         
+          <Link to={closeTo}>
+            Close
+          </Link>
+
+          <ProfilePageTemplate
+            image={frontmatter.image}
+            title={frontmatter.title}
+            heading={frontmatter.heading}
+            description={frontmatter.description}
+            intro={frontmatter.intro}
+            main={frontmatter.main}
+            testimonials={frontmatter.testimonials}
+            fullImage={frontmatter.full_image}
+            pricing={frontmatter.pricing}
+          />
+          
+         </>
+        ) : (
+          <Layout>
+          <ProfilePageTemplate
+            image={frontmatter.image}
+            title={frontmatter.title}
+            heading={frontmatter.heading}
+            description={frontmatter.description}
+            intro={frontmatter.intro}
+            main={frontmatter.main}
+            testimonials={frontmatter.testimonials}
+            fullImage={frontmatter.full_image}
+            pricing={frontmatter.pricing}
+          />
+        </Layout>
+        )}
+
+      </>
+    )}
+  </ModalRoutingContext>
+
+
+
+   
   )
 }
 

@@ -6,107 +6,141 @@ import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
 import twitter from "../img/social/twitter.svg";
 import vimeo from "../img/social/vimeo.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faMapMarkerAlt,
+  faPhone,
+  faEnvelope
+} from "@fortawesome/free-solid-svg-icons";
+
+import styled from "styled-components";
+
+import {Row,Col} from "shared/styled.js"
 
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import * as Constant from "shared/constant.js"
+
+
+const List = styled.ul`
+  list-style: none;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+`;
+
+const ListItem = styled.li`
+  /* color: white; */
+`;
+
+const StyledLink = styled(Link)`
+  color: white;
+
+  &:hover {
+    color: ${Constant.PRIMARY}
+  }
+
+`; 
+
+const FooterRow = styled(Row)`
+    margin-left: 13em;
+    margin-right: 13em;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    color: white;
+    
+`;
+
+const FooterWrapper = styled(Col)`
+  background: #212121;
+`;
+
+const ContactInfo = styled.div`
+  flex:1;
+  text-align: left;
+`;
+
+const Copyright = styled.div`
+  text-align: center;
+  padding: 10px;
+  background: #1b1b1b;
+    p{
+      color: white;
+      text-decoration: none;
+    }
+`;
+
+
+
 
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-text-white-ter">
-        <div className="content has-text-centered">
-          <h1 style={{ color: "white" }}>[ Logo ]</h1>
-          {/* <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
-          /> */}
-        </div>
-        <div className="content has-text-centered  has-text-white-ter">
-          <div className="container has-text-white-ter">
-            <div className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Services
-                      </Link>
-                    </li>
-                    {/* <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li> */}
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        News
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/gallery">
-                        Our Team
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
+      <FooterWrapper>
+        <FooterRow>
+
+
+          <FooterRow>
+          <List>
+            <ListItem>
+              <StyledLink to="/">Home</StyledLink>
+            </ListItem>
+            <ListItem>
+              <StyledLink to="/about">About</StyledLink>
+            </ListItem>
+            <ListItem>
+              <StyledLink to="/products">Services</StyledLink>
+            </ListItem>
+         </List>
+
+         <List> 
+          <ListItem>
+              <StyledLink  to="/blog">
+                News
+              </StyledLink>
+            </ListItem>
+            <ListItem>
+              <StyledLink  to="/gallery">
+                Our Team
+              </StyledLink>
+            </ListItem>
         
-              <div className="column is-4">
-              <div style={{ marginBottom: 20 }}>
-                <h5 style={{ color: "white" }}>Contact Info.</h5>
+            
+          </List>
 
-               
-                <address>
-                <FontAwesomeIcon icon={faMapMarkerAlt}/>
-                &nbsp;Address Example / 5534 Somewhere In. The World 22193
-                </address>
-
-                <div>
-                  <FontAwesomeIcon icon={faPhone}/>
-                  &nbsp;(66)5050 9999 
-                </div>
-
-                <div>
-                  <FontAwesomeIcon icon={faEnvelope}/>
-                  &nbsp;tl.leo90@hotmail.com
-                </div>
-
-
-              </div>
-            </div>
-            </div>
+          </FooterRow>
+         
 
          
 
-            {/* <div className="column is-12">
+          <ContactInfo>
+            <h5 style={{ color: "white" }}>Contact Info.</h5>
+
+            <address>
+              <FontAwesomeIcon icon={faMapMarkerAlt} />
+              &nbsp;Address Example / 5534 Somewhere In. The World 22193
+            </address>
+
+            <div>
+              <FontAwesomeIcon icon={faPhone} />
+              &nbsp;(66)5050 9999
+            </div>
+
+            <div>
+              <FontAwesomeIcon icon={faEnvelope} />
+              &nbsp;tl.leo90@hotmail.com
+            </div>
+          </ContactInfo>
+        </FooterRow>
+
+
+        <Copyright>
+          <p>
+            Copyright &copy; 2019 All Rights Reserved by&nbsp;
+            <a href="#">dz</a>
+          </p>
+        </Copyright>
+
+        {/* <div className="column is-12">
               <div className="column is-12 social">
                 <a title="facebook" href="https://facebook.com">
                   <img
@@ -145,16 +179,11 @@ const Footer = class extends React.Component {
            
            
             </div> */}
-          
-            <div className="column is-12">
-                <p className="copyright-text">
-                  Copyright &copy; 2019 All Rights Reserved by&nbsp;
-                  <a href="#">dz</a>
-                </p>
-                </div>
-          </div>
-        </div>
-      </footer>
+
+   
+
+
+      </FooterWrapper>
     );
   }
 };
