@@ -15,7 +15,7 @@ import DynamicSubNav from '../components/DynamicSubNav'
 import styled from 'styled-components'
 
 
-import {Row,Col} from "shared/styled.js"
+import {Row,Col} from "~shared/styled.js"
 
 const Container = styled(Col)`
 

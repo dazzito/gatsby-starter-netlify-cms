@@ -91,10 +91,11 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        components: path.resolve(__dirname, 'src/components'),
-        shared: path.resolve(__dirname, 'src/shared'),
-        scss: path.resolve(__dirname, 'src/scss'),
+        "~components": path.resolve(__dirname, './src/components'),
+        "~shared": path.resolve(__dirname, './src/shared'),
+        "~scss": path.resolve(__dirname, './src/scss'),
       },
     },
   })
 }
+ 

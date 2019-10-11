@@ -13,7 +13,7 @@ export const ProductPageTemplate = ({
   heading,
   description,
   intro,
-  main,
+  main, 
   testimonials,
   fullImage,
   pricing,
@@ -64,7 +64,7 @@ export const ProductPageTemplate = ({
               </div>
              
              
-             
+              
              
              
               <div className="tile is-ancestor">
