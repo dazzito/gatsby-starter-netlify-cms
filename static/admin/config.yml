@@ -20,15 +20,24 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-  - name: "gallery"
-    label: "Gallery Page"
-    folder: "src/pages/gallery"
-    identifier_field: name
+  - name: "team"
+    label: "Team Members"
+    folder: "src/pages/profile"
+    identifier_field: lastname
     create: true
     fields:
-      - {label: "Gallery Name", name: "name", widget: "string"}
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
-      - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "profile-page"}
+      - {label: "Firstname", name: "firstname", widget: "string"}
+      - {label: "Lastname", name: "lastname", widget: "string"}
+      - {label: "Nickname", name: "nickname", widget: "string"}
+      - {label: "Image", name: "image", widget: image}
+      - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Position", name: "position", widget: "string"}
+      - {label: "Expertise", name: "expertise", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+
+      # - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
+      # - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
   - name: "pages"
     label: "Pages"
     files:
