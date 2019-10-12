@@ -125,6 +125,8 @@ const TeamPage = ({ data }) => {
 // };
 
 
+export default TeamPage;
+
 export const query = graphql`
 query TeamMemberByID($id: String!) {
   markdownRemark(id: { eq: $id }) {
