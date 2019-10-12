@@ -2,6 +2,7 @@ import React from 'react'
 
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
+import Fade from 'react-reveal/Fade';
 
 export default class BlogIndexPage extends React.Component {
   render() {
@@ -29,7 +30,7 @@ export default class BlogIndexPage extends React.Component {
         
 
 
-<h1
+{/* <h1
             className="has-text-weight-bold is-size-3"
             style={{
               
@@ -40,15 +41,39 @@ export default class BlogIndexPage extends React.Component {
             }}
           >
             News
-          </h1>
+          </h1> */}
 
-        <section className="section section--gradient" style={{background:'white'}}>
+         
+     
+     <section className="section section--gradient bg3">
+       <div className="container">
+         <div className="columns">
+           <div className="column is-10 is-offset-1">
+           <Fade>
+             <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
+               News
+             </h2>
+
+             <BlogRoll />
+            
+             </Fade> 
+  
+           </div>
+         </div>
+       </div>
+     </section>
+  
+   
+
+
+
+        {/* <section className="section section--gradient" style={{background:'white'}}>
           <div className="container">
             <div className="content">
               <BlogRoll />
             </div>
           </div>
-        </section>
+        </section> */}
 
 {/* 
         <h1

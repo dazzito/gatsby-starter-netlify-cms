@@ -11,7 +11,8 @@ import Fade from 'react-reveal/Fade';
 import Masonry from 'react-masonry-css'
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing'
 import Avatar from '../img/avatar-placeholder.png'
-import linkedin from "../img/social/linkedin.svg";
+import linkedin from "../img/social/linkedin.svg"; 
+// import PreviewCompatibleImage from "src/components/PreviewCompatibleImage"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -46,7 +47,7 @@ export const TeamPageTemplate = ({
  
                  <div className="tile is-parent" >
                    <article className="tile is-child" >
-                     {/* <PreviewCompatibleImage imageInfo={main.image3} /> */}
+                     {/* <PreviewCompatibleImage imageInfo={image} /> */}
                      <img src={image}/>
                    </article>
                  </div>
