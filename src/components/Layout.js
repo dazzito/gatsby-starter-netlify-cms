@@ -109,7 +109,7 @@ const TemplateWrapper = ({
 
 <Navbar isScrolled={isScrolled} 
   scrolled={{backgroundColor:'#ffffff', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
-  unscrolled={{backgroundColor:'transparent', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1),'}} />
+  unscrolled={{backgroundColor:'#ffffff', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
 
 
 <div ref={ref}>

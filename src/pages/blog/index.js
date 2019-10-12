@@ -26,6 +26,8 @@ export default class BlogIndexPage extends React.Component {
           </h1>
         </div> */}
 
+        
+
 
 <h1
             className="has-text-weight-bold is-size-3"

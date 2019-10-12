@@ -22,44 +22,56 @@ import * as Constant from "shared/constant.js"
 
 
 const List = styled.ul`
-  list-style: none;
+ 
   justify-content: center;
   flex: 1;
-  text-align: center;
+  text-align: right;
+  border-right: solid #353535 1px;
+  padding: 15px;
+  margin:15px;
+
 `;
 
 const ListItem = styled.li`
-  /* color: white; */
+   list-style: none;
 `;
 
 const StyledLink = styled(Link)`
-  color: white;
-
+  color: #b7b28a;
+  
   &:hover {
-    color: ${Constant.PRIMARY}
+    color: ${Constant.WHITE}
   }
 
 `; 
 
 const FooterRow = styled(Row)`
+
+ 
     margin-left: 13em;
-    margin-right: 13em;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    color: white;
+    margin-right: 0.5em;
+    /* padding-top: 13px; */
+   
+    /* padding-bottom: 13px; */
+  
     
 `;
 
 const FooterWrapper = styled(Col)`
   background: #212121;
+  border-right: solid 1px #3f3f3f;
+    text-align: end;
+    /* padding: 1em; */
 `;
 
 const ContactInfo = styled.div`
+  padding-top: 15px;
   flex:1;
   text-align: left;
 `;
 
 const Copyright = styled.div`
+
   text-align: center;
   padding: 10px;
   background: #1b1b1b;
@@ -113,7 +125,9 @@ const Footer = class extends React.Component {
          
 
           <ContactInfo>
-            <h5 style={{ color: "white" }}>Contact Info.</h5>
+          <ListItem>
+              <StyledLink to="/contact">Contact Us</StyledLink>
+            </ListItem>
 
             <address>
               <FontAwesomeIcon icon={faMapMarkerAlt} />

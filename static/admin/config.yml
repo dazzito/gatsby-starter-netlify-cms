@@ -22,11 +22,11 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
   - name: "team"
     label: "Team Members"
-    folder: "src/pages/profile"
+    folder: "src/pages/team"
     identifier_field: lastname
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "profile-page"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-page"}
       - {label: "Firstname", name: "firstname", widget: "string"}
       - {label: "Lastname", name: "lastname", widget: "string"}
       - {label: "Nickname", name: "nickname", widget: "string"}
@@ -35,6 +35,8 @@ collections:
       - {label: "Position", name: "position", widget: "string"}
       - {label: "Expertise", name: "expertise", widget: "string"}
       - {label: "Email", name: "email", widget: "string"}
+      - {label: "LinkedIn", name: "linkedin", widget: "string"}
+
 
       # - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
       # - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}

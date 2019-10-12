@@ -1,5 +1,5 @@
 ---
-templateKey: profile-page
+templateKey: team-page
 firstname: Prapas
 lastname: Chuprathet
 nickname: Leo
