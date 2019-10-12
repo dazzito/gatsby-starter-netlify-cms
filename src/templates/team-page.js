@@ -22,7 +22,7 @@ import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
 
 
 
-export const TeamPageTemplate = ({
+export const TeamPageTemplate = ({ 
   image,
   firstname,
   lastname,
@@ -110,7 +110,7 @@ const TeamPage = ({ data }) => {
         content={frontmatter.content}
         expertise={frontmatter.expertise}
         position={frontmatter.position}
-    
+     
       />
     </Layout>
   ); 
@@ -134,7 +134,7 @@ query TeamMemberByID($id: String!) {
       firstname
       lastname
       nickname
-      content
+      content 
       position
       expertise
       image {
