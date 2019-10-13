@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-import "./Layout.css"
+import "./layout.css"
 
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
