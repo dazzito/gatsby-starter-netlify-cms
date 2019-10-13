@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
+import NewsRoll from "../components/NewsRoll";
 import ContactForm from "../components/ContactForm";
 import Fade from "react-reveal/Fade";
 import Masonry from "react-masonry-css";

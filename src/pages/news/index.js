@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
+import NewsRoll from '../../components/NewsRoll'
 import Fade from 'react-reveal/Fade';
 
 
@@ -19,7 +19,7 @@ import styled from "styled-components"
 
 
 
-export default class BlogIndexPage extends React.Component {
+export default class NewsIndexPage extends React.Component {
   render() {
     return (
       <Layout>
@@ -34,7 +34,7 @@ export default class BlogIndexPage extends React.Component {
                News
              </h2>
 
-             <BlogRoll />
+             <NewsRoll />
             
              </Fade> 
    
@@ -53,7 +53,7 @@ export default class BlogIndexPage extends React.Component {
         {/* <section className="section section--gradient" style={{background:'white'}}>
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <NewsRoll />
             </div>
           </div>
         </section> */}
@@ -75,7 +75,7 @@ export default class BlogIndexPage extends React.Component {
           <section className="section section--gradient" style={{background:'white'}}>
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <NewsRoll />
             </div>
           </div>
         </section> */}

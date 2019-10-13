@@ -78,10 +78,10 @@ const Navbar = class extends React.Component {
               </Link>
 
 
-              <Link className="navbar-item" to="/products" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+              <Link className="navbar-item" to="/service" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 Services
               </Link>
-              <Link className="navbar-item" to="/blog" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+              <Link className="navbar-item" to="/news" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 News
               </Link>
               <Link className="navbar-item" to="/contact" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>

@@ -101,13 +101,13 @@ const Footer = class extends React.Component {
               <StyledLink to="/about">About</StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink to="/products">Services</StyledLink>
+              <StyledLink to="/Services">Services</StyledLink>
             </ListItem>
          </List>
 
          <List> 
           <ListItem>
-              <StyledLink  to="/blog">
+              <StyledLink  to="/News">
                 News
               </StyledLink>
             </ListItem>

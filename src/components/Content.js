@@ -13,7 +13,7 @@ Content.propTypes = {
   content: PropTypes.node,
   className: PropTypes.string,
 }
-
+ 
 HTMLContent.propTypes = Content.propTypes
 
 export default Content

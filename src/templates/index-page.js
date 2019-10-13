@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
+import NewsRoll from "../components/NewsRoll";
 import ContactForm from "../components/ContactForm";
 import Fade from "react-reveal/Fade";
 
@@ -109,7 +109,7 @@ export const IndexPageTemplate = ({
                 Latest news
               </h3>
               <div className="section-break"></div>
-              <BlogRoll />
+              <NewsRoll />
             </div>
           </div>
         </div>

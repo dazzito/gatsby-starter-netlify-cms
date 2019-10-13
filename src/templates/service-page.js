@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const ProductPageTemplate = ({
+export const ServicePageTemplate = ({
   image,
   title,
   heading,
@@ -115,36 +115,36 @@ export const ProductPageTemplate = ({
   </div>
 )
 
-ProductPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-  main: PropTypes.shape({
-    heading: PropTypes.string,
-    description: PropTypes.string,
-    image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  }),
-  testimonials: PropTypes.array,
-  fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  pricing: PropTypes.shape({
-    heading: PropTypes.string,
-    description: PropTypes.string,
-    plans: PropTypes.array,
-  }),
-}
+// ServicePageTemplate.propTypes = {
+//   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   title: PropTypes.string,
+//   heading: PropTypes.string,
+//   description: PropTypes.string,
+//   intro: PropTypes.shape({
+//     blurbs: PropTypes.array,
+//   }),
+//   main: PropTypes.shape({
+//     heading: PropTypes.string,
+//     description: PropTypes.string,
+//     image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//     image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   }),
+//   testimonials: PropTypes.array,
+//   fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   pricing: PropTypes.shape({
+//     heading: PropTypes.string,
+//     description: PropTypes.string,
+//     plans: PropTypes.array,
+//   }),
+// }
 
-const ProductPage = ({ data }) => {
+const ServicePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
-      <ProductPageTemplate
+      <ServicePageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -159,18 +159,18 @@ const ProductPage = ({ data }) => {
   )
 }
 
-ProductPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+// ServicePage.propTypes = {
+//   data: PropTypes.shape({
+//     markdownRemark: PropTypes.shape({
+//       frontmatter: PropTypes.object,
+//     }),
+//   }),
+// }
 
-export default ProductPage
+export default ServicePage
 
-export const productPageQuery = graphql`
-  query ProductPage($id: String!) {
+export const servicePageQuery = graphql`
+  query ServicePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title

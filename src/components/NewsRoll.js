@@ -15,7 +15,7 @@ const NewsHeader = styled.header`
     position: absolute;
     bottom: 0;
     /* height: 100px; */
-    background: #212121e3;
+    background: #212121;
     width: 400px;
     bottom: 0;
     transition: background-color 0.2s ease;
@@ -52,7 +52,7 @@ const NewsRow = styled(Row)`
 `;
 
 
-class BlogRoll extends React.Component {
+class NewsRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -142,7 +142,7 @@ class BlogRoll extends React.Component {
   }
 }
 
-BlogRoll.propTypes = {
+NewsRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -153,10 +153,10 @@ BlogRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query BlogRollQuery {
+      query NewsRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "News-post" } } }
         ) {
           edges {
             node {
@@ -183,6 +183,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
+    render={(data, count) => <NewsRoll data={data} count={count} />}
   />
 )
