@@ -144,11 +144,11 @@ class NewsRoll extends React.Component {
 
 NewsRoll.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({ 
       edges: PropTypes.array,
     }),
   }),
-}
+} 
 
 export default () => (
   <StaticQuery
@@ -156,33 +156,36 @@ export default () => (
       query NewsRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "News-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "news-post" } } }
         ) {
           edges {
             node {
               excerpt(pruneLength: 200)
               id
               fields {
-                slug
+                slug 
               }
               frontmatter {
                 title
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
-                featuredimage {
-                  childImageSharp {
-                    fluid(maxWidth: 350, quality: 100) {
-                      ...GatsbyImageSharpFluid 
-                    }
-                  }
-                }
+            
               }
             }
           }
         }
       }
     `}
-    render={(data, count) => <NewsRoll data={data} count={count} />}
+    render={(data, count) => <NewsRoll data={data} count={count} />} 
   />
 )
+
+
+// featuredimage {
+//   childImageSharp {
+//     fluid(maxWidth: 350, quality: 100) {
+//       ...GatsbyImageSharpFluid 
+//     }
+//   }
+// }
