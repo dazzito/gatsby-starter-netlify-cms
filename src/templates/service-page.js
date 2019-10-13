@@ -8,15 +8,9 @@ import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const ServicePageTemplate = ({
-  image,
+ 
   title,
-  heading,
-  description,
-  intro,
-  main, 
-  testimonials,
-  fullImage,
-  pricing,
+  body,
 }) => (
   <div className="content">
     {/* <div
@@ -44,8 +38,8 @@ export const ServicePageTemplate = ({
         <div className="section">
           <div className="columns">
             <div className="column is-7 is-offset-1">
-              <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-              <p>{description}</p>
+              <h3 className="has-text-weight-semibold is-size-2">{title}</h3>
+              <p>{body}</p>
             </div>
           </div>
           <div className="columns">
@@ -57,9 +51,9 @@ export const ServicePageTemplate = ({
               <div className="columns">
                 <div className="column is-7">
                   <h3 className="has-text-weight-semibold is-size-3">
-                    {main.heading}
+               
                   </h3>
-                  <p>{main.description}</p>
+                  <p></p>
                 </div>
               </div>
              
@@ -145,15 +139,9 @@ const ServicePage = ({ data }) => {
   return (
     <Layout>
       <ServicePageTemplate
-        image={frontmatter.image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        main={frontmatter.main}
-        testimonials={frontmatter.testimonials}
-        fullImage={frontmatter.full_image}
-        pricing={frontmatter.pricing}
+        body={frontmatter.body}
+      
       />
     </Layout>
   )
