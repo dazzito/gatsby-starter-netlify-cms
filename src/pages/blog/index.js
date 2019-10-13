@@ -4,52 +4,34 @@ import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 import Fade from 'react-reveal/Fade';
 
+
+import styled from "styled-components"
+
+
+
+const Container = styled.div`
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    padding: 2.5em;
+  `;
+
+
+
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        {/* <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/blog-index.jpg')`,
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              
-              backgroundColor: '#212121',
-              color: 'white',
-              padding: '1rem',
-            }}
-          >
-            All Posts
-          </h1>
-        </div> */}
-
-        
-
-
-{/* <h1
-            className="has-text-weight-bold is-size-3"
-            style={{
-              
-              backgroundColor: '#c9b96e ',
-              color: 'white',
-              padding: '1rem',
-              textAlign:'center'
-            }}
-          >
-            News
-          </h1> */}
 
          
      
-     <section className="section section--gradient bg3">
-       <div className="container">
-         <div className="columns">
-           <div className="column is-10 is-offset-1">
-           <Fade>
+     
+       <Container>
+
+       <div className="columns">
+            <div className="column is-10 is-offset-1">
+            <Fade>
              <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
                News
              </h2>
@@ -57,11 +39,16 @@ export default class BlogIndexPage extends React.Component {
              <BlogRoll />
             
              </Fade> 
+   
+            </div>
+          </div>
+
+      
+          
   
-           </div>
-         </div>
-       </div>
-     </section>
+     
+       </Container>
+ 
   
    
 

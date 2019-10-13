@@ -5,6 +5,8 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 import PlaceholderImg from "src/img/avatar-placeholder.png"
 import styled from 'styled-components'
 
+import {Row, Col} from "shared/styled"
+
 
 
 const NewsHeader = styled.header`
@@ -13,14 +15,31 @@ const NewsHeader = styled.header`
     position: absolute;
     bottom: 0;
     /* height: 100px; */
-    background: white;
+    background: #212121;
+    width: 350px;
+    bottom: 0;
+   
 
+    h2{
+    
+      font-size: 1.25rem;
+   
+    }
 `;
 
 
+ 
+
 const NewsBox = styled.article`
-  height: 100%;
+  width:350px; 
+  margin: 1em;
+  position: relative;
 `
+
+
+const NewsRow = styled(Row)`
+  flex-wrap: wrap;
+`;
 
 
 class BlogRoll extends React.Component {
@@ -29,31 +48,38 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <NewsRow>
         {posts &&
           posts.map(({ node: post }) => (
            
            
-
-         
-           <div className="is-parent column is-4" key={post.id}>
+        
               <NewsBox
-                className={`blog-list-item tile is-child box newsbox ${
+              key={post.id}
+                className={` ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
 
-
-                  {post.frontmatter.featuredimage == null ? <img src={PlaceholderImg}/> : <PreviewCompatibleImage
+                  {post.frontmatter.featuredimage == null ? <img style={{width:350, height:350}} src={PlaceholderImg}/> : <PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
                           alt: `featured image thumbnail for post ${
                             post.title
                           }`,
                         }}
+
+                        imageStyle={{width:350, height: 350}}
+
+
                       />}
 
                 <NewsHeader>
+
+                <h2>
+                  {post.frontmatter.title}
+                </h2>
+                
                   {/* {post.frontmatter.featuredimage ? (
                     <div className="featured-thumbnail">
                     
@@ -61,15 +87,15 @@ class BlogRoll extends React.Component {
                   ) : null} */}
                   <p className="post-meta">
                    
-                   <div>
+                   {/* <div>
                    <Link
                       className="title has-text-primary is-size-4"
                       to={post.fields.slug}
                     >
-                      {post.frontmatter.title}
+                    
                     </Link>
                    </div>
-                   
+                    */}
                    
                     <div className="subtitle is-size-5" style={{display:'inline'}}>
                       {post.frontmatter.date}
@@ -93,10 +119,10 @@ class BlogRoll extends React.Component {
                   </Link>
                 </p> */}
               </NewsBox>
-            </div>
+            
          
            ))}
-      </div>
+      </NewsRow>
     )
   }
 }
@@ -131,7 +157,7 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 480, quality: 100) {
+                    fluid(maxWidth: 350, quality: 100) {
                       ...GatsbyImageSharpFluid 
                     }
                   }
