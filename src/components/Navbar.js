@@ -41,7 +41,7 @@ const Navbar = class extends React.Component {
      
      
       <nav 
-        className="navbar is-fixed-top is-transparent cl-effect-4"
+        className="navbar is-transparent cl-effect-4"
         role="navigation"
         aria-label="main-navigation"
         style={this.props.isScrolled ? this.props.scrolled : this.props.unscrolled}

@@ -46,10 +46,11 @@ const StyledLink = styled(Link)`
 `; 
 
 const FooterRow = styled(Row)`
-
+  /* margin-left: 13em;
+    margin-right: 0.5em; */
  
-    margin-left: 13em;
-    margin-right: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
     /* padding-top: 13px; */
    
     /* padding-bottom: 13px; */

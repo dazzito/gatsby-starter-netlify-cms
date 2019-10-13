@@ -4,14 +4,30 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import Fade from "react-reveal/Fade";
+import styled from 'styled-components'
+
+
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
+
+
+
+  const Container = styled.div`
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    padding: 2.5em;
+  `;
+
+
+
   return (
-    <div>
+    <>
      
-      <section className="section section--gradient bg3">
-        <div className="container">
+ 
+        <Container>
           <div className="columns">
             <div className="column is-10 is-offset-1">
             <Fade>
@@ -23,15 +39,10 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
    
             </div>
           </div>
-        </div>
-      </section>
-      <section
-        className="section section--gradient hero"
-        style={{ height: 150 }}
-      >
-        {" "}
-      </section>
-    </div>
+        </Container>
+    
+     
+    </>
   );
 };
 

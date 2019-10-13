@@ -12,24 +12,15 @@ $black: #2b2523
 $footer-background-color: #4a4a4a
 
 $tone1: #c9b96e 
-
+ 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 
-body, html
-  height: 100%
-  color: lightgrey;
+// body, html
+//   height: 100%
   
- 
-body > div
+.gatsby
   height: 100%
-  
-
-div[role="group"][tabindex] 
-   height: 100%
-
-body > div > div
-  height: 100% 
 
 
   
@@ -94,26 +85,16 @@ h1
   padding: 2rem 1.5rem;  
 
 
-.team-item
-  overflow: hidden
-  border-radius: 50%
-  background: #fefefe 
-  height: 220px
-  width: 220px
-  
-
-
-.team-item img 
-  background: white
-  transition: transform .5s, filter 1.5s ease-in-out;
-  filter: grayscale(100%);
+  // filter: grayscale(70%);
  
 
 
-/* The Transformation */
-.team-item:hover img 
-  filter: grayscale(0); 
-  transform: scale(1.1);
+// /* The Transformation */
+// .team-item:hover img 
+//   filter: grayscale(0%); 
+//   border-radius: 50%;
+//   filter: grayscale(0); 
+//   transform: scale(1.1);
 
 
 
@@ -196,6 +177,9 @@ footer.footer
   transition: background-color .15s linear
   height: 126px
   font-size: 20px
+  left: 0;
+  right: 0;
+  position: absolute;
   z-Index: 9999999
   
 
@@ -424,9 +408,9 @@ $menu-label-color: $white-ter
 // blog roll
 .blog-list-item.is-featured
   // background-color: #d6400033;
-.blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
+// .blog-list-item header
+//   display: flex;
+//   margin-bottom: 1em;
 .blog-list-item .featured-thumbnail
   flex-basis: 35%;
   margin: 0 1.5em 0 0;

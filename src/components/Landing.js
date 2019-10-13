@@ -257,12 +257,13 @@ const Landing = class extends React.Component {
         </div>
         </section>
 
-      
-             <Sticky topOffset={444}  >{({ style, isSticky }) => 
+        {/* topOffset={444}  */}
+             <Sticky topOffset={566}  >{({ style, isSticky }) => 
         <div style={{...style,
          marginBottom: isSticky ? '0px' : '0px',
          position: isSticky ? 'fixed' : 'relative',
-         top: isSticky ? 126 : 0, 
+         top: isSticky ? 0 : 0, 
+        //  top: isSticky ? 126 : 0, 
          zIndex: 999
          }}>    <div
          style={{height:35, background:'#232323', textAlign: 'end',

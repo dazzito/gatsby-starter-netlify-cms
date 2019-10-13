@@ -1,7 +1,7 @@
 ---
 templateKey: team-page
 firstname: Michael
-lastname: J. Scofield
+lastname: Scofield
 nickname: Michael
 image: /img/scofield.jpg
 content: >-

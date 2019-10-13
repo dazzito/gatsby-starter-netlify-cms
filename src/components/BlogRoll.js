@@ -2,6 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
   import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
+import PlaceholderImg from "src/img/avatar-placeholder.png"
+import styled from 'styled-components'
+
+
+
+const NewsHeader = styled.header`
+
+    padding: 12px;
+    position: absolute;
+    bottom: 0;
+    /* height: 100px; */
+    background: white;
+
+`;
+
+
+const NewsBox = styled.article`
+  height: 100%;
+`
+
 
 class BlogRoll extends React.Component {
   render() {
@@ -16,22 +36,24 @@ class BlogRoll extends React.Component {
            
 
          
-           <div className="is-parent column is-3" key={post.id}>
-              <article
+           <div className="is-parent column is-4" key={post.id}>
+              <NewsBox
                 className={`blog-list-item tile is-child box newsbox ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
 
-<PreviewCompatibleImage
+
+                  {post.frontmatter.featuredimage == null ? <img src={PlaceholderImg}/> : <PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
                           alt: `featured image thumbnail for post ${
                             post.title
                           }`,
                         }}
-                      />
-                <header style={{padding: 20}}>
+                      />}
+
+                <NewsHeader>
                   {/* {post.frontmatter.featuredimage ? (
                     <div className="featured-thumbnail">
                     
@@ -61,7 +83,7 @@ class BlogRoll extends React.Component {
                   </Link> */}
                   </p>
                
-                </header> 
+                </NewsHeader> 
                 {/* <p>
                   {post.excerpt}
                   <br />
@@ -70,7 +92,7 @@ class BlogRoll extends React.Component {
                     Read
                   </Link>
                 </p> */}
-              </article>
+              </NewsBox>
             </div>
          
            ))}

@@ -62,7 +62,9 @@ const TemplateWrapper = ({
   
 
   const Container = styled.div`
-    height: 100%; 
+
+    background: url("/img/bg2.png");
+    background-size: auto;
   `;
   
   return (
@@ -117,7 +119,7 @@ const TemplateWrapper = ({
   </div> 
     
       
-      <div style={{flex:1}}>{children}</div>
+      <Container style={{flex:1}}>{children}</Container>
      
      
       <Footer />
