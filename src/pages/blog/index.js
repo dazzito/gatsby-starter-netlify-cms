@@ -9,13 +9,13 @@ import styled from "styled-components"
 
 
 
-const Container = styled.div`
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5em;
-    margin-bottom: 5em;
-    padding: 2.5em;
-  `;
+// const Container = styled.container`
+//     margin-left: auto;
+//     margin-right: auto;
+//     margin-top: 5em;
+//     margin-bottom: 5em;
+//     padding: 2.5em;
+//   `;
 
 
 
@@ -27,10 +27,8 @@ export default class BlogIndexPage extends React.Component {
          
      
      
-       <Container>
+       <div className="container is-fluid">
 
-       <div className="columns">
-            <div className="column is-10 is-offset-1">
             <Fade>
              <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
                News
@@ -40,14 +38,12 @@ export default class BlogIndexPage extends React.Component {
             
              </Fade> 
    
-            </div>
-          </div>
 
       
           
   
      
-       </Container>
+       </div>
  
   
    

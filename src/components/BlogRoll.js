@@ -15,9 +15,11 @@ const NewsHeader = styled.header`
     position: absolute;
     bottom: 0;
     /* height: 100px; */
-    background: #212121;
-    width: 350px;
+    background: #212121e3;
+    width: 400px;
     bottom: 0;
+    transition: background-color 0.2s ease;
+
    
 
     h2{
@@ -31,14 +33,22 @@ const NewsHeader = styled.header`
  
 
 const NewsBox = styled.article`
-  width:350px; 
-  margin: 1em;
+  width:400px; 
+  margin: 1.25em;
   position: relative;
+  box-shadow: 1px 1px 2px 1px #171717;
+  transition: transform .2s; /* Animation */ 
+
+  div.gatsby-image-wrapper img:hover{
+    transform: scale(1.05)
+  }
+  
 `
 
 
 const NewsRow = styled(Row)`
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 
@@ -61,7 +71,9 @@ class BlogRoll extends React.Component {
                 }`}
               >
 
-                  {post.frontmatter.featuredimage == null ? <img style={{width:350, height:350}} src={PlaceholderImg}/> : <PreviewCompatibleImage
+               
+
+                {post.frontmatter.featuredimage == null ? <img style={{width:350, height:350}} src={PlaceholderImg}/> : <PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
                           alt: `featured image thumbnail for post ${
@@ -69,10 +81,13 @@ class BlogRoll extends React.Component {
                           }`,
                         }}
 
-                        imageStyle={{width:350, height: 350}}
+                        imageStyle={{width:400, height: 400}}   />}
 
 
-                      />}
+              
+
+
+                   
 
                 <NewsHeader>
 
@@ -101,7 +116,7 @@ class BlogRoll extends React.Component {
                       {post.frontmatter.date}
                     </div>
 
-                    <div style={{display:'inline', float:'right'}}>  
+                    <div style={{display:'inline', float:'right', color:'#212121'}}>  
                     Read more
                     </div> 
                     {/* <Link className="button is-inline-block is-right" to={post.fields.slug}>
