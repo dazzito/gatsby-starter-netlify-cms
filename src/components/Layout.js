@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+
+import "./Layout.css"
+
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
