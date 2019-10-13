@@ -1,5 +1,5 @@
 ---
-templateKey: 'Service-page'
+templateKey: 'service-page'
 path: /Services
 title: Our Coffee
 image: /img/jumbotron.jpg
