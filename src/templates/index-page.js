@@ -12,27 +12,197 @@ import Landing from "../components/Landing";
 
 import { useInView } from 'react-intersection-observer'
 
+import Content, { HTMLContent } from "../components/Content";
+
+import ReactMarkdown from "react-markdown"
+
+import styled from "styled-components"
+
+import { StickyContainer, Sticky } from 'react-sticky';
 
 
 
 
+import { InView } from 'react-intersection-observer'
 
-export const IndexPageTemplate = ({
-  heading,
-  subheadding,
-  motto,
-  stories,
-  title,
+const Container =  styled(StickyContainer)`
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 5em;
+padding: 2.5em;
+`;
+
+
+const Story = styled.div`
+  margin-Bottom: 100vh;
+
+`;
+
+const Item = styled.li`
+  user-select: none;
+  /* color: ${props => (props.selected ? "#c9b96e " : "beige")}; */
+  display: inline-block;
+  padding-right: 17.5px;
+
+`;
+
+
+
+const Section = styled.section`
+    
+  padding: 2rem 1.5rem;
+    padding-left: 15em;
+    padding-right: 15em;
+    background: #000000bf;  
+    box-shadow: 1px 1px 9px 0px #a0a0a0;
+    /* border: solid #c7c7c7 2px; */
+    /* margin-top: 50px; */
+    text-align: center;
+
+`;
   
-}) => {
+
+
+export const IndexPageTemplate = class extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: 0,
+      slides: [0, 1],
+      showButton: ["Learn about us", "Learn about us"],
+      sectionId: -1,
+      prevSection: -1
+    };
   
-  
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      show:
+        this.state.show == this.state.slides.length - 1
+          ? 0
+          : this.state.show + 1
+    });
+  }
+
+
+  changeSection = (inView, sectionId, entry) => {
   
 
+    if(inView && sectionId !== this.state.sectionId ){
+      this.setState({sectionId})
+    } 
+    
+  }
+
+  render(){
 
   return(
   <>
+
+
+<Container>
+
+
+
+
+
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+
+            <div style={{ color: "#868686;", fontSize: 90, marginTop: 20}}>
+                  {this.props.motto}
+                </div>
+
+           
+              <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
+                {this.props.heading}
+              </h2>
+              {this.props.subheadding}
+
+                  {this.props.stories &&
+          this.props.stories.map((item, index) => (
+
+            <Fade>
+<InView onChange={(inView, entry) =>  {this.changeSection(inView, index, entry)}} > 
+    {({ inView, ref, entry }) => (
+         
+          <Story ref={ref}>
+
+      <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
+        {item.heading}
+      </h2>
+
+      <ReactMarkdown source={item.content}/>
+      </Story>
+   
+ 
+    )}
+  </InView>
+
+  </Fade> 
+
+     
+ 
+
+        
+       
+          
+          ))}
+             
+
+             <Sticky topOffset={566}  >{({ style, isSticky }) => 
+        <div style={{...style,
+         marginBottom: isSticky ? '0px' : '0px',
+         position: isSticky ? 'fixed' : 'relative',
+         top: isSticky ? 0 : 0, 
+        //  top: isSticky ? 126 : 0, 
+         zIndex: 999
+         }}>    <div
+         style={{height:35, background:'#232323', textAlign: 'end',
+         paddingTop: 5}}
+       >  <div className="container"> 
+              
+              
+              
+              
+               <Item  className="scthead">
+                [ LOGO ] 
+               </Item>
+      
+         
+     
+               <Item  className="scthead" style={{ color: this.state.sectionId == 0 ? '#d0cba4 ' : '#dfdfdf'}}>
+               OUR MISSION, VISION & VALUES
+               </Item>
+ 
+    
+           <Item className="scthead" style={{ color: this.state.sectionId == 1 ? '#d0cba4 ' : '#dfdfdf'}}>
+           OUR HISTORY
+           </Item>
+
+           <Item className="scthead" style={{ color: this.state.sectionId == 2 ? '#d0cba4 ' : '#dfdfdf'}}>
+           CLIENTS
+           </Item>
+
+           <Item className="scthead" style={{ color: this.state.sectionId == 3 ? '#d0cba4 ' : '#dfdfdf'}}>
+           NEWS
+           </Item>
+        
+ 
+         </div> 
+      </div>
+        </div>}</Sticky>
+   
+            </div>
+          </div>
+        </Container>
+
   
+
+
  
 
 {/*       
@@ -121,7 +291,7 @@ export const IndexPageTemplate = ({
    
     
   </>
-)};
+)}};
 
 // IndexPageTemplate.propTypes = {
 //   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -139,10 +309,16 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
+    <Layout> 
       <IndexPageTemplate
-        image1={frontmatter.image1}
-        title={frontmatter.title}
+        
+     
+        motto={frontmatter.motto}
+        heading={frontmatter.heading}
+        subheadding={frontmatter.subheadding}
+        motto={frontmatter.motto}
+        stories={frontmatter.stories}
+       
    
       />
     </Layout>
@@ -150,7 +326,7 @@ const IndexPage = ({ data }) => {
 };
 
 // IndexPage.propTypes = {
-//   data: PropTypes.shape({
+//   data: PropTypes.shape({ 
 //     markdownRemark: PropTypes.shape({
 //       frontmatter: PropTypes.object
 //     })
@@ -162,13 +338,17 @@ export default IndexPage;
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      html
       frontmatter {
-        title
-       
+        templateKey
         heading
         subheading, 
         motto,
-        stories
+        stories {
+          heading,
+          content
+
+        }
       }
     }
   }

@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
 import Fade from "react-reveal/Fade";
+import { CSSTransition } from "react-transition-group";
+
 import "./transitions.css";
 
 import { StickyContainer, Sticky } from 'react-sticky';
 
-import { CSSTransition } from "react-transition-group";
 
 
 
@@ -13,21 +14,6 @@ import { InView } from 'react-intersection-observer'
 
 import styled from "styled-components";
 import { invoke } from "q";
-
-// const Item = styled.li`
-//   display: inline-block;
-//   text-align: center;
-//   cursor: pointer;
-//   transition: all 0.25s;
-//   margin: 0;
-//   padding: 40px 10px;
-//   font-weight: bold;
-//   font-size: 20px;
-//   user-select: none;
-//   color: ${props => (props.selected ? "#07689f" : "inherit")};
-//   border-top: 5px solid ${props =>
-//     props.selected ? "#ff7e67" : "transparent"};
-// `;
 
 const Item = styled.li`
   user-select: none;
@@ -44,7 +30,7 @@ const Section = styled.section`
   padding: 2rem 1.5rem;
     padding-left: 15em;
     padding-right: 15em;
-    background: #000000bf;
+    background: #000000bf;  
     box-shadow: 1px 1px 9px 0px #a0a0a0;
     /* border: solid #c7c7c7 2px; */
     /* margin-top: 50px; */
@@ -210,10 +196,6 @@ const Landing = class extends React.Component {
       this.setState({sectionId})
     } 
     
-
-   
-
-   
   }
 
   // handleSectionChange(sectionId){
