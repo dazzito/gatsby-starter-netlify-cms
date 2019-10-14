@@ -7,8 +7,8 @@ export const HTMLContent = ({ content, className }) => (
 
 const Content = ({ content, className }) => (
 
-  <ReactMarkdown source={content}/>
-  // <div className={className}>{content}</div>
+  // <ReactMarkdown source={content}/>
+  <div className={className}>{content}</div>
 )
 
 Content.propTypes = {

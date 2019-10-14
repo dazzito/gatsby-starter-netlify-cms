@@ -7,37 +7,52 @@ import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import ReactMarkdown from "react-markdown"
+import Content, { HTMLContent } from "../components/Content";
+import Fade from "react-reveal/Fade";
+
+import styled from 'styled-components'
+const Container = styled.div`
+margin-left: auto;
+margin-right: auto;
+margin-top: 5em;
+margin-bottom: 5em;
+padding: 2.5em;
+`;
+
+
 export const ServicePageTemplate = ({
- 
   title,
   content,
-}) => (
-  <div className="content">
-   
+  contentComponent
+  
+}) => {
+  
+  const PageContent = contentComponent || Content;
 
+  
+  
+  return(
+    <Container>
+    <div className="columns">
+      <div className="column is-8 is-offset-1">
+      <Fade>
+        <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
+          {title}
+        </h2>
+        <PageContent className="content" content={content} />
+        </Fade> 
 
-
-
-
-
-
-
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-7 is-offset-1">
-              <h3 className="has-text-weight-semibold is-size-2">{title}</h3>
-
-              <ReactMarkdown source={content}/>
-            </div>
-          </div>
-       </div>
       </div>
-    </section>
-  </div>
-)
+    </div>
+  </Container>
+)}
 
+
+
+// ServicePageTemplate.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   content: PropTypes.string
+// };
 // ServicePageTemplate.propTypes = {
 //   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 //   title: PropTypes.string,
@@ -118,13 +133,15 @@ export const ServicePageTemplate = ({
 
 
 const ServicePage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout>
       <ServicePageTemplate
+      contentComponent={HTMLContent}
         title={frontmatter.title}
-        content={frontmatter.content}
+        content={html}
+
       
       />
     </Layout>
@@ -144,6 +161,7 @@ export default ServicePage
 export const servicePageQuery = graphql`
   query ServicePage($id: String!) {
       markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         content
         title
