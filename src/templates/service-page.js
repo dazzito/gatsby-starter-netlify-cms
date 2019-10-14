@@ -10,7 +10,7 @@ import ReactMarkdown from "react-markdown"
 export const ServicePageTemplate = ({
  
   title,
-  body,
+  content,
 }) => (
   <div className="content">
    
@@ -29,7 +29,7 @@ export const ServicePageTemplate = ({
             <div className="column is-7 is-offset-1">
               <h3 className="has-text-weight-semibold is-size-2">{title}</h3>
 
-              <ReactMarkdown source={body}/>
+              <ReactMarkdown source={content}/>
             </div>
           </div>
        </div>
@@ -124,7 +124,7 @@ const ServicePage = ({ data }) => {
     <Layout>
       <ServicePageTemplate
         title={frontmatter.title}
-        body={frontmatter.body}
+        content={frontmatter.content}
       
       />
     </Layout>
@@ -145,6 +145,7 @@ export const servicePageQuery = graphql`
   query ServicePage($id: String!) {
       markdownRemark(id: { eq: $id }) {
       frontmatter {
+        content
         title
         
       }
