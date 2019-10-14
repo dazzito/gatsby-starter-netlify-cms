@@ -85,6 +85,7 @@ collections:
     folder: "src/pages/client"
     label: "Clients"
     identifier_field: alias
+    create: true
     fields:
       - {label: "Alias", name: "alias", widget: "string"}
       - {label: "Logo", name: "logo", widget: image}
