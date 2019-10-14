@@ -18,7 +18,10 @@ import { useInView } from 'react-intersection-observer'
 
 
 export const IndexPageTemplate = ({
-  image1,
+  heading,
+  subheadding,
+  motto,
+  stories,
   title,
   
 }) => {
@@ -28,9 +31,9 @@ export const IndexPageTemplate = ({
 
 
   return(
-  <div>
+  <>
   
-  <Landing/> 
+ 
 
 {/*       
   
@@ -95,9 +98,14 @@ export const IndexPageTemplate = ({
    
  */}
 
+
+
+<NewsRoll />
+
+
    
   
-      <section style={{background: '#232323'}}>
+      {/* <section style={{background: '#232323'}}>
         <div className="container" style={{zIndex: 999, background: '#232323'}}>
           <div className="section" >
             <div className="column is-12">
@@ -105,14 +113,14 @@ export const IndexPageTemplate = ({
                 Latest news
               </h3>
               <div className="section-break"></div>
-              <NewsRoll />
+             
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
    
     
-  </div>
+  </>
 )};
 
 // IndexPageTemplate.propTypes = {
@@ -158,8 +166,9 @@ export const pageQuery = graphql`
         title
        
         heading
-        subheading
-      
+        subheading, 
+        motto,
+        stories
       }
     }
   }
