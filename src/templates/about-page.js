@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import Fade from "react-reveal/Fade";
 import styled from 'styled-components'
-
+import ReactMarkdown from "react-markdown"
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;

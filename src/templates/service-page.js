@@ -6,7 +6,7 @@ import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-
+import ReactMarkdown from "react-markdown"
 export const ServicePageTemplate = ({
  
   title,
@@ -28,7 +28,8 @@ export const ServicePageTemplate = ({
           <div className="columns">
             <div className="column is-7 is-offset-1">
               <h3 className="has-text-weight-semibold is-size-2">{title}</h3>
-              <p>{body}</p>
+
+              <ReactMarkdown source={body}/>
             </div>
           </div>
        </div>

@@ -17,7 +17,7 @@ const ServicePagePreview = ({ entry, getAsset }) => {
       title={entry.getIn(['data', 'title'])}
       body={entry.getIn(['data', 'body'])} 
     />
-  )
+  ) 
 }
 
 // ServicePagePreview.propTypes = {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
-
+import ReactMarkdown from "react-markdown"
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import NewsRoll from "../components/NewsRoll";
@@ -85,12 +85,12 @@ export const TeamPageTemplate = ({
             {(nickname = !"" ? "(" + nickname + ")" : "")}
           </h5>
           <h4 className="has-text-weight-semibold is-size-4">{position}</h4>
-          <p>{content}</p>
+          <ReactMarkdown source={content}/>
 
           <h3 className="has-text-weight-semibold is-size-3">
             Expertise and Experience
           </h3>
-          <p>{expertise}</p>
+          <ReactMarkdown source={expertise}/>
 
           <h5 className="has-text-weight-semibold is-size-4 text-tone-primary">
             <FontAwesomeIcon
