@@ -17,11 +17,63 @@ const Container = styled.div`
 margin-left: auto;
 margin-right: auto;
 /* margin-top: 5em; */
-margin-bottom: 5em;
+/* margin-bottom: 5em; */
 padding: 2.5em;
+/* background: #151515b5;
+    color: lightgrey; */
+    
+ul {
+    margin: 0.75em 0;
+    padding: 0 1em;
+    list-style: none;
+  }
+li:before {
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+}
+`;
+
+
+const Section = styled.section`
+  border-top: solid 2px #b7b28a;
+  background:#272727;
+  min-height: 400px;
+  padding: 2.5em;
+  color: lightgrey;
+`;
+
+const SectionHeader = styled.div`
+font-family: 'Source Serif Pro', serif;
+width: 100%; 
+text-align: center; 
+border-bottom: 2px solid #d0cba4; 
+line-height: 0.1em;
+margin: 10px 0 20px; 
+color: #d0cba4;
+line-height: 0;
+font-size: 2.5rem;
+word-break: break-word;
+margin-top: 0.5em;
+margin-bottom: 1.25em
+
+span { 
+  background: #272727;
+    /* border: solid; */
+ padding:0 10px; 
+ margin-left:30px;
+}
 `;
 
 const Header = styled.div`
+font-family: 'Source Serif Pro', serif;
   width: 100%; 
 text-align: center; 
 border-bottom: 2px solid #d0cba4; 
@@ -34,7 +86,8 @@ word-break: break-word;
 margin-top: 0.5em;
 
 span { 
-background: url("/img/bg2.png");
+  background: #3f3f3f;
+    border: solid;
  padding:0 10px; 
 }
 `;
@@ -51,6 +104,8 @@ export const ServicePageTemplate = ({
   
   
   return(
+
+    <>
    
     <Container>
     <div className="columns">
@@ -58,18 +113,35 @@ export const ServicePageTemplate = ({
       <Fade>
         <Header>
           <span>
-            {title}
+            {title.toUpperCase()}
           </span>
           
         </Header>
-        <PageContent className="content" content={content} />
-        <Header></Header>
+       
+   
         </Fade> 
         
 
       </div>
     </div>
   </Container>
+
+  <Section> <div className="columns">
+            <div className="column is-10 is-offset-1">
+            <Fade>
+            {/* <SectionHeader>
+              <span>SERVICES</span>
+                 
+                </SectionHeader> */}
+                <PageContent className="content" content={content} />
+             
+              </Fade> 
+              
+   
+            </div>
+          </div></Section>
+
+  </>
 )}
 
 

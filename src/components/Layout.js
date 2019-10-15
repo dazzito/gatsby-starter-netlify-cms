@@ -20,6 +20,7 @@ import styled from 'styled-components'
 
 import {Row,Col} from "shared/styled.js"
 
+
 const Container = styled(Col)`
 
   height: 100%;
@@ -65,9 +66,13 @@ const TemplateWrapper = ({
   
 
   const Container = styled.div`
+        background: url('/img/marble-white.jpg');
+        
+    background-size: cover;
+    /* background: #272727; */
+    background-position: bottom;
 
-    background: url("/img/bg2.png");
-    background-size: auto;
+   
   `;
   
   return (
@@ -108,21 +113,22 @@ const TemplateWrapper = ({
         <meta property="og:image" content={`${withPrefix("/")}img/bg1.jpg`} />
       </Helmet>
 
-
-
-<Col style={{height: '100%'}}>
+ 
+ 
+<Col style={{height: '100%'}}>  
 
 <Navbar isScrolled={isScrolled} 
-  scrolled={{backgroundColor:'#ffffff', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
-  unscrolled={{backgroundColor:'#ffffff', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
+//url("/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg")
+  scrolled={{background: 'transparent', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
+  unscrolled={{background: 'transparent', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
 
 
-<div ref={ref}>
+{/* <div ref={ref}>
   <DynamicSubNav />
-  </div> 
+  </div>  */}
     
       
-      <Container style={{flex:1}}>{children}</Container>
+      <Container style={{flex:1, marginTop: 126}}>{children}</Container>
      
      
       <Footer />

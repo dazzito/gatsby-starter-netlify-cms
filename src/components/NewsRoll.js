@@ -6,21 +6,23 @@ import PlaceholderImg from "src/img/avatar-placeholder.png"
 import styled from 'styled-components'
 
 import {Row, Col} from "shared/styled"
-
+import Img from "gatsby-image/withIEPolyfill"
 
 
 const NewsHeader = styled.header`
-
+    
     padding: 12px;
     position: absolute;
     bottom: 0;
-
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
     /* height: 100px; */
     background: #212121;
     width: 400px;
     bottom: 0;
     transition: background-color 0.2s ease;
-    
+    min-height:80px;
 
    
 
@@ -36,15 +38,23 @@ const NewsHeader = styled.header`
 
 const NewsBox = styled.article`
   width:400px; 
+  height:350px;
   margin: 1.25em;
   position: relative;
   box-shadow: 0px 0px 3px 0px #171717;
-  border-radius: 4px;
+
   transition: transform .2s; /* Animation */ 
 
   div.gatsby-image-wrapper img:hover{
-    transform: scale(1.05)
-  }
+    transform: scale(1.05);
+    cursor: pointer;
+  } 
+
+  /* header img:hover{
+    background: white;
+    color: #b7b28a;
+     
+  } */
   
 `
 
@@ -74,17 +84,36 @@ class NewsRoll extends React.Component {
                 }`}
               >
 
+                
+
+                {post.frontmatter.featuredimage == null ? <img style={{maxwidth:400, height:357  }} src="https://via.placeholder.com/400x357"/> : 
+                <Link to={post.fields.slug}>
+                
+                
                
+                <Img fluid={post.frontmatter.featuredimage.childImageSharp.fluid}
+                objectFit="cover"
+                imgStyle={{transition: 'all 0.2s ease 0s'}}
+                objectPosition="50% 50%"
+                alt="https://via.placeholder.com/400x350" />
 
-                {post.frontmatter.featuredimage == null ? <img style={{width:350, height:350}} src={PlaceholderImg}/> : <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${
-                            post.title
-                          }`,
-                        }}
 
-                        imageStyle={{width:400, height: 400}}   />}
+                 </Link>
+                
+                
+                // <PreviewCompatibleImage
+                //         imageInfo={{
+                //           image: post.frontmatter.featuredimage,
+                //           alt: `featured image thumbnail for post ${
+                //             post.title
+                //           }`,
+                //         }}
+
+                //         imageStyle={{width:200, height: 157}}   />
+                        
+                        
+                        
+                        }
 
 
               
@@ -173,6 +202,18 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
+                featuredimage {
+                  childImageSharp {
+
+
+                    fluid(maxWidth: 400, maxHeight:320, quality: 100) {
+                        ...GatsbyImageSharpFluid 
+                      }
+              
+                   
+                  }
+                }
+                
             
               }
             }
@@ -185,10 +226,10 @@ export default () => (
 )
 
 
-// featuredimage {
-//   childImageSharp {
-//     fluid(maxWidth: 350, quality: 100) {
-//       ...GatsbyImageSharpFluid 
-//     }
-//   }
+// fluid(maxWidth: 200,quality: 100) {
+//   ...GatsbyImageSharpFluid 
+// }
+
+// fixed(width: 400, height:240) {
+//   ...GatsbyImageSharpFixed
 // }

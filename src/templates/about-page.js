@@ -22,6 +22,9 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   `;
 
   const Header = styled.div`
+ 
+font-family: 'Source Serif Pro', serif;
+
       width: 100%; 
 text-align: center; 
 border-bottom: 2px solid #d0cba4; 
@@ -34,7 +37,11 @@ line-height: 0;
  margin-top: 0.5em;
 
   span { 
-    background: url("/img/bg2.png");
+    /* background: url("/img/bg2.png"); */
+    background: #3f3f3f;
+    border: solid;
+    /* background: url('/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg');
+    background-size: auto; */
      padding:0 10px; 
   }
   `;

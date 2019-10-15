@@ -1,6 +1,51 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import Fade from "react-reveal/Fade";
+
+
+
+import styled from "styled-components"
+
+
+const Container = styled.div`
+margin-left: auto;
+margin-right: auto;
+/* margin-top: 5em; */
+
+padding: 2.5em;
+`;
+
+
+
+const Header = styled.div`
+
+font-family: 'Source Serif Pro', serif;
+
+  width: 100%; 
+text-align: center; 
+border-bottom: 2px solid #d0cba4; 
+line-height: 0.1em;
+margin: 10px 0 20px; 
+color: #d0cba4;
+line-height: 0;
+font-size: 2.5rem;
+word-break: break-word;
+margin-top: 0.5em;
+
+span { 
+/* background: url("/img/bg2.png"); */
+background: #3f3f3f;
+border: solid;
+/* background: url('/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg');
+background-size: auto; */
+ padding:0 10px; 
+}
+`;
+
+
+
+
 
 function encode(data) {
   return Object.keys(data)
@@ -36,10 +81,36 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
+
+<Container>
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+            <Fade>
+              <Header>
+                <span>
+                  CONTACT
+                </span>
+                
+              </Header>
+              
+           
+              </Fade> 
+              
+   
+            </div>
+          </div>
+
+       
+
+
+
+        </Container>
+       
+       
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1>Contact</h1>
+          
               <form
                 name="contact"
                 method="post"

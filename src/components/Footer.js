@@ -34,6 +34,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
    list-style: none;
+   max-width: 20em;
 `;
 
 const StyledLink = styled(Link)`
@@ -69,6 +70,7 @@ const ContactInfo = styled.div`
   padding-top: 15px;
   flex:1;
   text-align: left;
+  color: lightgrey;
 `;
 
 const Copyright = styled.div`
@@ -77,7 +79,7 @@ const Copyright = styled.div`
   padding: 10px;
   background: #1b1b1b;
     p{
-      color: white;
+      color: #505050;
       text-decoration: none;
     }
 `;
