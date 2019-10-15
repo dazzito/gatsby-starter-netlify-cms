@@ -10,15 +10,34 @@ import ReactMarkdown from "react-markdown"
 import Content, { HTMLContent } from "../components/Content";
 import Fade from "react-reveal/Fade";
 
-import styled from 'styled-components'
+import styled from "styled-components"
+
+
 const Container = styled.div`
 margin-left: auto;
 margin-right: auto;
-margin-top: 5em;
+/* margin-top: 5em; */
 margin-bottom: 5em;
 padding: 2.5em;
 `;
 
+const Header = styled.div`
+  width: 100%; 
+text-align: center; 
+border-bottom: 2px solid #d0cba4; 
+line-height: 0.1em;
+margin: 10px 0 20px; 
+color: #d0cba4;
+line-height: 0;
+font-size: 2.5rem;
+word-break: break-word;
+margin-top: 0.5em;
+
+span { 
+background: url("/img/bg2.png");
+ padding:0 10px; 
+}
+`;
 
 export const ServicePageTemplate = ({
   title,
@@ -32,15 +51,21 @@ export const ServicePageTemplate = ({
   
   
   return(
+   
     <Container>
     <div className="columns">
-      <div className="column is-8 is-offset-1">
+      <div className="column is-10 is-offset-1">
       <Fade>
-        <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
-          {title}
-        </h2>
+        <Header>
+          <span>
+            {title}
+          </span>
+          
+        </Header>
         <PageContent className="content" content={content} />
+        <Header></Header>
         </Fade> 
+        
 
       </div>
     </div>

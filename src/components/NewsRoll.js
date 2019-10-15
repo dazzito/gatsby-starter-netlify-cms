@@ -14,16 +14,18 @@ const NewsHeader = styled.header`
     padding: 12px;
     position: absolute;
     bottom: 0;
+
     /* height: 100px; */
     background: #212121;
     width: 400px;
     bottom: 0;
     transition: background-color 0.2s ease;
+    
 
    
 
     h2{
-    
+      color:#b7b28a;
       font-size: 1.25rem;
    
     }
@@ -36,7 +38,8 @@ const NewsBox = styled.article`
   width:400px; 
   margin: 1.25em;
   position: relative;
-  box-shadow: 1px 1px 2px 1px #171717;
+  box-shadow: 0px 0px 3px 0px #171717;
+  border-radius: 4px;
   transition: transform .2s; /* Animation */ 
 
   div.gatsby-image-wrapper img:hover{

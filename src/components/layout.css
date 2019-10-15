@@ -2,6 +2,7 @@
 
 html, body, #___gatsby, #___gatsby > div {
     height: 100%;
+    /* color: #212121; */
     color: lightgrey;
 }
 

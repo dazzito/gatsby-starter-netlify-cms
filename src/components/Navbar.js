@@ -65,27 +65,27 @@ const Navbar = class extends React.Component {
             </div>
           </div>
           <div
-            id="navMenu"
+            id="navMenu" 
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about" style={{color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                About
+                ABOUT
               </Link>
 
               <Link className="navbar-item" to="/team" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                Our Team
+                TEAM
               </Link>
 
 
               <Link className="navbar-item" to="/service" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                Services
+                SERVICES
               </Link>
               <Link className="navbar-item" to="/news" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                News
+                NEWS
               </Link>
               <Link className="navbar-item" to="/contact" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                Contact Us
+                CONTACT
               </Link>
               {/* <Link className="navbar-item" to="/contact/examples" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 Form Examples
