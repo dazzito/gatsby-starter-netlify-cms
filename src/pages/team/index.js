@@ -269,13 +269,7 @@ export default () => (
                 content
                 position
                 expertise
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 220, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
+             
               }
             }
           }
@@ -286,7 +280,13 @@ export default () => (
   />
 )
 
-
+// image {
+//   childImageSharp {
+//     fluid(maxWidth: 220, quality: 100) {
+//       ...GatsbyImageSharpFluid
+//     }
+//   }
+// }
 
 
 

@@ -155,8 +155,8 @@ export default class Index extends React.Component {
                       id={'email'}
                       required={true}
                     />
-                  </div>
-                </div>
+                  </div> 
+                </div> 
                 <div className="field">
                   <label className="label" htmlFor={'message'}>
                     Message

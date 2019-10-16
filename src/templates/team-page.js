@@ -174,17 +174,20 @@ export const query = graphql`
         content
         position
         expertise
-        image {
-          childImageSharp {
-            fluid(maxWidth: 1048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+     
       }
     }
   }
 `;
+
+// image {
+//   childImageSharp {
+//     fluid(maxWidth: 1048, quality: 100) {
+//       ...GatsbyImageSharpFluid
+//     }
+//   }
+// }
+
 
 // markdownRemark(frontmatter: { templateKey: { eq: "profile-page" } }) {
 //   frontmatter {
