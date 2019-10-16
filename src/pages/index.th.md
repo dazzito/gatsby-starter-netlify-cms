@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
-locale: en
+locale: th
 heading: BANGKOK LEGAL CONSULTING
 subheading: THE COMPANY PROFILE
-motto: “ EN MOTTO ”
+motto: “ TH MOTTO ”
 stories:
   - content: "Bangkok Legal Consulting Co., Ltd. (B.L.C.) was\r established in 2015 by a team of Legal Professionals\r having graduated from leading universities both in\r Thailand and Abroad. Our team has over 15 years of\r experience working with leading Legal firms and Major\r business organizations. \n\n\n\n## **Vision.**\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\r\n\n\r\n\n## **Mission.**\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\n\r\n\n## Value\r.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     heading: About the company

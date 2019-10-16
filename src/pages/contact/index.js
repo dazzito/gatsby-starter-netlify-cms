@@ -41,7 +41,7 @@ border: solid;
 background-size: auto; */
  padding:0 10px; 
 }
-`;
+`;  
 
 
 
@@ -71,14 +71,14 @@ export default class Index extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        ...this.state,
+        ...this.state, 
       }),
     })
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
   }
 
-  render() {
+  render() { 
     return (
       <Layout>
 
@@ -113,7 +113,7 @@ export default class Index extends React.Component {
           
               <form
                 name="contact"
-                method="post"
+                method="post" 
                 action="/contact/thanks/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"

@@ -2,6 +2,8 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const locales = require('./src/shared/locales')
+
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -11,13 +13,15 @@ exports.createPages = ({ actions, graphql }) => {
       allMarkdownRemark(limit: 1000) {
         edges {
           node {
-            id
+            id 
             fields {
               slug
+              langKey
             }
             frontmatter {
               tags
               templateKey
+
             }
           }
         }
@@ -30,9 +34,10 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges
-
+ 
     posts.forEach(edge => {
       const id = edge.node.id
+      const langKey = edge.node.fields.langKey
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -42,6 +47,7 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
+          langKey: edge.node.fields.langKey
         },
       })
     })
@@ -66,25 +72,49 @@ exports.createPages = ({ actions, graphql }) => {
         component: path.resolve(`src/templates/tags.js`),
         context: {
           tag,
+
         },
       })
     })
   })
 }
 
+
+
+// exports.onCreatePage = ({ page, actions }) => {
+//   const { createPage, deletePage } = actions
+
+//   return new Promise(resolve => {
+//     deletePage(page)
+
+//     Object.keys(locales).map(lang => {
+//       const localizedPath = locales[lang].default ? page.path : locales[lang].path + page.path
+
+//       return createPage({
+//         ...page,
+//         path: localizedPath,
+//         context: {
+//           locale: lang,
+//         },
+//       })
+//     })
+//     resolve()
+//   })
+// } 
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark` && node.internal.fieldOwners.slug !== 'gatsby-plugin-i18n') {
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
       value,
     })
-  } 
+  }
 }
+
 
 
 // exports.onCreateWebpackConfig = ({ actions }) => {

@@ -1,5 +1,6 @@
 ---
 templateKey: team-page
+locale: en
 firstname: Prapas
 lastname: Chuprathet
 nickname: Leo

@@ -331,13 +331,13 @@ const IndexPage = ({ data }) => {
 //       frontmatter: PropTypes.object
 //     })
 //   })
-// };
+// }; 
 
 export default IndexPage;
 
-export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+export const pageQuery = graphql` 
+  query IndexPageTemplate ($locale: String) {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" }, locale: { eq: $locale } })  {
       html
       frontmatter {
         templateKey

@@ -83,10 +83,10 @@ AboutPageTemplate.propTypes = {
   contentComponent: PropTypes.func
 };
 
-const AboutPage = ({ data }) => {
+const AboutPage = ({data}) => {
   const { markdownRemark: post } = data;
 
-  return (
+  return ( 
     <Layout>
       
         <AboutPageTemplate
@@ -106,10 +106,13 @@ AboutPage.propTypes = {
 export default AboutPage;
 
 export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query AboutPage($id: String!, $langKey: String!) {
+    markdownRemark(id: { eq: $id }, fields: { langKey: { eq: $langKey } } ) {
       html
-      frontmatter {
+      fields {
+        langKey
+      }
+      frontmatter { 
         title
       }
     }

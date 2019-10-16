@@ -75,6 +75,7 @@ const TemplateWrapper = ({
    
   `;
   
+  
   return (
     <>
       <Helmet>
@@ -114,13 +115,15 @@ const TemplateWrapper = ({
       </Helmet>
 
  
+
+
  
 <Col style={{height: '100%'}}>  
 
-<Navbar isScrolled={isScrolled} 
+<Navbar  isScrolled={isScrolled} 
 //url("/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg")
-  scrolled={{background: 'transparent', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
-  unscrolled={{background: 'transparent', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
+  scrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
+  unscrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
 
 
 {/* <div ref={ref}>

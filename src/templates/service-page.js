@@ -223,13 +223,13 @@ export const ServicePageTemplate = ({
 //     </div>
 //   </div>
 
-
+ 
 
 // </div>
 // </div>
 
 
-const ServicePage = ({ data }) => {
+const ServicePage = ({data}) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
@@ -256,8 +256,8 @@ const ServicePage = ({ data }) => {
 export default ServicePage
 
 export const servicePageQuery = graphql`
-  query ServicePage($id: String!) {
-      markdownRemark(id: { eq: $id }) {
+  query ServicePage($locale: String) {
+    markdownRemark( frontmatter: { templateKey: { eq: "service-page" }, locale: { eq: $locale } })   {
       html
       frontmatter {
         content
@@ -265,5 +265,5 @@ export const servicePageQuery = graphql`
         
       }
     }
-  }
+  } 
 `

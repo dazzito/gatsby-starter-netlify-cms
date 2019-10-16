@@ -164,13 +164,13 @@ export default TeamPage;
 
 export const query = graphql`
   query TeamMemberByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) { 
       id
       html
       frontmatter {
         firstname
         lastname
-        nickname
+        nickname  
         content
         position
         expertise

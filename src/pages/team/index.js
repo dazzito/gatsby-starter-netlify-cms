@@ -248,21 +248,20 @@ const ModalExamplePage = ({
         </section>
       </Layout>
     )
-  }
+  } 
 }
 
 
 export default () => (
   <StaticQuery
     query={graphql`
-      query MemberQuery {
+      query MemberQuery($locale: String){  
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "team-page" } } }
+          filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $locale } } }
         ) {
           edges {
             node {
-              
               frontmatter {
                 firstname
                 lastname

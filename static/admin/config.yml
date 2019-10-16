@@ -6,13 +6,86 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "news"
-    label: "News"
-    folder: "src/pages/news"
+
+  - name: "EN"
+    label: "English"
+    files:
+      - file: "src/pages/index.md"
+        label: "Landing"
+        name: "index"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Subheading, name: subheading, widget: string}
+          - {label: "Motto", name: "motto", widget: "string"}
+          - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
+          - {label: Image1, name: image1, widget: image}
+          - {label: Image2, name: image2, widget: image}
+          - {label: Image3, name: image3, widget: image}
+      - name: "about"
+        label: "About"
+        file: "src/pages/about/index.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/service/index.md"
+        label: "Services"
+        name: "service"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service-page"}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "content", widget: "markdown"}
+      
+      
+
+  - name: "TH"
+    label: "Thai"
+    files:
+      - file: "src/pages/index.th.md"
+        label: "Landing"
+        name: "index"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
+          - {label: Heading, name: heading, widget: string}
+          - {label: Subheading, name: subheading, widget: string}
+          - {label: "Motto", name: "motto", widget: "string"}
+          - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
+          - {label: Image1, name: image1, widget: image}
+          - {label: Image2, name: image2, widget: image}
+          - {label: Image3, name: image3, widget: image}
+      - name: "about"
+        label: "About"
+        file: "src/pages/about/index.th.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/service/index.th.md"
+        label: "Services"
+        name: "service"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service-page"}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "content", widget: "markdown"}
+
+
+
+
+  - name: "news-en"
+    label: "News (EN)"
+    folder: "src/pages/news/en"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-post"}
+      - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
@@ -20,67 +93,70 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-  - name: "team"
-    label: "Team Members"
-    folder: "src/pages/team"
+  - name: "news-th"
+    label: "News (TH)"
+    folder: "src/pages/news/th"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-post"}
+      - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
+      - {label: "Featured Image", name: "featuredimage", widget: image}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list"}
+
+
+#TEAM
+  - name: "team-en"
+    label: "Team Members (EN)"
+    folder: "src/pages/team/en"
     identifier_field: lastname
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-page"}
+      - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
+      - {label: "Image", name: "image", widget: image}
       - {label: "Firstname", name: "firstname", widget: "string"}
       - {label: "Lastname", name: "lastname", widget: "string"}
       - {label: "Nickname", name: "nickname", widget: "string"}
-      - {label: "Image", name: "image", widget: image}
       - {label: "Content", name: "content", widget: "markdown"}
       - {label: "Position", name: "position", widget: "string"}
       - {label: "Expertise", name: "expertise", widget: "string"}
       - {label: "Email", name: "email", widget: "string"}
       - {label: "LinkedIn", name: "linkedin", widget: "string"}
 
+  - name: "team-th"
+    label: "Team Members (TH)"
+    folder: "src/pages/team/th"
+    identifier_field: lastname
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-page"}
+      - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
+      - {label: "Image", name: "image", widget: image}
+      - {label: "Firstname", name: "firstname", widget: "string"}
+      - {label: "Lastname", name: "lastname", widget: "string"}
+      - {label: "Nickname", name: "nickname", widget: "string"}
+      - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Position", name: "position", widget: "string"}
+      - {label: "Expertise", name: "expertise", widget: "string"}
+      - {label: "Email", name: "email", widget: "string"}
+      - {label: "LinkedIn", name: "linkedin", widget: "string"}
 
-      # - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
-      # - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "index"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: "Motto", name: "motto", widget: "string"}
-          - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
+      
+
           # - {label: "Statement", name: "statement", widget: "markdown"}
           # - {label: "History", name: "history", widget: "markdown"}
           # - {label: "Client", name: "client", widget: "markdown"}
-          - {label: Image1, name: image1, widget: image}
-          - {label: Image2, name: image2, widget: image}
-          - {label: Image3, name: image3, widget: image}
-          
 
-         
-          
-          # - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          # - {label: Description, name: description, widget: string}
-          # - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          # - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/service/index.md"
-        label: "Services Page"
-        name: "service"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Content", name: "content", widget: "markdown"}
+      # - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
+      # - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
+ 
+    
   - name: "client"
     folder: "src/collection/client"
     label: "Clients"

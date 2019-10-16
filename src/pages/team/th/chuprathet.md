@@ -1,6 +1,7 @@
 ---
 templateKey: team-page
-firstname: Prapas
+locale: th
+firstname: ประ
 lastname: Chuprathet
 nickname: Leo
 image: /img/scofield.jpg
