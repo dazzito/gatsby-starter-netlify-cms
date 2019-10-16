@@ -54,7 +54,8 @@
     "react-transition-group": "^4.2.2",
     "scroll-background": "^1.0.5",
     "styled-components": "^4.4.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "window-or-global": "^1.0.1"
   },
   "keywords": [
     "gatsby"
