@@ -15,13 +15,27 @@ const ExtendedLink = ({ to, locale, ...props }) => {
   return <Link to={path} className="navbar-item">{props.children}</Link>
 }
  
+
+
+
+function getLocalePath(locale, path){
+
+  if(locale == "en"){
+    return "/" + path
+  } else if (locale == "th"){
+    return "/th/" + path
+  }
+
+}
+
+
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props) 
     this.state = {
       active: false,
       navBarActiveClass: '',
-      locale: "en"
+      locale: this.props.locale
     }
 
     this.setLocale= this.setLocale.bind(this);
@@ -30,6 +44,21 @@ const Navbar = class extends React.Component {
   setLocale(locale){
     this.setState({locale})
   }
+
+
+  componentWillReceiveProps(newProps){
+
+    if(newProps.locale != this.state.locale){
+      this.setState({locale:newProps.locale});
+    }
+
+
+  }
+
+
+
+
+
 
 
   toggleHamburger = () => {
@@ -53,8 +82,30 @@ const Navbar = class extends React.Component {
   }
 
 
+  
+
 
   render() {
+
+   
+    // const links = this.props.langs.map((lang, index) =>
+
+
+    
+
+    //   <Link to={lang.link} key={lang.langKey} style={{
+    //     color: 'white'
+    //   }}>
+    //     <li selected={lang.selected}>
+    //       {lang.langKey}
+    //     </li>
+    //   </Link>
+
+
+    // );
+
+    
+
     return (
      
      
@@ -66,11 +117,11 @@ const Navbar = class extends React.Component {
       >
         <div className="container">
           <div className="navbar-brand">
-            <ExtendedLink to="/" className="navbar-item" title="Logo">
+            <Link to="/" className="navbar-item" title="Logo">
               {/* <h1  style={{marginBottom: 6, color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color, fontWeight:'bolder'}}>[ Logo ]</h1>
              */}
               <img src={logo} alt="BLC" />
-            </ExtendedLink>  
+            </Link>  
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
@@ -87,23 +138,32 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              <Link  className="navbar-item" to="/about" style={{color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                ABOUT
+              <Link  className="navbar-item" to={getLocalePath(this.state.locale, "about")} style={{color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+                {"ABOUT" + this.state.locale}
               </Link>
 
-              <Link   className="navbar-item" to="/team" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+              <Link   className="navbar-item" to={getLocalePath(this.state.locale, "team")}  style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 TEAM
               </Link>
 
 
-              <Link   className="navbar-item" to="/service" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+              <Link   className="navbar-item" to={getLocalePath(this.state.locale, "service")}  style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 SERVICES
               </Link>
-              <Link   className="navbar-item" to="/news" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+              <Link   className="navbar-item" to={getLocalePath(this.state.locale, "news")}  style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 NEWS
               </Link>
-              <Link  className="navbar-item" to="/contact" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
+              <Link  className="navbar-item" to={getLocalePath(this.state.locale, "contact")}  style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
                 CONTACT
+              </Link>
+
+              
+              <Link replace className="navbar-item" to="/th">
+                TH
+              </Link>
+
+              <Link replace className="navbar-item" to="/">
+                EN
               </Link>
 
 

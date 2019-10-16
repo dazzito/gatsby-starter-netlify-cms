@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Layout from '../../components/Layout'
+import Layout from '../../layouts'
 import { graphql, StaticQuery } from 'gatsby'
 import Fade from 'react-reveal/Fade';
 import Masonry from 'react-masonry-css'

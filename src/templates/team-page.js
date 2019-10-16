@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import ReactMarkdown from "react-markdown"
-import Layout from "../components/Layout";
+import Layout from "../layouts";
 import Features from "../components/Features";
 import NewsRoll from "../components/NewsRoll";
 import ContactForm from "../components/ContactForm";

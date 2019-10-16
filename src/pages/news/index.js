@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Layout from '../../components/Layout'
+import Layout from '../../layouts'
 import NewsRoll from '../../components/NewsRoll'
 import Fade from 'react-reveal/Fade';
 
@@ -138,7 +138,7 @@ export default class NewsIndexPage extends React.Component {
    
 
       
-          
+           
   
      
        </div>

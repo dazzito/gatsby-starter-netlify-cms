@@ -5,8 +5,8 @@ import "./layout.css"
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
+import 'src/components/all.sass'
+import useSiteMetadata from '../components/SiteMetadata'
 import { withPrefix } from "gatsby"
 import ScrollAnimation from 'react-animate-on-scroll';
 import { StickyContainer, Sticky } from 'react-sticky';
@@ -17,8 +17,13 @@ import DynamicSubNav from '../components/DynamicSubNav'
 
 import styled from 'styled-components'
  
+import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
+import { IntlProvider, addLocaleData } from 'react-intl';
 
 import {Row,Col} from "shared/styled.js"
+
+import { Link } from 'gatsby'
+
 
 
 const Container = styled(Col)`
@@ -28,11 +33,16 @@ const Container = styled(Col)`
 
 
 
+
+
+
+
 const TemplateWrapper = ({ 
   children,
   heading
 }) => {
  
+  
   
 
 
@@ -61,7 +71,7 @@ const TemplateWrapper = ({
     }
   }, [inView])
 
-  const { title, description } = useSiteMetadata()
+ 
   
   
 
@@ -75,9 +85,23 @@ const TemplateWrapper = ({
    
   `;
   
-  
+ 
+  const url = window.location.pathname;
+  const { title, description , languages} = useSiteMetadata()
+
+ // alert(url);
+  //alert(languages.langs)
+  //alert(languages.defaultLangKey); 
+  const langKey = getCurrentLangKey(languages.langs, languages.defaultLangKey, url);
+  //alert(langKey); 
+
+  const homeLink = `/${langKey}/`;
+  const langsMenu = getLangs(languages.langs, langKey, getUrlForLang(homeLink, url));
   return (
-    <>
+    <IntlProvider
+    locale={langKey}
+    // messages={this.i18nMessages}
+  >
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -115,12 +139,16 @@ const TemplateWrapper = ({
       </Helmet>
 
  
+      {/* <Link  className="navbar-item" to="/th">
+                LANG - TH
+              </Link> */}
 
 
  
 <Col style={{height: '100%'}}>  
 
-<Navbar  isScrolled={isScrolled} 
+<Navbar locale={langKey} langs={langsMenu}  isScrolled={isScrolled} 
+
 //url("/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg")
   scrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
   unscrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
@@ -138,7 +166,7 @@ const TemplateWrapper = ({
 </Col>
 
 
-    </>
+</IntlProvider>
   )
 }
 

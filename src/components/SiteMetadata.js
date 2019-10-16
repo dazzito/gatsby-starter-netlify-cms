@@ -8,7 +8,8 @@ const useSiteMetadata = () => {
           siteMetadata {
             title
             description
-          }
+            languages { langs, defaultLangKey}
+          } 
         }
       }
     `
