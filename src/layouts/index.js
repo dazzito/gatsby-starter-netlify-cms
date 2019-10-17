@@ -23,9 +23,10 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import {Row,Col} from "shared/styled.js"
 
 import { Link } from 'gatsby'
-import root from 'window-or-global'
+// import root from 'window-or-global'
 
 
+ 
 const Container = styled(Col)`
 
   height: 100%;
@@ -37,10 +38,7 @@ const Container = styled(Col)`
 
 
 
-const TemplateWrapper = ({ 
-  children,
-  heading
-}) => {
+const TemplateWrapper = (props) => {
  
   
   
@@ -85,8 +83,10 @@ const TemplateWrapper = ({
    
   `;
   
+  alert(props)
+  console.log(props)
  
-  const url = root.location.pathname;
+  const url = this.props.location.pathname;
   const { title, description , languages} = useSiteMetadata()
 
  // alert(url);
@@ -109,7 +109,7 @@ const TemplateWrapper = ({
 
         <link
           rel="apple-touch-icon"
-          sizes="180x180"
+          sizes="180x180" 
           href={`${withPrefix("/")}img/apple-touch-icon.png`}
         />
         <link
@@ -159,7 +159,7 @@ const TemplateWrapper = ({
   </div>  */}
     
       
-      <Container style={{flex:1, marginTop: 126}}>{children}</Container>
+      <Container style={{flex:1, marginTop: 126}}>{props.children}</Container>
      
      
       <Footer />
