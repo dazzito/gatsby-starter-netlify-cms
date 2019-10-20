@@ -36,9 +36,6 @@ import { InView } from 'react-intersection-observer';
 import ReactPageScroller from "react-page-scroller";
 
 
-import { SlideContainer, SlidePage } from 'react-slidepage';
-require('react-slidepage/lib/index.css');
-
 const Container = styled(StickyContainer)`
 	margin-left: auto;
 	margin-right: auto;
