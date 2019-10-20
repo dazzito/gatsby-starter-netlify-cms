@@ -93,7 +93,7 @@ export const NewsPostTemplate = ({
 //   helmet: PropTypes.object,
 // }
 
-const NewsPost = ({ props }) => {
+const NewsPost = ( props ) => {
   const { markdownRemark: post } = props.data
   const location = props.location;
 
