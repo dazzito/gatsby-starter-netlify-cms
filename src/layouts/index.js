@@ -107,7 +107,7 @@ const TemplateWrapper = ({ children, location }) => {
 
 
 const ContentContainer = styled.div`
-   margin-top: 126px;
+   /* margin-top: 126px; */
    flex:1;
  
    /* max-width: 1300px;
@@ -229,8 +229,8 @@ overflow-y: scroll; */
       </ContentContainer>
       
      
-     
-      <Footer disableFooterNav={url == "/"} />
+      {/* disableFooterNav={url == "/"} */}
+      <Footer  />
 </Col>
 
 </Container>

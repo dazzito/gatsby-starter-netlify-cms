@@ -47,8 +47,7 @@ const Container = styled(StickyContainer)`
 const IndexWrapper = styled(StickyContainer)``;
 
 const Story = styled.div`
-	margin-bottom: 2.5em;
-	margin-top: 1em;
+	margin: 1.5em;
 	max-width: 1300px;
 `;
 
@@ -125,7 +124,7 @@ const CardHeaderContent = styled.div`
 const StoryContainer = styled.div`
 	text-align: center;
 	color: whitesmoke;
-	padding-top: 126px;
+	/* padding-top: 126px; */
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -148,7 +147,7 @@ const StoryContainer = styled.div`
 `;
 
 const ClientSection = styled(StoryContainer)`
-	background: white;
+	/* background: white; */
 	margin: 0px;
 	* {
 		max-width: unset;
@@ -188,6 +187,7 @@ const HeroContainer = styled.div`
 	background: url(/img/sky.jpg);
 	background-size: cover;
 	background-position: bottom;
+	height: 100vh;
 
 	img {
 		height: auto;
@@ -289,7 +289,7 @@ margin-bottom: 1.5rem;
 
 const NewsSection = styled.div`
 
-background: #d0cba4;
+background: white;
 `;
 
 
@@ -359,7 +359,7 @@ export const IndexPageTemplate = class extends React.Component {
 			<IndexWrapper>
 				
 				<HeroContainer>
-					<img src="/img/logot.png" />
+					{/* <img src="/img/logot.png" /> */}
 				</HeroContainer>
 
 				{/* 
@@ -382,7 +382,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 </ParallaxContainer> */}
 
-				<Sticky topOffset={576}>
+				<Sticky topOffset={window.innerHeight}>
 					{({ style, isSticky }) => (
 						<div
 							style={{
@@ -395,7 +395,7 @@ export const IndexPageTemplate = class extends React.Component {
 							}}
 						>
 							{' '}
-							<div style={{ height: 35, background: '#232323', textAlign: 'end', paddingTop: 5 }}>
+							<div style={{ height: 35, background: 'white', textAlign: 'end', paddingTop: 5 }}>
 								{' '}
 								<div className="container">
 									{/*               
@@ -406,42 +406,42 @@ export const IndexPageTemplate = class extends React.Component {
 
 									<Item
 										className="scthead"
-										style={{ color: this.state.sectionId == 0 ? '#d0cba4 ' : '#dfdfdf' }}
+										style={{ color: this.state.sectionId == 0 ? '#d0cba4 ' : '#212121' }}
 									>
 										ABOUT US
 									</Item>
 
 									<Item
 										className="scthead"
-										style={{ color: this.state.sectionId == 1 ? '#d0cba4 ' : '#dfdfdf' }}
+										style={{ color: this.state.sectionId == 1 ? '#d0cba4 ' : '#212121' }}
 									>
 										VISION
 									</Item>
 
 									<Item
 										className="scthead"
-										style={{ color: this.state.sectionId == 2 ? '#d0cba4 ' : '#dfdfdf' }}
+										style={{ color: this.state.sectionId == 2 ? '#d0cba4 ' : '#212121' }}
 									>
 										MISSION
 									</Item>
 
 									<Item
 										className="scthead"
-										style={{ color: this.state.sectionId == 3 ? '#d0cba4 ' : '#dfdfdf' }}
+										style={{ color: this.state.sectionId == 3 ? '#d0cba4 ' : '#212121' }}
 									>
 										VALUE
 									</Item>
 
 									<Item
 										className="scthead"
-										style={{ color: this.state.sectionId == 4 ? '#d0cba4 ' : '#dfdfdf' }}
+										style={{ color: this.state.sectionId == 4 ? '#d0cba4 ' : '#212121' }}
 									>
 										OUR TEAM
 									</Item>
 
 									<Item
 										className="scthead"
-										style={{ color: this.state.sectionId == 5 ? '#d0cba4 ' : '#dfdfdf' }}
+										style={{ color: this.state.sectionId == 5 ? '#d0cba4 ' : '#212121' }}
 									>
 										CLIENTS
 									</Item>
@@ -453,27 +453,19 @@ export const IndexPageTemplate = class extends React.Component {
 
 				
 
-				<Fade delay={200}>
-					<StoryContainer style={{ height: '50vh' }}>
+				{/* <Fade delay={200}>
+					<StoryContainer style={{ height: '100px' }}>
 						<Story>
 							<h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary" style={{fontFamily:'serif'}}>
-								Learn more
+								Company background
 							</h2>
 
-							<Arrow>
-								<img
-									width="40"
-									height="40"
-									alt=""
-									src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNC4yODUsMTEuMjg0TDE2LDE5LjU3MWwtOC4yODUtOC4yODhjLTAuMzk1LTAuMzk1LTEuMDM0LTAuMzk1LTEuNDI5LDAgIGMtMC4zOTQsMC4zOTUtMC4zOTQsMS4wMzUsMCwxLjQzbDguOTk5LDkuMDAybDAsMGwwLDBjMC4zOTQsMC4zOTUsMS4wMzQsMC4zOTUsMS40MjgsMGw4Ljk5OS05LjAwMiAgYzAuMzk0LTAuMzk1LDAuMzk0LTEuMDM2LDAtMS40MzFDMjUuMzE5LDEwLjg4OSwyNC42NzksMTAuODg5LDI0LjI4NSwxMS4yODR6IiBmaWxsPSIjMTIxMzEzIiBpZD0iRXhwYW5kX01vcmUiLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48L3N2Zz4="
-								/>
-							</Arrow>
 						</Story>
 					</StoryContainer>
-				</Fade>
+				</Fade> */}
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: Color('#212121').lighten(0.5) }}>
+					<StoryContainer style={{ background: 'white', color: 'lightgrey' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
@@ -483,10 +475,7 @@ export const IndexPageTemplate = class extends React.Component {
 								<Story ref={ref}>
 
 
-									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'serif', fontWeight: 'normal',}}>
-										{this.props.stories[0].heading}
-									</h2>
-
+								
 									<div
 										style={{
 											display: 'flex',
@@ -501,6 +490,10 @@ export const IndexPageTemplate = class extends React.Component {
 										</div>
 
 										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1 }}>
+										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'serif', fontWeight: 'normal',}}>
+										{this.props.stories[0].heading}
+									</h2>
+
 											<ReactMarkdown source={this.props.stories[0].content} />
 										</div>
 									</div>
@@ -509,8 +502,25 @@ export const IndexPageTemplate = class extends React.Component {
 						</InView>
 
 						{BackgroundCarousel()}
+
+
+					
 					</StoryContainer>
 				</Fade>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				{/* 
             {this.props.stories &&
@@ -669,6 +679,60 @@ export const IndexPageTemplate = class extends React.Component {
 
 		
     
+
+				<Fade delay={200}>
+					<StoryContainer style={{ background: Color('#212121').lighten(0.75) }}>
+						<InView
+							onChange={(inView, entry) => {
+								this.changeSection(inView, 0, entry);
+							}}
+						>
+							{({ inView, ref, entry }) => (
+								<Story ref={ref}>
+
+
+								
+									<div
+										style={{
+											display: 'flex',
+											flexDirection: 'row-reverse',
+											textAlign: 'left',
+											padding: '1.5em',
+											flexWrap: 'wrap-reverse',
+										}}
+									>
+
+										<Fade>
+										<div style={{ flex: 1, minWidth:300}}>
+											<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" />
+										</div>
+
+										</Fade>
+										
+
+										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1 }}>
+										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'serif', fontWeight: 'normal',}}>
+										Services
+									</h2>
+
+											<ReactMarkdown source={this.props.stories[0].content} />
+										</div>
+									</div>
+								</Story>
+							)}
+						</InView>
+
+					
+
+
+					
+					</StoryContainer>
+				</Fade>
+
+
+
+
+
     
     
     
@@ -710,7 +774,12 @@ export const IndexPageTemplate = class extends React.Component {
 
     
 		
-    
+				<Fade>
+					<StoryContainer style={{ height: '100px'}}>
+
+						</StoryContainer>
+
+				</Fade>
     
     
     		<ClientSection>

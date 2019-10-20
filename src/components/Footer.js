@@ -65,11 +65,11 @@ const FooterWrapper = styled(Col)`
   border-right: solid 1px #3f3f3f;
     text-align: end;
     /* padding: 1em; */
-
+/* 
     position: fixed;
     bottom: 0;
     left: 0%;
-    right: 0;
+    right: 0; */
 `;
 
 const ContactInfo = styled.div`

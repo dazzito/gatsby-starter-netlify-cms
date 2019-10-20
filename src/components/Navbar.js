@@ -42,6 +42,11 @@ const ActiveMenuItem = styled(Link)`
 
 
 
+const NavbarWrapper = styled.nav`
+		box-shadow: inset 0px -1px 5px 0px #252525;
+`;
+
+
 const MenuItem = styled(Link)`
   position: relative;
   transition: all 0.2s ease 0s;
@@ -218,8 +223,8 @@ const Navbar = class extends React.Component {
 
       console.log(this.state.location)
 		return (
-			<nav
-				className="navbar is-fixed-top is-transparent "
+			<NavbarWrapper
+				className="navbar is-transparent "
 				role="navigation"
 				aria-label="main-navigation"
 				// style={this.props.isScrolled ? this.props.scrolled : this.props.unscrolled}
@@ -323,7 +328,7 @@ const Navbar = class extends React.Component {
             </div> */}
 					</div>
 				</div>
-			</nav>
+			</NavbarWrapper>
 		);
 	}
 };
