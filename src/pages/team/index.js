@@ -271,7 +271,7 @@ export default (props) => (
                 content
                 position
                 expertise
-               
+                image 
              
               }
             }

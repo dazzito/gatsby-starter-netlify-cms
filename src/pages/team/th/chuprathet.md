@@ -1,13 +1,14 @@
 ---
 templateKey: team-page
 locale: th
-firstname: ประ
+image: /img/scofield.jpg
+firstname: Prapas
 lastname: Chuprathet
 nickname: Leo
-image: "../static/img/scofield.jpg"
 content: My name is leo
 position: Programmer
 expertise: Programming
 email: leo@hotmail.com
+linkedin: www.linkedin.com/in
 ---
 

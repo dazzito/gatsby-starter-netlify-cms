@@ -38,10 +38,10 @@ const NewsHeader = styled.header`
 
 const NewsBox = styled.article`
   width:400px; 
-  height:350px;
+  /* height:350px; */
   margin: 1.25em;
   position: relative;
-  box-shadow: 0px 0px 2px 1px #9f9f9f;
+  /* box-shadow: 0px 0px 0px 1px #9f9f9f; */
 
   transition: transform .2s; /* Animation */ 
 

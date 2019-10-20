@@ -287,9 +287,25 @@ margin-bottom: 1.5rem;
 `;
 
 
-const NewsSection = styled.div`
+const NewsSection = styled(StoryContainer)`
+text-align: left;
+background: #242424;
+*{
+	max-width:1366px;
+}
+/* 
+  	
+	align-items: flex-start;
 
-background: white;
+	div{
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	 */
+
+
+
 `;
 
 
@@ -465,7 +481,7 @@ export const IndexPageTemplate = class extends React.Component {
 				</Fade> */}
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: 'white', color: 'lightgrey' }}>
+					<StoryContainer style={{ background: 'white', color: '#212121' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
@@ -483,18 +499,20 @@ export const IndexPageTemplate = class extends React.Component {
 											textAlign: 'left',
 											padding: '1.5em',
 											flexWrap: 'wrap-reverse',
+										
 										}}
 									>
-										<div style={{ flex: 1, minWidth:300}}>
+										<div style={{ flex: 1, minWidth:300,margin: '1.5em'}}>
 											<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" />
 										</div>
 
-										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1 }}>
+										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1,borderLeft: 'solid 7px #f6f6f6',margin: '1.5em'}}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'serif', fontWeight: 'normal',}}>
 										{this.props.stories[0].heading}
 									</h2>
 
 											<ReactMarkdown source={this.props.stories[0].content} />
+											<button class="btn2 draw-border left">Read more</button>
 										</div>
 									</div>
 								</Story>
@@ -594,7 +612,7 @@ export const IndexPageTemplate = class extends React.Component {
  */}
 
 				<Fade>
-					<StoryContainer style={{ height: '100vh'}}>
+					<StoryContainer style={{ height: '860px'}}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 4, entry);
@@ -681,7 +699,7 @@ export const IndexPageTemplate = class extends React.Component {
     
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: Color('#212121').lighten(0.75) }}>
+					<StoryContainer style={{ background: '#242424' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
@@ -716,6 +734,8 @@ export const IndexPageTemplate = class extends React.Component {
 									</h2>
 
 											<ReactMarkdown source={this.props.stories[0].content} />
+
+											<button class="btn2 draw-border left">Read more</button>
 										</div>
 									</div>
 								</Story>
@@ -753,12 +773,13 @@ export const IndexPageTemplate = class extends React.Component {
 									</h2>
                   </Fade> */}
 
-                  <Fade delay={200}>
-                  <StatementButton color="#d0cba4">
-                    Meet our team.
-                  </StatementButton>
-                  </Fade>
+                
 
+				  <button class="btn2 draw-border  btn2--big btn2--gold">Meet our team.</button>
+                  {/* <StatementButton color="#d0cba4">
+                    Meet our team.
+                  </StatementButton> */}
+                  
                
 
 
@@ -773,13 +794,7 @@ export const IndexPageTemplate = class extends React.Component {
 				</Fade>
 
     
-		
-				<Fade>
-					<StoryContainer style={{ height: '100px'}}>
-
-						</StoryContainer>
-
-				</Fade>
+	
     
     
     		<ClientSection>
@@ -792,7 +807,7 @@ export const IndexPageTemplate = class extends React.Component {
 							<Story ref={ref}>
 								<Fade delay={200}>
 									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'serif', fontWeight: 'normal', marginTop:'0.75em'}}>
-										Clients
+										Our Clients
 									</h2>
 								</Fade>
 
@@ -919,7 +934,13 @@ export const IndexPageTemplate = class extends React.Component {
 
         <NewsSection>
 
-          	<NewsRoll />
+		<Fade delay={200}>
+									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'serif', textAlign:'left' , marginTop:'0.75em'}}>
+										Latest News
+									</h2>
+								</Fade>
+
+          	<NewsRoll style={{marginBottom: '5em'}} />
         </NewsSection>
 
 	

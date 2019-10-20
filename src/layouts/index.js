@@ -5,7 +5,10 @@ import "./layout.css"
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+
+//STYLINGS
 import 'src/components/all.sass'
+import 'src/components/interactive.scss'
 import useSiteMetadata from '../components/SiteMetadata'
 import { withPrefix } from "gatsby"
 import ScrollAnimation from 'react-animate-on-scroll';
