@@ -132,8 +132,6 @@ overflow-y: scroll; */
 
 
   
-  // alert(props)
-  // console.log(props)
  
    const url = location.pathname;
   const { title, description , languages} = useSiteMetadata()
