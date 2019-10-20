@@ -5,7 +5,6 @@ heading: BANGKOK LEGAL CONSULTING
 subheading: THE COMPANY PROFILE
 motto: “ EN MOTTO ”
 stories:
-
   - content: "Bangkok Legal Consulting Co., Ltd. (B.L.C.) was\r established in 2015 by a team of Legal Professionals\r having graduated from leading universities both in\r Thailand and Abroad."
     heading: Our Background
 
