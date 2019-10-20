@@ -132,8 +132,13 @@ overflow-y: scroll; */
 
 
   
- 
-   const url = root.location.pathname;
+  
+  var url = "/";
+  if(root.location != undefined ){
+    url = root.location.pathname
+  }
+
+  
   const { title, description , languages} = useSiteMetadata()
 
  // alert(url);
