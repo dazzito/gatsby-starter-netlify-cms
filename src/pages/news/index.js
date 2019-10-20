@@ -78,8 +78,11 @@ span {
 
 export default class NewsIndexPage extends React.Component {
   render() {
+
+     // console.log(this.props)
+
     return (
-      <Layout>
+      <Layout location={this.props.location}>
 
          
 

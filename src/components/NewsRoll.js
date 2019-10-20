@@ -28,7 +28,7 @@ const NewsHeader = styled.header`
 
     h2{
       color:#b7b28a;
-      font-size: 1.25rem;
+      font-size: 1rem;
    
     }
 `;
@@ -41,7 +41,7 @@ const NewsBox = styled.article`
   height:350px;
   margin: 1.25em;
   position: relative;
-  box-shadow: 0px 0px 3px 0px #171717;
+  box-shadow: 0px 0px 2px 1px #9f9f9f;
 
   transition: transform .2s; /* Animation */ 
 
@@ -62,6 +62,7 @@ const NewsBox = styled.article`
 const NewsRow = styled(Row)`
   flex-wrap: wrap;
   justify-content: center;
+
 `;
 
 
@@ -144,7 +145,7 @@ class NewsRoll extends React.Component {
                    </div>
                     */}
                    
-                    <div className="subtitle is-size-5" style={{display:'inline'}}>
+                    <div className="subtitle" style={{display:'inline'}}>
                       {post.frontmatter.date}
                     </div>
 

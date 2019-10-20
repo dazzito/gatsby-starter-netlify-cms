@@ -97,7 +97,7 @@ exports.createPages = ({ actions, graphql }) => {
 //           locale: lang,
 //         },
 //       })
-//     })
+//     }) 
 //     resolve()
 //   })
 // } 

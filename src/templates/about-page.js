@@ -11,39 +11,107 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
 
 
+  
 
+
+  const Content = styled(PageContent)`
+    max-width:1366px;
+    padding:1.5em;
+  `;
+
+    
+const ParallaxContainer  = styled.div`
+display: initial;
+
+/* position: relative; */
+width: 100%;
+min-height: 100vh;
+transform-style: preserve-3d;
+
+*{
+  position:absolute;
+
+}
+
+&::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: block;
+  background: url("/img/marble-white.jpg") top center;
+  background-size: cover;
+  transform: translateZ(-1px) scale(2.1);
+  min-height: 100%;
+  z-index: -2;
+}
+`
+
+
+
+const ContentContainer = styled.div`
+
+/* margin-top: 50px; */
+margin-bottom: 0;
+padding: 0;
+padding-top: 3em;
+
+
+background: #000000bd;
+/* padding-top: 2em; */
+/* padding: 2.5em; */
+
+
+padding-bottom: 0px;
+color: white;
+
+/* border: solid 2px #cfcaa3; */
+`;
 
   const Container = styled.div`
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5em;
-    margin-bottom: 5em;
-    padding: 2.5em;
+
+
+     perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+    /* border: solid 2px #cfcaa3; */
   `;
 
   const Header = styled.div`
  
-font-family: 'Source Serif Pro', serif;
-
-      width: 100%; 
-text-align: center; 
-border-bottom: 2px solid #d0cba4; 
-line-height: 0.1em;
-margin: 10px 0 20px; 
-color: #d0cba4;
-line-height: 0;
- font-size: 2.5rem;
- word-break: break-word;
- margin-top: 0.5em;
+ font-family: 'Source Serif Pro',serif;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #d0cba4;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    color: #d0cba4;
+    line-height: 0;
+    font-size: 2em;
+    word-break: break-word;
+    margin-top: 0.5em;
+ 
 
   span { 
     /* background: url("/img/bg2.png"); */
-    background: #3f3f3f;
+    /* background: #3f3f3f;
     border: solid;
+    padding:0 10px;  */
     /* background: url('/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg');
     background-size: auto; */
-     padding:0 10px; 
+    
+
+
+     background: #232323;
+    border: solid;
+    /* padding-top: 30px; */
+    padding: 5px 10px;
+    margin: 10p;
+    border-radius: 4px;
   }
+
+
   `;
 
 
@@ -55,26 +123,29 @@ line-height: 0;
 
   return (
  
-        <Container>
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-            <Fade>
-              <Header>
+        
+    
+        <ContentContainer>
+
+<ParallaxContainer>
+
+</ParallaxContainer>
+    
+            <Fade >
+              <Header >
                 <span>
                   {title}
                 </span>
                 
               </Header>
-              <PageContent className="content" content={content} />
+              <Content className="content" content={content} />
               <Header></Header>
               </Fade> 
-              
-   
-            </div>
-          </div>
+
 
           
-        </Container>
+        </ContentContainer>
+
 
   );
 };
@@ -85,11 +156,13 @@ AboutPageTemplate.propTypes = {
   contentComponent: PropTypes.func
 };
 
-const AboutPage = ({data}) => {
-  const { markdownRemark: post } = data;
+const AboutPage = (props) => {
+  const { markdownRemark: post } = props.data;
+  const location = props.location;
+  //console.log(props)
 
   return ( 
-    <Layout>
+    <Layout location={location}>
       
         <AboutPageTemplate
           contentComponent={HTMLContent}

@@ -177,17 +177,19 @@ const ModalExamplePage = ({
 
  class TeamPage extends React.Component {
 
-  
 
+  constructor(props) {
+    super(props)
+  }
 
   render() {
     console.log(this.props);
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-
+    //const { data } = this.props
+    const { edges: posts } = this.props.data.allMarkdownRemark
+    const location = this.props.location
     console.log(posts);
     return (
-      <Layout> 
+      <Layout location={location}> 
 
 
 
@@ -246,20 +248,20 @@ const ModalExamplePage = ({
             </div>
           </div>
         </section>
-      </Layout>
-    )
+      </Layout> 
+    ) 
   } 
 }
+ 
 
-
-export default () => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query MemberQuery($locale: String){  
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $locale } } }
-        ) {
+        ) { 
           edges {
             node {
               frontmatter {
@@ -269,6 +271,7 @@ export default () => (
                 content
                 position
                 expertise
+               
              
               }
             }
@@ -276,7 +279,7 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <TeamPage data={data} count={count} />}
+    render={() => <TeamPage {...props} />}
   />
 )
 

@@ -38,7 +38,7 @@ const Container = styled(Col)`
 
 
 
-const TemplateWrapper = (props) => {
+const TemplateWrapper = ({ children, location }) => {
  
   
   
@@ -72,21 +72,70 @@ const TemplateWrapper = (props) => {
  
   
   
+  const ParallaxContainer  = styled.div`
+  display: initial;
+  
+  /* position: relative; */
+  width: 100%;
+  min-height: 100vh;
+  transform-style: preserve-3d;
+
+  *{
+    position:absolute;
+
+  }
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: block;
+    background: url("/img/marble-white.jpg") top center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2.1);
+    min-height: 100%;
+    z-index: -2;
+  }
+
+
+
+
+
+  
+  `
+
+
+
+const ContentContainer = styled.div`
+   /* margin-top: 126px; */
+   flex:1;
+ 
+   /* max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto; */
+`;
+
 
   const Container = styled.div`
-        background: url('/img/marble-white.jpg');
-        
-    background-size: cover;
+        /* background: url('/img/marble-white.jpg'); */
+        background: #212121;
+      background-size: cover;
     /* background: #272727; */
-    background-position: bottom;
+    /* background-position: bottom;perspective: 1px;
+transform-style: preserve-3d;
+height: 100vh;
+overflow-x: hidden;
+overflow-y: scroll; */
 
    
   `;
+
+
   
-  alert(props)
-  console.log(props)
+  // alert(props)
+  // console.log(props)
  
-  const url = this.props.location.pathname;
+   const url = location.pathname;
   const { title, description , languages} = useSiteMetadata()
 
  // alert(url);
@@ -100,7 +149,7 @@ const TemplateWrapper = (props) => {
   return (
     <IntlProvider
     locale={langKey}
-    // messages={this.i18nMessages}
+    // messages={this.i18nMessages} 
   >
       <Helmet>
         <html lang="en" />
@@ -144,28 +193,44 @@ const TemplateWrapper = (props) => {
               </Link> */}
 
 
- 
-<Col style={{height: '100%'}}>  
+<Container >
 
-<Navbar locale={langKey} langs={langsMenu}  isScrolled={isScrolled} 
+<Col style={{height: '100%', flex:1}}>  
+
+
+
+
+
+
+
+
+
+<Navbar pathname={location.pathname} locale={langKey} langs={langsMenu}  isScrolled={isScrolled} 
 
 //url("/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg")
   scrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
   unscrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}} />
 
 
+
+
+
+
 {/* <div ref={ref}>
   <DynamicSubNav />
   </div>  */}
     
+      <ContentContainer>
+
+        {children}
+      </ContentContainer>
       
-      <Container style={{flex:1, marginTop: 126}}>{props.children}</Container>
      
      
-      <Footer />
+      <Footer disableFooterNav={location.pathname == "/"} />
 </Col>
 
-
+</Container>
 </IntlProvider>
   )
 }

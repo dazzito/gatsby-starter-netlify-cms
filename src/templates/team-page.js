@@ -115,8 +115,9 @@ export const TeamPageTemplate = ({
 //   images: PropTypes.array
 // };
 
-const TeamPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+const TeamPage = (props) => {
+  const { frontmatter } = props.data.markdownRemark;
+  const location = props.location
 
   return (
     <ModalRoutingContext>
@@ -135,7 +136,7 @@ const TeamPage = ({ data }) => {
               />
             </Modal>
           ) : (
-            <Layout>
+            <Layout location={location}>
               <TeamPageTemplate
                 image={frontmatter.image}
                 firstname={frontmatter.firstname}

@@ -4,7 +4,7 @@ locale: en
 firstname: Prapas
 lastname: Chuprathet
 nickname: Leo
-image: "../../../../static/img/scofield.jpg"
+image: "/static/img/scofield.jpg"
 content: My name is leo
 position: Programmer
 expertise: Programming

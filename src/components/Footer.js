@@ -60,10 +60,16 @@ const FooterRow = styled(Row)`
 `;
 
 const FooterWrapper = styled(Col)`
+  z-index:2;
   background: #212121;
   border-right: solid 1px #3f3f3f;
     text-align: end;
     /* padding: 1em; */
+
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0;
 `;
 
 const ContactInfo = styled.div`
@@ -88,10 +94,20 @@ const Copyright = styled.div`
 
 
 const Footer = class extends React.Component {
+
+
+
+
+
   render() {
+    const footerNav =  this.props.disableFooterNav;
+  
     return (
       <FooterWrapper>
-        <FooterRow>
+
+
+      {!this.props.disableFooterNav ?  
+        <FooterRow >
 
 
           <FooterRow>
@@ -149,6 +165,7 @@ const Footer = class extends React.Component {
           </ContactInfo>
         </FooterRow>
 
+ : <></>}
 
         <Copyright>
           <p>

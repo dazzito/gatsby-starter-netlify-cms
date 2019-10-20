@@ -14,6 +14,7 @@ import styled from "styled-components"
 
 
 const Container = styled.div`
+ max-width:1366px ;
 margin-left: auto;
 margin-right: auto;
 /* margin-top: 5em; */
@@ -39,12 +40,23 @@ li:before {
     top: 0.9em;
     position: relative;
 }
+`; 
+
+const BackgroundLayer = styled.div`
+  background:#272727;
+  width: 100%;
+
 `;
 
 
 const Section = styled.section`
-  border-top: solid 2px #b7b28a;
-  background:#272727;
+max-width:1366px ;
+ margin-left: auto;
+ margin-right: auto;
+ /* margin-bottom: 5em; */
+
+  /* border: solid 2px #b7b28a;  */
+  
   min-height: 400px;
   padding: 2.5em;
   color: lightgrey;
@@ -76,9 +88,10 @@ const Header = styled.div`
 font-family: 'Source Serif Pro', serif;
   width: 100%; 
 text-align: center; 
-border-bottom: 2px solid #d0cba4; 
+/* border-bottom: 2px solid #d0cba4;  */
 line-height: 0.1em;
 margin: 10px 0 20px; 
+margin-bottom: 60px;
 color: #d0cba4;
 line-height: 0;
 font-size: 2.5rem;
@@ -86,8 +99,8 @@ word-break: break-word;
 margin-top: 0.5em;
 
 span { 
-  background: #3f3f3f;
-    border: solid;
+  /* background: #3f3f3f; */
+    /* border: solid; */
  padding:0 10px; 
 }
 `;
@@ -107,9 +120,8 @@ export const ServicePageTemplate = ({
 
     <>
    
-    <Container>
-    <div className="columns">
-      <div className="column is-10 is-offset-1">
+    {/* <Container>
+
       <Fade>
         <Header>
           <span>
@@ -122,13 +134,20 @@ export const ServicePageTemplate = ({
         </Fade> 
         
 
-      </div>
-    </div>
-  </Container>
+  
+  </Container> */}
+    <BackgroundLayer>
 
-  <Section> <div className="columns">
-            <div className="column is-10 is-offset-1">
+    
+  <Section> 
             <Fade>
+
+            <Header>
+          <span>
+            {title.toUpperCase()}
+          </span>
+          
+        </Header>
             {/* <SectionHeader>
               <span>SERVICES</span>
                  
@@ -137,9 +156,9 @@ export const ServicePageTemplate = ({
              
               </Fade> 
               
-   
-            </div>
-          </div></Section>
+   </Section>
+
+   </BackgroundLayer>
 
   </>
 )}
@@ -229,11 +248,12 @@ export const ServicePageTemplate = ({
 // </div>
 
 
-const ServicePage = ({data}) => {
-  const { frontmatter, html } = data.markdownRemark
+const ServicePage = (props) => {
+  const { frontmatter, html } = props.data.markdownRemark
+  const location = props.location
 
   return (
-    <Layout>
+    <Layout location={location}>
       <ServicePageTemplate
       contentComponent={HTMLContent}
         title={frontmatter.title}

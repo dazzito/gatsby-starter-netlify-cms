@@ -4,7 +4,7 @@ locale: th
 firstname: ประ
 lastname: Chuprathet
 nickname: Leo
-image: /img/scofield.jpg
+image: "../static/img/scofield.jpg"
 content: My name is leo
 position: Programmer
 expertise: Programming

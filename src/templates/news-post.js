@@ -93,11 +93,12 @@ export const NewsPostTemplate = ({
 //   helmet: PropTypes.object,
 // }
 
-const NewsPost = ({ data }) => {
-  const { markdownRemark: post } = data
+const NewsPost = ({ props }) => {
+  const { markdownRemark: post } = props.data
+  const location = props.location;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <NewsPostTemplate
         content={post.html}
         contentComponent={HTMLContent}

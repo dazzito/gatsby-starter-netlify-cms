@@ -79,8 +79,11 @@ export default class Index extends React.Component {
   }
 
   render() { 
+
+    const location = this.props.location
+
     return (
-      <Layout>
+      <Layout location={location}>
 
 <Container>
           <div className="columns">
