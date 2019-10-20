@@ -230,7 +230,7 @@ overflow-y: scroll; */
       
      
      
-      <Footer disableFooterNav={location.pathname == "/"} />
+      <Footer disableFooterNav={url == "/"} />
 </Col>
 
 </Container>
