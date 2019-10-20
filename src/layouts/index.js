@@ -208,7 +208,7 @@ overflow-y: scroll; */
 
 
 
-<Navbar pathname={location.pathname} locale={langKey} langs={langsMenu}  isScrolled={isScrolled} 
+<Navbar pathname={url} locale={langKey} langs={langsMenu}  isScrolled={isScrolled} 
 
 //url("/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg")
   scrolled={{background: '#212121', boxShadow:'0px 2px 2px -2px rgba(122,122,122,1)', color: '#3f3c3cd9'}}  
