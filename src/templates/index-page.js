@@ -35,6 +35,10 @@ import { InView } from 'react-intersection-observer';
 
 import ReactPageScroller from "react-page-scroller";
 
+
+import { SlideContainer, SlidePage } from 'react-slidepage';
+require('react-slidepage/lib/index.css');
+
 const Container = styled(StickyContainer)`
 	margin-left: auto;
 	margin-right: auto;
@@ -356,7 +360,7 @@ export const IndexPageTemplate = class extends React.Component {
 	render() {
 		return (
 			<IndexWrapper>
-				<ReactPageScroller ref={c => this.reactPageScroller = c}>
+				
 				<HeroContainer>
 					<img src="/img/logot.png" />
 				</HeroContainer>
@@ -708,7 +712,7 @@ export const IndexPageTemplate = class extends React.Component {
 				</Fade>
 
     
-				</ReactPageScroller>
+		
     
     
     

@@ -23,7 +23,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import {Row,Col} from "shared/styled.js"
 
 import { Link } from 'gatsby'
-// import root from 'window-or-global'
+import root from 'window-or-global'
 
 
  
@@ -133,7 +133,7 @@ overflow-y: scroll; */
 
   
  
-   const url = location.pathname;
+   const url = root.location.pathname;
   const { title, description , languages} = useSiteMetadata()
 
  // alert(url);
