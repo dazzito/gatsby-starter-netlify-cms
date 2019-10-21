@@ -115,6 +115,7 @@ module.exports = {
 				scss: path.join(__dirname, 'src/components'),
 			},
 		},
+		`gatsby-plugin-styled-components`,
 		{
 			resolve: 'gatsby-plugin-i18n',
 			options: {
