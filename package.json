@@ -61,6 +61,7 @@
     "react-scrolling-color-background": "^1.0.2",
     "react-slidepage": "^0.1.5",
     "react-sticky": "^6.0.3",
+    "react-timeout": "^1.2.0",
     "react-transition-group": "^4.3.0",
     "scroll-background": "^1.0.5",
     "styled-components": "^4.4.0",

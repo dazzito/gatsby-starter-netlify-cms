@@ -35,7 +35,7 @@ line-height: 0;
 font-size: 2.5rem;
 word-break: break-word;
 margin-top: 0.5em;
-margin-bottom: 1.25em
+margin-bottom: 1.25em;
 
 span { 
   background: #272727;

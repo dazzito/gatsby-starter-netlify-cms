@@ -188,9 +188,10 @@ const HeroContainer = styled.div`
 
 	align-items: center;
 	display: flex;
-	
+	position: relative;
 	background-attachment: fixed;
-	background: url(/img/sky.jpg);
+	background:url("/img/marble-white.jpg");
+	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
 	height: 100vh;
@@ -272,6 +273,82 @@ const Carousel = styled(AliceCarousel)`
 
 `;
 
+const HeroCarousel = styled(AliceCarousel)`
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+	
+
+`;
+
+
+
+const HeroCarouselWrapper = styled(AliceCarousel)`
+    box-sizing: border-box;
+
+	display: flex;
+	height: 100vh;
+	text-align: center;
+	justify-content: center;
+
+
+	
+`;
+
+const HeroImage = styled.img`
+	 max-width: 100% !important;
+	 padding: 0px !important;
+`;
+
+
+
+
+const HeroButton = styled.h2`
+	position: absolute;
+	bottom: -150px;
+	left: 50%;
+/* 	
+	bottom: 0;
+	right: 0; */
+	text-align: right;
+
+
+    /* color: #d0cba4; */
+    color: ${props => (props.color ? props.color : 'black')};
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.125;
+    font-family: 'Playfair Display';
+    word-break: break-word;
+
+    font-weight: 700 !important;
+
+    transition: all 0.2s ease 0s;
+
+    &:hover, &:focus {
+    color: ${props => (props.color ? darken(0.10, props.color) : 'black')};
+    transform: translate(0%, -10%);
+    
+   
+  }
+
+  &:hover:before{
+      top: 0;	
+	border: 1px solid black;
+	border-top: 0;
+	border-bottom: 0;
+  }
+  
+  &:hover:after{
+    border: 1px solid black;
+    bottom: 0;
+	height: 0;
+  }
+
+`;
+
+
+
 
 const StatementButton = styled.h2`
 
@@ -310,6 +387,14 @@ margin-bottom: 1.5rem;
 
 `;
 
+
+const MottoContainer = styled.div`
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+
+	
+`;
 
 const NewsSection = styled(StoryContainer)`
 text-align: left;
@@ -363,6 +448,7 @@ const BackgroundCarousel = () => {
 	);
 };
 
+
 export const IndexPageTemplate = class extends React.Component {
 	constructor(props) {
 		super(props);
@@ -376,7 +462,13 @@ export const IndexPageTemplate = class extends React.Component {
 
       toggleVision: false,
       toggleMission: false,
-      toggleValue: false
+	  toggleValue: false,
+	  
+
+
+	  slide: 0
+
+	  
 		};
 
 		this.handleClick = this.handleClick.bind(this);
@@ -394,17 +486,118 @@ export const IndexPageTemplate = class extends React.Component {
 		}
 	};
 
+
+	changePresentation(){
+		let slide = this.state.slide + 1;
+		if (slide > 2) {
+			slide = 0;
+		}
+		this.setState({slide:slide})
+	
+	}
+
+
+
+	componentDidMount(){
+		setInterval(this.changePresentation.bind(this), 7000);
+	}
+
+
+
 	render() {
+
+		// const slideBackground = ["/img/sky.jpg", "/img/bg1-old.jpg", "/img/bg3.jpg"]
+
 		return (
 			<IndexWrapper>
 				
 				<HeroContainer>
+			{/* <HeroContainer background={slideBackground[this.state.slide]}> */}
 
-					<h1> [ Dynamic Motto #1 ] </h1>
-
-					<StatementButton> Learn More </StatementButton>
+			<Fade delay={500} >
 
 
+</Fade>
+<MottoContainer>
+
+
+				<Fade when={this.state.slide == 0}>
+	
+<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',background: '#000000c4', fontFamily: 'Playfair Display',
+    boxShadow: 'inset 0px 1px 4px 4px #252525' }}>Practical wisdom, trusted advice</h1>
+
+
+	
+
+
+
+	
+</Fade>
+
+
+<Fade when={this.state.slide == 1} >
+<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',background: '#000000c4', fontFamily: 'Playfair Display',
+    boxShadow: 'inset 0px 1px 4px 4px #252525' }}>"The people's good is the highest law." - Cicero</h1>
+
+
+
+}
+
+
+</Fade>
+
+<Fade when={this.state.slide == 2} >
+<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',background: '#000000c4',  fontFamily: 'Playfair Display',
+    boxShadow: 'inset 0px 1px 4px 4px #252525' }}>Experienced. Driven. Effective</h1>
+
+	
+
+</Fade>
+
+<HeroButton >Learn more</HeroButton>
+
+
+
+</MottoContainer>
+
+
+
+
+{/* 
+				<HeroCarousel  
+		duration={750}
+		buttonsDisabled 
+		dotsDisabled 
+		stagePadding={{
+			paddingLeft: 0,
+			paddingRight: 0,
+		}}
+		// fadeOutAnimation={true}
+		autoPlay={true}
+		autoPlayInterval={5000}
+		onSlideChange={(e) => this.setState({slide:e.slide})}
+
+		responsive={{
+			0: {
+				items: 3,
+			}
+		}}
+
+		>
+
+
+		
+		<img style={{height:'100vh', width:'100vw', padding:'0px', maxWidth:'unset'}} src={"/img/sky.jpg"}/>
+		<img  style={{height:'100vh', width:'100vw', padding:'0px', maxWidth:'unset'}} src={"/img/bg1-old.jpg"}/>
+		<img  style={{height:'100vh', width:'100vw', padding:'0px', maxWidth:'unset'}} src={"/img/marble-white.jpg"}/>
+
+
+		</HeroCarousel>
+
+	 */}
+
+		
+			
 
 					{/* <img src="/img/logot.png" /> */}
 				</HeroContainer>
@@ -462,35 +655,35 @@ export const IndexPageTemplate = class extends React.Component {
 										className="scthead"
 										style={{ color: this.state.sectionId == 1 ? '#d0cba4 ' : '#212121' }}
 									>
-										VISION
+										STATEMENTS
 									</Item>
 
 									<Item
 										className="scthead"
 										style={{ color: this.state.sectionId == 2 ? '#d0cba4 ' : '#212121' }}
 									>
-										MISSION
+										SERVICES
 									</Item>
 
 									<Item
 										className="scthead"
 										style={{ color: this.state.sectionId == 3 ? '#d0cba4 ' : '#212121' }}
 									>
-										VALUE
+										TEAM
 									</Item>
 
 									<Item
 										className="scthead"
 										style={{ color: this.state.sectionId == 4 ? '#d0cba4 ' : '#212121' }}
 									>
-										OUR TEAM
+										CLIENTS
 									</Item>
 
 									<Item
 										className="scthead"
 										style={{ color: this.state.sectionId == 5 ? '#d0cba4 ' : '#212121' }}
 									>
-										CLIENTS
+										NEWS
 									</Item>
 								</div>
 							</div>
@@ -646,7 +839,7 @@ export const IndexPageTemplate = class extends React.Component {
 					<StoryContainer style={{ height: '860px'}}>
 						<InView
 							onChange={(inView, entry) => {
-								this.changeSection(inView, 4, entry);
+								this.changeSection(inView, 1, entry);
 							}}
 						>
 							{({ inView, ref, entry }) => (
@@ -733,7 +926,7 @@ export const IndexPageTemplate = class extends React.Component {
 					<StoryContainer style={{ background: '#242424' }}>
 						<InView
 							onChange={(inView, entry) => {
-								this.changeSection(inView, 0, entry);
+								this.changeSection(inView, 2, entry);
 							}}
 						>
 							{({ inView, ref, entry }) => (
@@ -791,7 +984,7 @@ export const IndexPageTemplate = class extends React.Component {
 					<StoryContainer style={{ height: '100vh', background:'white'}}>
 						<InView
 							onChange={(inView, entry) => {
-								this.changeSection(inView, 4, entry);
+								this.changeSection(inView, 3, entry);
 							}}
 						>
 							{({ inView, ref, entry }) => (
@@ -831,7 +1024,7 @@ export const IndexPageTemplate = class extends React.Component {
     		<ClientSection>
 					<InView
 						onChange={(inView, entry) => {
-							this.changeSection(inView, 5, entry);
+							this.changeSection(inView, 4, entry);
 						}}
 					>
 						{({ inView, ref, entry }) => (
@@ -964,14 +1157,26 @@ export const IndexPageTemplate = class extends React.Component {
  */}
 
         <NewsSection>
+		<InView
+						onChange={(inView, entry) => {
+							this.changeSection(inView, 5, entry);
+						}}
+					>
+						{({ inView, ref, entry }) => (
 
-		<Fade delay={200}>
-									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', textAlign:'left' , marginTop:'0.75em'}}>
+		<Fade delay={200} cascade>
+									<h2 ref={ref} className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', textAlign:'left' , marginTop:'0.75em'}}>
 										Latest News
 									</h2>
+
+									<NewsRoll style={{marginBottom: '5em'}} />
 								</Fade>
 
-          	<NewsRoll style={{marginBottom: '5em'}} />
+          
+
+
+			  )}
+			  </InView>
         </NewsSection>
 
 	
