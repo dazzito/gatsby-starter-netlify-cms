@@ -20,7 +20,7 @@ padding: 2.5em;
 
 const Header = styled.div`
 
-font-family: 'Source Serif Pro', serif;
+font-family: 'Playfair Display', serif;
 
   width: 100%; 
 text-align: center; 

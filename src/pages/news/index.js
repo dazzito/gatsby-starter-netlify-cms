@@ -24,7 +24,7 @@ const Section = styled.section`
 `;
 
 const SectionHeader = styled.div`
-font-family: 'Source Serif Pro', serif;
+font-family: 'Playfair Display', serif;
 width: 100%; 
 text-align: center; 
 border-bottom: 2px solid #d0cba4; 
@@ -46,7 +46,7 @@ span {
 `;
 
 const Header = styled.div`
-font-family: 'Source Serif Pro', serif;
+font-family: 'Playfair Display', serif;
   width: 100%; 
 text-align: center; 
 border-bottom: 2px solid #d0cba4; 

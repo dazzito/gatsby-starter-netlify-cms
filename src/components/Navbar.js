@@ -25,7 +25,7 @@ const ActiveMenuItem = styled(Link)`
   transition: all 0.2s ease 0s;
   color:#d0cba4;
   height: fit-content;
-  font-family: 'Source Serif Pro', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   padding: 0.5em;
 
   &::after{
@@ -52,7 +52,7 @@ const MenuItem = styled(Link)`
   transition: all 0.2s ease 0s;
   color:#d0cba4;
   height: fit-content;
-  font-family: serif;
+  font-family: "Playfair Display";
   padding: 1.25em;
   font-size:0.95rem;
 

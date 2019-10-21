@@ -114,7 +114,7 @@ const CardHeaderContent = styled.div`
 
 	h1,
 	h2 {
-		font-family: 'Source Serif Pro', sans-serif;
+		font-family: 'Playfair Display', sans-serif;
 		font-size: 1.5rem;
 		color: #d0cba4;
 		font-weight: bolder;
@@ -185,11 +185,33 @@ const ParallaxContainer = styled.div`
 `;
 
 const HeroContainer = styled.div`
+
+	align-items: center;
+	display: flex;
+	
 	background-attachment: fixed;
 	background: url(/img/sky.jpg);
 	background-size: cover;
 	background-position: bottom;
 	height: 100vh;
+
+	align-items: center;
+  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+
+	h1 {
+		font-size: 3.2rem;
+		color: #d0cba4;
+	}
+
+	h2 {
+		font-size: 2.4rem;
+		color: #474747;;
+	}
 
 	img {
 		height: auto;
@@ -259,7 +281,7 @@ margin-bottom: 1.5rem;
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 1.125;
-    font-family: 'serif';
+    font-family: 'Playfair Display';
     word-break: break-word;
 
     font-weight: 700 !important;
@@ -377,6 +399,13 @@ export const IndexPageTemplate = class extends React.Component {
 			<IndexWrapper>
 				
 				<HeroContainer>
+
+					<h1> [ Dynamic Motto #1 ] </h1>
+
+					<StatementButton> Learn More </StatementButton>
+
+
+
 					{/* <img src="/img/logot.png" /> */}
 				</HeroContainer>
 
@@ -509,7 +538,7 @@ export const IndexPageTemplate = class extends React.Component {
 										</div>
 
 										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1,borderLeft: 'solid 7px #f6f6f6',margin: '1.5em'}}>
-										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'serif', fontWeight: 'normal',}}>
+										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.stories[0].heading}
 									</h2>
 
@@ -731,7 +760,7 @@ export const IndexPageTemplate = class extends React.Component {
 										
 
 										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1 }}>
-										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'serif', fontWeight: 'normal',}}>
+										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										Services
 									</h2>
 
@@ -808,7 +837,7 @@ export const IndexPageTemplate = class extends React.Component {
 						{({ inView, ref, entry }) => (
 							<Story ref={ref}>
 								<Fade delay={200}>
-									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'serif', fontWeight: 'normal', marginTop:'0.75em'}}>
+									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', fontWeight: 'normal', marginTop:'0.75em'}}>
 										Our Clients
 									</h2>
 								</Fade>
@@ -937,7 +966,7 @@ export const IndexPageTemplate = class extends React.Component {
         <NewsSection>
 
 		<Fade delay={200}>
-									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'serif', textAlign:'left' , marginTop:'0.75em'}}>
+									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', textAlign:'left' , marginTop:'0.75em'}}>
 										Latest News
 									</h2>
 								</Fade>
