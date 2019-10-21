@@ -35,6 +35,8 @@ import { InView } from 'react-intersection-observer';
 
 import ReactPageScroller from "react-page-scroller";
 
+import root from 'window-or-global'
+ 
 
 const Container = styled(StickyContainer)`
 	margin-left: auto;
@@ -398,7 +400,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 </ParallaxContainer> */}
 
-				<Sticky topOffset={window.innerHeight}>
+				<Sticky topOffset={root.innerHeight}>
 					{({ style, isSticky }) => (
 						<div
 							style={{
