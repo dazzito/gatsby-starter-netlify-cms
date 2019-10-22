@@ -424,7 +424,7 @@ background: #242424;
 
 
 
-const BackgroundCarousel = () => {
+const BackgroundCarousel = (images) => {
 	const handleOnDragStart = e => e.preventDefault();
 
 	const stagePadding = {
@@ -443,12 +443,14 @@ const BackgroundCarousel = () => {
 
 	return (
 		<Carousel mouseDragEnabled buttonsDisabled dotsDisabled stagePadding={stagePadding} responsive={responsive}>
-			<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" onDragStart={handleOnDragStart} />
-			<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" onDragStart={handleOnDragStart} />
-			<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" onDragStart={handleOnDragStart} />
-			<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" onDragStart={handleOnDragStart} />
-			<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" onDragStart={handleOnDragStart} />
-			<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" onDragStart={handleOnDragStart} />
+
+
+				{images.map(item => (
+						<img src={item} onDragStart={handleOnDragStart} />
+				
+					))}
+		
+		
 		</Carousel>
 	);
 };
@@ -732,15 +734,15 @@ export const IndexPageTemplate = class extends React.Component {
 										}}
 									>
 										<div style={{ flex: 1, minWidth:300,margin: '1.5em'}}>
-											<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" />
+											<img src={this.props.backgroundSectionImage} />
 										</div>
 
 										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1,borderLeft: 'solid 7px #f6f6f6',margin: '1.5em'}}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
-										{this.props.stories[0].heading}
+										{this.props.backgroundSectionHeading}
 									</h2>
 
-											<ReactMarkdown source={this.props.stories[0].content} />
+											<ReactMarkdown source={this.props.backgroundSectionContent} />
 											<button class="btn2 draw-border left">Read more</button>
 										</div>
 									</div>
@@ -748,7 +750,7 @@ export const IndexPageTemplate = class extends React.Component {
 							)}
 						</InView>
 
-						{BackgroundCarousel()}
+						{BackgroundCarousel(this.props.gallery)}
 
 
 					
@@ -868,7 +870,7 @@ export const IndexPageTemplate = class extends React.Component {
                   <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em'}}>
                   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
                   */}
-                  <ReactMarkdown source={this.props.stories[1].content}/>
+                  <ReactMarkdown source={this.props.vision}/>
 
 
                   </div>
@@ -888,7 +890,7 @@ export const IndexPageTemplate = class extends React.Component {
                     <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em'}}>
                     {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
                     */}
-                    <ReactMarkdown source={this.props.stories[2].content}/>
+                    <ReactMarkdown source={this.props.mission}/>
                     
 
                     </div>
@@ -906,7 +908,7 @@ export const IndexPageTemplate = class extends React.Component {
 <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em'}}>
 {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
 */}
-<ReactMarkdown source={this.props.stories[3].content}/>
+<ReactMarkdown source={this.props.value}/>
 
 
 </div>
@@ -959,10 +961,10 @@ export const IndexPageTemplate = class extends React.Component {
 
 										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1 }}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
-										Services
+										{this.props.serviceSectionHeading}
 									</h2>
 
-											<ReactMarkdown source={this.props.stories[0].content} />
+											<ReactMarkdown source={this.props.serviceSectionContent} />
 
 											<button class="btn2 draw-border left">Read more</button>
 										</div>
@@ -1226,11 +1228,17 @@ const IndexPage = props => {
 	return (
 		<Layout location={location}>
 			<IndexPageTemplate
-				motto={frontmatter.motto}
-				heading={frontmatter.heading}
-				subheadding={frontmatter.subheadding}
-				motto={frontmatter.motto}
-				stories={frontmatter.stories}
+				backgroundSectionImage={frontmatter.backgroundSectionImage}
+				backgroundSectionHeading={frontmatter.backgroundSectionHeading}
+				backgroundSectionContent={frontmatter.backgroundSectionContent}
+				statementSectionImage={frontmatter.statementSectionImage}
+				vision={frontmatter.vision}
+				mission={frontmatter.mission}
+				value={frontmatter.value}
+				serviceSectionImage={frontmatter.serviceSectionImage}
+				serviceSectionHeading={frontmatter.serviceSectionHeading}
+				serviceSectionContent={frontmatter.serviceSectionContent}
+				gallery={frontmatter.gallery}
 			/>
 		</Layout>
 	);
@@ -1252,13 +1260,19 @@ export const pageQuery = graphql`
 			html
 			frontmatter {
 				templateKey
-				heading
-				subheading
-				motto
-				stories {
-					heading
-					content
-				}
+				heroImage
+				backgroundSectionImage
+				backgroundSectionHeading
+				backgroundSectionContent
+				gallery
+				statementSectionImage
+				vision
+				mission
+				value
+				serviceSectionImage
+				serviceSectionHeading
+				serviceSectionContent
+			
 			}
 		}
 	}
