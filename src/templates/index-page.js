@@ -750,7 +750,7 @@ export const IndexPageTemplate = class extends React.Component {
 							)}
 						</InView>
 
-						{BackgroundCarousel(this.props.gallery)}
+						{/* {BackgroundCarousel(this.props.gallery)} */}
 
 
 					
