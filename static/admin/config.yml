@@ -16,13 +16,36 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: "Motto", name: "motto", widget: "string"}
-          - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
-          - {label: Image1, name: image1, widget: image}
-          - {label: Image2, name: image2, widget: image}
-          - {label: Image3, name: image3, widget: image}
+          - {label: Mottos, name: mottos, widget: list, fields:{label: Motto, name: motto, widget: string}}
+          - {label: Hero Image, name: heroImage, widget: image}
+         
+          - {label: Background Section Image, name: backgroundSectionImage, widget: image}
+          - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
+          - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
+          - {label: Gallery, name: gallery, widget: list, fields: {label: Image, name: image, widget: image}}
+
+
+          - {label: Statement Section Background, name: statementSectionImage, widget: image}
+          - {label: "Vision", name: "vision", widget: "string"}
+          - {label: "Mission", name: "mission", widget: "string"}
+          - {label: "Value", name: "value", widget: "string"}
+
+          - {label: Service Section Image, name: serviceSectionImage, widget: image}
+          - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
+          - {label: Service Section Content, name: serviceSectionContent, widget: markdown} 
+
+          - {label: Team Section Background, name: image, widget: image}
+          - {label: Team Button Label, name: image, widget: "string"}
+
+
+
+          
+ 
+          # - {label: "Motto", name: "motto", widget: "string"}
+          # - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
+          # - {label: Image1, name: image1, widget: image}
+          # - {label: Image2, name: image2, widget: image}
+          # - {label: Image3, name: image3, widget: image}
       - name: "about"
         label: "About"
         file: "src/pages/about/index.md"
@@ -49,15 +72,28 @@ collections:
         label: "Landing"
         name: "index"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: "Motto", name: "motto", widget: "string"}
-          - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
-          - {label: Image1, name: image1, widget: image}
-          - {label: Image2, name: image2, widget: image}
-          - {label: Image3, name: image3, widget: image}
+          - {label: Mottos, name: mottos, widget: list, fields:{label: Motto, name: motto, widget: string}}
+          - {label: Hero Image, name: heroImage, widget: image}
+         
+          - {label: Background Section Image, name: backgroundSectionImage, widget: image}
+          - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
+          - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
+          - {label: Gallery, name: gallery, widget: list, fields: {label: Image, name: image, widget: image}}
+
+
+          - {label: Statement Section Background, name: statementSectionImage, widget: image}
+          - {label: "Vision", name: "vision", widget: "string"}
+          - {label: "Mission", name: "mission", widget: "string"}
+          - {label: "Value", name: "value", widget: "string"}
+
+          - {label: Service Section Image, name: serviceSectionImage, widget: image}
+          - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
+          - {label: Service Section Content, name: serviceSectionContent, widget: markdown} 
+
+          - {label: Team Section Background, name: image, widget: image}
+          - {label: Team Button Label, name: image, widget: "string"}
       - name: "about"
         label: "About"
         file: "src/pages/about/index.th.md"

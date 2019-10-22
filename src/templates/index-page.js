@@ -46,7 +46,11 @@ const Container = styled(StickyContainer)`
 	padding: 2.5em;
 `;
 
-const IndexWrapper = styled(StickyContainer)``;
+const IndexWrapper = styled(StickyContainer)`
+background: white;
+color: #212121;
+
+`;
 
 const Story = styled.div`
 	margin: 1.5em;
@@ -124,8 +128,9 @@ const CardHeaderContent = styled.div`
 ////#region
 
 const StoryContainer = styled.div`
+
 	text-align: center;
-	color: whitesmoke;
+	color: #212121;
 	/* padding-top: 126px; */
 	position: relative;
 	display: flex;
@@ -190,7 +195,7 @@ const HeroContainer = styled.div`
 	display: flex;
 	position: relative;
 	background-attachment: fixed;
-	background:url("/img/marble-white.jpg");
+	background:url("/img/sky.jpg");
 	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
@@ -923,7 +928,7 @@ export const IndexPageTemplate = class extends React.Component {
     
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: '#242424' }}>
+					<StoryContainer style={{ background: '#242424', color: 'white' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 2, entry);
