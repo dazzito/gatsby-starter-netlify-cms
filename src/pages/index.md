@@ -2,6 +2,7 @@
 templateKey: index-page
 locale: en
 heroImage: /img/sky.jpg
+Mottos: 
 backgroundSectionImage: /img/blc_logo.png
 backgroundSectionHeading: About Us
 backgroundSectionContent: >-

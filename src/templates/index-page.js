@@ -247,6 +247,11 @@ const Client = styled.div`
 	height: 200px;
 	margin: 20px;
 	display: inline-block;
+	
+	*{
+		width: 200px;
+		
+	}
 `;
 
 const ArrowAnimation = keyframes`
@@ -843,7 +848,7 @@ export const IndexPageTemplate = class extends React.Component {
  */}
 
 				<Fade>
-					<StoryContainer style={{ height: '860px'}}>
+					<StoryContainer style={{ height: '600px'}}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 1, entry);
@@ -1044,16 +1049,23 @@ export const IndexPageTemplate = class extends React.Component {
 
 								<Fade delay={400} cascade>
 									<ClientsWrapper>
-										<Client></Client>
-										<Client></Client>
-										<Client></Client>
-										<Client></Client>
-										<Client></Client>
-										<Client></Client>
-										<Client></Client>
-										<Client></Client>
-                    <Client></Client>
-										<Client></Client>
+										<Client><img src="/img/blc_logo.png" /></Client>
+										<Client><img src="/img/blc_logo.png" /></Client>
+
+										<Client><img src="/img/blc_logo.png" /></Client>
+										<Client><img src="/img/blc_logo.png" /></Client>
+										
+
+										<Client><img src="/img/blc_logo.png" /></Client>
+										<Client><img src="/img/blc_logo.png" /></Client>
+										
+
+										<Client><img src="/img/blc_logo.png" /></Client>
+										<Client><img src="/img/blc_logo.png" /></Client>
+										
+										<Client><img src="/img/blc_logo.png" /></Client>
+										<Client><img src="/img/blc_logo.png" /></Client>
+										
 									</ClientsWrapper>
 								</Fade>
 							</Story>

@@ -33,6 +33,8 @@ collections:
 
           - {label: Service Section Image, name: serviceSectionImage, widget: image}
           - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
+
+          
           - {label: Service Section Content, name: serviceSectionContent, widget: markdown} 
 
           - {label: Team Section Background, name: image, widget: image}

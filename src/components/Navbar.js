@@ -43,18 +43,23 @@ const ActiveMenuItem = styled(Link)`
 
 
 const NavbarWrapper = styled.nav`
-		box-shadow: inset 0px -1px 5px 0px #252525;
+background: ${props => props.isTransparent ? 'transparent !important' : '#1b1b1b'};
+		/* box-shadow: inset 0px -1px 5px 0px #252525; */
 `;
 
 
 const MenuItem = styled(Link)`
   position: relative;
   transition: all 0.2s ease 0s;
-  color:#d0cba4;
+  color: ${props => props.isDark ? '#1b1b1b' : '#d0cba4'};
+ 
+
+  
   height: fit-content;
   font-family: "Playfair Display";
   padding: 1.25em;
-  font-size:0.95rem;
+  font-size:1.1rem;
+
 
   
 
@@ -62,7 +67,9 @@ const MenuItem = styled(Link)`
 
 	/* Effect 4: bottom border enlarge */
   &:hover{
-    color: lightgrey;
+	color: ${props => props.isDark ? '#d0cba4' : '#1b1b1b'};
+    font-weight: bold;
+    padding-top: 1em;
     &::after{
       height: 2px;
 		opacity: 1;
@@ -80,7 +87,7 @@ const MenuItem = styled(Link)`
 		left: 0;
 		width: 100%;
 		height: 1px;
-    background: #d0cba4; 
+     background: #d0cba4; 
 		content: '';
 		opacity: 0;
 		-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
@@ -223,7 +230,8 @@ const Navbar = class extends React.Component {
 
       console.log(this.state.location)
 		return (
-			<NavbarWrapper
+			<NavbarWrapper 
+				isTransparent={this.state.pathname == "/"}
 				className="navbar is-transparent "
 				role="navigation"
 				aria-label="main-navigation"
@@ -252,6 +260,7 @@ const Navbar = class extends React.Component {
 							<MenuItem
                 active={this.state.pathname == about}
 								to={about}
+								isDark={this.state.pathname == "/"}
 							>
 								{'ABOUT'}
 							</MenuItem>
@@ -259,6 +268,7 @@ const Navbar = class extends React.Component {
 							<MenuItem
                 active={this.state.pathname == team}
 								to={team}
+								isDark={this.state.pathname == "/"}
 							>
 								TEAM
 							</MenuItem>
@@ -266,6 +276,7 @@ const Navbar = class extends React.Component {
 							<MenuItem
                 active={this.state.pathname == service}
 								to={service}
+								isDark={this.state.pathname == "/"}
 
 							>
 								SERVICES
@@ -273,6 +284,7 @@ const Navbar = class extends React.Component {
 							<MenuItem
                 active={this.state.pathname == news}
 								to={news}
+								isDark={this.state.pathname == "/"}
 	
 							>
 								NEWS
@@ -280,6 +292,7 @@ const Navbar = class extends React.Component {
 							<MenuItem
                 active={this.state.pathname == contact}
 								to={contact}
+								isDark={this.state.pathname == "/"}
 				
 							>
 								CONTACT
