@@ -16,13 +16,14 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: Mottos, name: mottos, widget: list, fields:{label: Motto, name: motto, widget: string}}
+          - {label: Mottos, name: mottos, widget: object, fields: [{label: Motto, name: motto, widget: string}] }
+
           - {label: Hero Image, name: heroImage, widget: image}
          
           - {label: Background Section Image, name: backgroundSectionImage, widget: image}
           - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
           - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
-          - {label: Gallery, name: gallery, widget: list, fields: {label: Image, name: image, widget: image}}
+          - {label: Gallery, name: gallery, widget: object, fields: [{label: Image, name: image, widget: image}] }
 
 
           - {label: Statement Section Background, name: statementSectionImage, widget: image}
@@ -73,14 +74,15 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
-          - {label: Mottos, name: mottos, widget: list, fields:{label: Motto, name: motto, widget: string}}
+          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
+          - {label: Mottos, name: mottos, widget: object, fields: [{label: Motto, name: motto, widget: string}] }
+
           - {label: Hero Image, name: heroImage, widget: image}
          
           - {label: Background Section Image, name: backgroundSectionImage, widget: image}
           - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
           - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
-          - {label: Gallery, name: gallery, widget: list, fields: {label: Image, name: image, widget: image}}
+          - {label: Gallery, name: gallery, widget: object, fields: [{label: Image, name: image, widget: image}] }
 
 
           - {label: Statement Section Background, name: statementSectionImage, widget: image}
@@ -94,6 +96,7 @@ collections:
 
           - {label: Team Section Background, name: image, widget: image}
           - {label: Team Button Label, name: image, widget: "string"}
+
       - name: "about"
         label: "About"
         file: "src/pages/about/index.th.md"

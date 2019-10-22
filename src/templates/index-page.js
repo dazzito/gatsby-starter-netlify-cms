@@ -1264,7 +1264,7 @@ export const pageQuery = graphql`
 				backgroundSectionImage
 				backgroundSectionHeading
 				backgroundSectionContent
-				gallery
+			
 				statementSectionImage
 				vision
 				mission
