@@ -19,7 +19,7 @@ const NewsHeader = styled.header`
     display: flex;
     /* height: 100px; */
     background: #212121;
-    width: 300px;
+    width: 400px;
     bottom: 0;
     transition: background-color 0.2s ease;
     min-height:80px;
@@ -37,7 +37,7 @@ const NewsHeader = styled.header`
  
 
 const NewsBox = styled.article`
-  width:300px; 
+  width:400px; 
   /* height:350px; */
   margin: 1.25em;
   position: relative;
@@ -87,7 +87,7 @@ class NewsRoll extends React.Component {
 
                 
 
-                {post.frontmatter.featuredimage == null ? <img style={{width:300  }} src="https://via.placeholder.com/400x267"/> : 
+                {post.frontmatter.featuredimage == null ? <img style={{width:400  }} src="https://via.placeholder.com/400x267"/> : 
                 <Link to={post.fields.slug}>
                 
                 

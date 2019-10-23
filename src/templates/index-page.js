@@ -33,9 +33,20 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 import { InView } from 'react-intersection-observer';
 
+import Masonry from 'react-masonry-css';
+
 import ReactPageScroller from "react-page-scroller";
 
 import root from 'window-or-global'
+
+
+
+const breakpointColumnsObj = {
+	default: 4,
+	1100: 3,
+	700: 2,
+	500: 1
+  };
  
 
 const Container = styled(StickyContainer)`
@@ -53,8 +64,12 @@ color: #212121;
 `;
 
 const Story = styled.div`
-	margin: 1.5em;
-	max-width: 1300px;
+width: 100%;
+margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+	/* margin: 1.5em; */
+	/* max-width: 1300px; */
 `;
 
 const Item = styled.li`
@@ -128,6 +143,7 @@ const CardHeaderContent = styled.div`
 ////#region
 
 const StoryContainer = styled.div`
+
 
 	text-align: center;
 	color: #212121;
@@ -235,21 +251,23 @@ const HeroContainer = styled.div`
 
 const ClientsWrapper = styled.div`
 	flex-wrap: wrap;
-	max-width: 1200px;
+	max-width: 1300px;
 	justify-content: center;
   margin-bottom: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const Client = styled.div`
 	border: solid white 1px;
 	border-radius: 4px;
-	width: 200px;
-	height: 200px;
+	width: 320px;
+	height: 320px;
 	margin: 20px;
 	display: inline-block;
 	
 	*{
-		width: 200px;
+		width: 320px;
 		
 	}
 `;
@@ -362,16 +380,16 @@ const HeroButton = styled.h2`
 
 const StatementButton = styled.h2`
 
-margin-bottom: 1.5rem;
+margin-bottom: 0.5rem;
     /* color: #d0cba4; */
     color: ${props => (props.color ? props.color : 'black')};
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2.35rem;
+  	text-align: center;
     line-height: 1.125;
     font-family: 'Playfair Display';
     word-break: break-word;
 
-    font-weight: 700 !important;
+   
 
     transition: all 0.2s ease 0s;
 
@@ -518,6 +536,8 @@ export const IndexPageTemplate = class extends React.Component {
 
 	render() {
 
+		
+
 		// const slideBackground = ["/img/sky.jpg", "/img/bg1-old.jpg", "/img/bg3.jpg"]
 
 		return (
@@ -649,6 +669,10 @@ export const IndexPageTemplate = class extends React.Component {
 							{' '}
 							<div style={{ height: 35, background: 'white', textAlign: 'end', paddingTop: 5 }}>
 								{' '}
+								
+								
+							
+								
 								<div className="container">
 									{/*               
                <Item  className="scthead">
@@ -733,16 +757,37 @@ export const IndexPageTemplate = class extends React.Component {
 											display: 'flex',
 											flexDirection: 'row',
 											textAlign: 'left',
-											padding: '1.5em',
+											
 											flexWrap: 'wrap-reverse',
 										
 										}}
 									>
 										<div style={{ flex: 1, minWidth:300,margin: '1.5em'}}>
-											<img src={this.props.backgroundSectionImage} />
+											{/* <img src={this.props.backgroundSectionImage} /> */}
+											{/* <Masonry
+  breakpointCols={breakpointColumnsObj}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column"
+  >
+  <div><img src={this.props.backgroundSectionImage} /></div>
+  <div><img src={this.props.backgroundSectionImage} /></div>
+  <div><img src={this.props.backgroundSectionImage} /></div>
+  <div><img src={this.props.backgroundSectionImage} /></div>
+  <div><img src={this.props.backgroundSectionImage} /></div>
+  <div><img src={this.props.backgroundSectionImage} /></div>
+
+</Masonry> */}
+
+
+{/* src={this.props.backgroundSectionImage} */}
+
+<img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" />
+<img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" />
+<img style={{width:'100%'}} src="https://dummyimage.com/1000x1000/1c1c1c/ffffff.png" />
+
 										</div>
 
-										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1,borderLeft: 'solid 7px #f6f6f6',margin: '1.5em'}}>
+										<div style={{ padding: '1.5em',  maxWidth: '720px', minWidth: '250px', flex: 1,borderLeft: 'solid 7px #f6f6f6',margin: '1.5em'}}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.backgroundSectionHeading}
 									</h2>
@@ -765,90 +810,8 @@ export const IndexPageTemplate = class extends React.Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-				{/* 
-            {this.props.stories &&
-          this.props.stories.map((item, index) => (
-
-            <Fade  delay={200}>
-
-
-
-
-
-              <StoryContainer style={{height:'100vh', background:  Color('#212121').lighten(0.5*index)}}>
-
-              <InView onChange={(inView, entry) =>  {this.changeSection(inView, index, entry)}} > 
-    {({ inView, ref, entry }) => (
-         
-          <Story ref={ref}>
-
-      <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
-        {item.heading}
-      </h2>
-
-
-
-      <div style={{display: 'flex', flexDirection: 'row', textAlign: 'left', padding:'1.5em', flexWrap: 'wrap-reverse'}}>
-        <div style={{flex:1}}>
-        <img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png"/>
-        </div>
-      
-      <div style={{padding: '1.5em', minWidth: '550px', flex: 1}}>
-      <ReactMarkdown source={item.content}/>
-
-      </div>
-      
-
-
-      </div>
-      
-     
-      
-      </Story>
-   
- 
-    )}
-
-    
-  </InView>
-
-
-
-{BackgroundCarousel()}
-
-
-
-              </StoryContainer>
-
-
-
-
-
-  </Fade> 
-
-     
- 
-
-        
-       
-          
-          ))}
- 
- */}
-
 				<Fade>
-					<StoryContainer style={{ height: '600px'}}>
+					<StoryContainer style={{ height: '600px', background:'#f6f6f6', borderTop: 'solid #f3f3f3'}}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 1, entry);
@@ -862,17 +825,40 @@ export const IndexPageTemplate = class extends React.Component {
 									<h2 className="title is-size-3 has-text-weight-bold is-bold-light text-tone-primary">
 										Our Statement
 									</h2>
-                  </Fade> */}
+				  </Fade> */}
+				  
 
-                  <Fade delay={400}>
+				  <h2 className="title is-size-2 is-bold-light text-tone-primary" style={{ fontFamily:'Playfair Display', fontWeight: 'normal',}}>
+					Statements and Principles
+					</h2>
+
+				  <div
+										style={{
+											display: 'flex',
+								
+											textAlign: 'left',
+											padding: '1.5em',
+									
+										}}
+									>
+
+
+			
+
+
+
+							<div>
+							<Fade delay={400}>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleVision:!this.state.toggleVision})}>
                     Vision
                   </StatementButton>
+
+				  
                   </Fade>
 
-                  <Fade delay={800} collapse >
+                  <Fade delay={800}  >
 
-                  <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em'}}>
+                  <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
                   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
                   */}
                   <ReactMarkdown source={this.props.vision}/>
@@ -882,25 +868,32 @@ export const IndexPageTemplate = class extends React.Component {
 
                   </Fade>
 
+							</div>
+           
 
-                  <Fade delay={1200}>
+				  <div>
+				  <Fade delay={1200}>
 
-                  <StatementButton color="#d0cba4"  onClick={()=> this.setState({toggleMission:!this.state.toggleMission})}>
-                    Mission
-                  </StatementButton>
-                  </Fade>
+<StatementButton color="#d0cba4"  onClick={()=> this.setState({toggleMission:!this.state.toggleMission})}>
+  Mission
+</StatementButton>
+</Fade>
 
-                  <Fade delay={1600} collapse>
+<Fade delay={1600} >
 
-                    <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em'}}>
-                    {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
-                    */}
-                    <ReactMarkdown source={this.props.mission}/>
-                    
+<div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
+  {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
+  */}
+  <ReactMarkdown source={this.props.mission}/>
+  
 
-                    </div>
-                   
-                  </Fade>
+  </div>
+ 
+</Fade>
+
+				  </div>
+
+				  <div>
 
                   <Fade delay={2000}>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleValue:!this.state.toggleValue})}>
@@ -908,21 +901,28 @@ export const IndexPageTemplate = class extends React.Component {
                   </StatementButton>
                   </Fade>
 
-                  <Fade delay={2400} collapse>
-
-<div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em'}}>
+                  <Fade delay={2400} >
+				  <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
 {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
 */}
 <ReactMarkdown source={this.props.value}/>
 
-
 </div>
+
+
+
 
 </Fade>
 
+				  </div>
 
 
+      
 
+
+</div>
+
+{/* <button class="btn2 draw-border left">Read more</button> */}
 								</Story>
                 
                 	
@@ -935,7 +935,7 @@ export const IndexPageTemplate = class extends React.Component {
     
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: '#242424', color: 'white' }}>
+					<StoryContainer style={{ background: '#242424', color: 'white', borderTop:"solid #b5b090" }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 2, entry);
@@ -964,7 +964,7 @@ export const IndexPageTemplate = class extends React.Component {
 										</Fade>
 										
 
-										<div style={{ padding: '1.5em', minWidth: '550px', flex: 1 }}>
+										<div style={{ padding: '1.5em', minWidth: '250px', flex: 1 }}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.serviceSectionHeading}
 									</h2>
@@ -1064,7 +1064,7 @@ export const IndexPageTemplate = class extends React.Component {
 										<Client><img src="/img/blc_logo.png" /></Client>
 										
 										<Client><img src="/img/blc_logo.png" /></Client>
-										<Client><img src="/img/blc_logo.png" /></Client>
+							
 										
 									</ClientsWrapper>
 								</Fade>
