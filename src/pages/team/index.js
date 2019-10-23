@@ -19,6 +19,36 @@ import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg
 import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
 
 
+
+const Header = styled.div`
+ 
+font-family: 'Playfair Display',serif;
+   width: 100%;
+   text-align: center;
+
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+   color: #d0cba4;
+   line-height: 0;
+   font-size: 2.5em;
+   word-break: break-word;
+   margin-top: 0.5em;
+ `;
+
+ const TeamPageWrapper = styled.div`
+ 
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 126px;
+    min-height: 400px;
+    padding: 2.5em;
+    color: lightgrey;
+    min-height: 100vh;
+  
+ `;
+
+
 const Member = styled.div`
   overflow: hidden;
   border-radius: 50%;
@@ -191,28 +221,12 @@ const ModalExamplePage = ({
     return (
       <Layout location={location}> 
 
+<TeamPageWrapper>
+
+<Header>OUR TEAM</Header>
 
 
-<section className="section section--gradient bg3">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-            <Fade>
-              <h2 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary">
-                Our Team
-              </h2>
-         
-              </Fade> 
-   
-            </div>
-          </div>
-        </div>
-      </section>
-
-        <section className="section">
-          <div className="container">
-            <div className="content">
-            <Masonry
+<Masonry
   breakpointCols={breakpointColumnsObj}
   className="my-masonry-grid"
   columnClassName="my-masonry-grid_column">
@@ -245,9 +259,11 @@ const ModalExamplePage = ({
 
           
     </Masonry>
-            </div>
-          </div>
-        </section>
+
+
+</TeamPageWrapper>
+      
+
       </Layout> 
     ) 
   } 

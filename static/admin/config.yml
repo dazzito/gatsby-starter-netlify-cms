@@ -77,14 +77,14 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: Mottos, name: mottos, widget: object, fields: [{label: Motto, name: motto, widget: string}] }
+          - {label: Mottos, name: mottos, widget: list, fields: [{label: Motto, name: motto, widget: string}] }
 
           - {label: Hero Image, name: heroImage, widget: image}
          
           - {label: Background Section Image, name: backgroundSectionImage, widget: image}
           - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
           - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
-          - {label: Gallery, name: gallery, widget: object, fields: [{label: Image, name: image, widget: image}] }
+          - {label: Gallery, name: gallery, widget: list, fields: [{label: Image, name: image, widget: image}] }
 
 
           - {label: Statement Section Background, name: statementSectionImage, widget: image}
@@ -94,7 +94,9 @@ collections:
 
           - {label: Service Section Image, name: serviceSectionImage, widget: image}
           - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
-          - {label: Service Section Content, name: serviceSectionContent, widget: markdown} 
+          - {label: Service Section Content 1, name: serviceSectionContent, widget: markdown}
+          - {label: Service Section Content 2, name: serviceSectionContentSecondary, widget: markdown} 
+
 
           - {label: Team Section Background, name: image, widget: image}
           - {label: Team Button Label, name: image, widget: "string"}

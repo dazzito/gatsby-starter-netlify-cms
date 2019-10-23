@@ -53,6 +53,7 @@ const Section = styled.section`
 max-width:1366px ;
  margin-left: auto;
  margin-right: auto;
+ min-height: 100vh;
  /* margin-bottom: 5em; */
 
   /* border: solid 2px #b7b28a;  */

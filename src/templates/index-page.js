@@ -215,7 +215,7 @@ const HeroContainer = styled.div`
 	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
-	height: 100vh;
+	min-height: 100vh;
 
 	align-items: center;
   
@@ -375,6 +375,14 @@ const HeroButton = styled.h2`
 
 `;
 
+
+const Statement = styled.div`
+
+  flex: 1;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 
 
@@ -654,7 +662,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 </ParallaxContainer> */}
 
-				<Sticky topOffset={root.innerHeight}>
+				{/* <Sticky topOffset={root.innerHeight}>
 					{({ style, isSticky }) => (
 						<div
 							style={{
@@ -674,11 +682,6 @@ export const IndexPageTemplate = class extends React.Component {
 							
 								
 								<div className="container">
-									{/*               
-               <Item  className="scthead">
-                [ LOGO ] 
-               </Item>
-       */}
 
 									<Item
 										className="scthead"
@@ -725,7 +728,7 @@ export const IndexPageTemplate = class extends React.Component {
 							</div>
 						</div>
 					)}
-				</Sticky>
+				</Sticky> */}
 
 				
 
@@ -787,7 +790,9 @@ export const IndexPageTemplate = class extends React.Component {
 
 										</div>
 
-										<div style={{ padding: '1.5em',  maxWidth: '720px', minWidth: '250px', flex: 1,borderLeft: 'solid 7px #f6f6f6',margin: '1.5em'}}>
+										{/* borderLeft: 'solid 7px #f6f6f6'
+										 */}
+										<div style={{ padding: '1.5em',  maxWidth: '720px', minWidth: '250px', flex: 1,margin: '1.5em'}}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.backgroundSectionHeading}
 									</h2>
@@ -838,6 +843,7 @@ export const IndexPageTemplate = class extends React.Component {
 								
 											textAlign: 'left',
 											padding: '1.5em',
+											flexWrap: 'wrap' 
 									
 										}}
 									>
@@ -847,7 +853,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 
 
-							<div>
+							<Statement>
 							<Fade delay={400}>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleVision:!this.state.toggleVision})}>
                     Vision
@@ -868,10 +874,10 @@ export const IndexPageTemplate = class extends React.Component {
 
                   </Fade>
 
-							</div>
+							</Statement>
            
 
-				  <div>
+				  <Statement>
 				  <Fade delay={1200}>
 
 <StatementButton color="#d0cba4"  onClick={()=> this.setState({toggleMission:!this.state.toggleMission})}>
@@ -891,9 +897,9 @@ export const IndexPageTemplate = class extends React.Component {
  
 </Fade>
 
-				  </div>
+				  </Statement>
 
-				  <div>
+				  <Statement>
 
                   <Fade delay={2000}>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleValue:!this.state.toggleValue})}>
@@ -914,7 +920,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 </Fade>
 
-				  </div>
+				  </Statement>
 
 
       
@@ -956,24 +962,44 @@ export const IndexPageTemplate = class extends React.Component {
 										}}
 									>
 
-										<Fade>
+										{/* <Fade>
 										<div style={{ flex: 1, minWidth:300}}>
 											<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" />
 										</div>
 
 										</Fade>
-										
+										 */}
 
-										<div style={{ padding: '1.5em', minWidth: '250px', flex: 1 }}>
+										<div style={{ padding: '1.5em', minWidth: '250px', flex: 1, flexWrap: "wrap" }}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.serviceSectionHeading}
 									</h2>
 
 											<ReactMarkdown source={this.props.serviceSectionContent} />
 
+											
+										</div>
+								
+
+
+									<div style={{ padding: '1.5em', minWidth: '250px', flex: 1 }}>
+										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
+										Why us?
+									</h2>
+
+											<p>Bangkok legal Consulting is a team of professionals
+specializing in the areas of Legal, Finance and
+Economics having over 15 years professional experience
+in these fields. The quality of consultations provided to
+our clients provides major benefits with regard to
+resolutions of problematic issues and new business
+generation.</p>
+
 											<button class="btn2 draw-border left">Read more</button>
 										</div>
-									</div>
+										</div>
+
+
 								</Story>
 							)}
 						</InView>

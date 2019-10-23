@@ -54,9 +54,11 @@ const ContentContainer = styled.div`
 margin-bottom: 0;
 padding: 0;
 padding-top: 3em;
+min-height: 100vh;
+margin-top: 126px;
 
 
-background: #000000bd;
+background: #272727;
 /* padding-top: 2em; */
 /* padding: 2.5em; */
 
@@ -83,12 +85,12 @@ color: white;
  font-family: 'Playfair Display',serif;
     width: 100%;
     text-align: center;
-    border-bottom: 2px solid #d0cba4;
+ 
     line-height: 0.1em;
     margin: 10px 0 20px;
     color: #d0cba4;
     line-height: 0;
-    font-size: 2em;
+    font-size: 2.5em;
     word-break: break-word;
     margin-top: 0.5em;
  
@@ -103,8 +105,8 @@ color: white;
     
 
 
-     background: #232323;
-    border: solid;
+     /* background: #232323; */
+    /* border: solid; */
     /* padding-top: 30px; */
     padding: 5px 10px;
     margin: 10p;
@@ -127,9 +129,6 @@ color: white;
     
         <ContentContainer>
 
-<ParallaxContainer>
-
-</ParallaxContainer>
     
             <Fade >
               <Header >
@@ -139,7 +138,7 @@ color: white;
                 
               </Header>
               <Content className="content" content={content} />
-              <Header></Header>
+              
               </Fade> 
 
 
