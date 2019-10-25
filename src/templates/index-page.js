@@ -65,9 +65,10 @@ color: #212121;
 
 const Story = styled.div`
 width: 100%;
-margin-left: auto;
+padding: 0 8vw;
+/* margin-left: auto;
     margin-right: auto;
-    max-width: 1300px;
+    max-width: 1300px; */
 	/* margin: 1.5em; */
 	/* max-width: 1300px; */
 `;
@@ -251,11 +252,13 @@ const HeroContainer = styled.div`
 
 const ClientsWrapper = styled.div`
 	flex-wrap: wrap;
-	max-width: 1300px;
+
 	justify-content: center;
-  margin-bottom: 1.5em;
-  margin-left: auto;
+	padding: 0 8vw;
+  /* margin-bottom: 1.5em; */
+  /* margin-left: auto;
   margin-right: auto;
+  max-width: 1300px; */
 `;
 
 const Client = styled.div`
@@ -379,9 +382,10 @@ const HeroButton = styled.h2`
 const Statement = styled.div`
 
   flex: 1;
-  min-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+ 
+  /* min-width: 300px; */
+  /* margin-left: auto;
+  margin-right: auto; */
 `;
 
 
@@ -765,7 +769,7 @@ export const IndexPageTemplate = class extends React.Component {
 										
 										}}
 									>
-										<div style={{ flex: 1, minWidth:300,margin: '1.5em'}}>
+										<div style={{ flex: 1, minWidth:300, display: 'flex', flexWrap: 'wrap'}}>
 											{/* <img src={this.props.backgroundSectionImage} /> */}
 											{/* <Masonry
   breakpointCols={breakpointColumnsObj}
@@ -784,20 +788,25 @@ export const IndexPageTemplate = class extends React.Component {
 
 {/* src={this.props.backgroundSectionImage} */}
 
-<img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" />
-<img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" />
-<img style={{width:'100%'}} src="https://dummyimage.com/1000x1000/1c1c1c/ffffff.png" />
+{/* 
+<img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" /> */}
+<img style={{width:'100%'}} src={this.props.mainImage3} />
+<img style={{width:'50%'}} src={this.props.mainImage1} />
+<img style={{width:'50%'}}  src={this.props.mainImage2} />
+
 
 										</div>
 
 										{/* borderLeft: 'solid 7px #f6f6f6'
 										 */}
-										<div style={{ padding: '1.5em',  maxWidth: '720px', minWidth: '250px', flex: 1,margin: '1.5em'}}>
+										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1}}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
-										{this.props.backgroundSectionHeading}
+										{this.props.mainHeader}
 									</h2>
 
-											<ReactMarkdown source={this.props.backgroundSectionContent} />
+									
+
+											<ReactMarkdown source={this.props.mainContent} />
 											<button class="btn2 draw-border left">Read more</button>
 										</div>
 									</div>
@@ -864,7 +873,7 @@ export const IndexPageTemplate = class extends React.Component {
 
                   <Fade delay={800}  >
 
-                  <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
+                  <div style={{maxWidth: '500px',marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
                   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
                   */}
                   <ReactMarkdown source={this.props.visionContent}/>
@@ -887,7 +896,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 <Fade delay={1600} >
 
-<div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
+<div style={{maxWidth: '500px', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
   */}
   <ReactMarkdown source={this.props.missionContent}/>
@@ -908,7 +917,7 @@ export const IndexPageTemplate = class extends React.Component {
                   </Fade>
 
                   <Fade delay={2400} >
-				  <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
+				  <div style={{maxWidth: '500px', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
 {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
 */}
 <ReactMarkdown source={this.props.valueContent}/>
@@ -957,7 +966,7 @@ export const IndexPageTemplate = class extends React.Component {
 											display: 'flex',
 											flexDirection: 'row-reverse',
 											textAlign: 'left',
-											padding: '1.5em',
+										
 											flexWrap: 'wrap-reverse',
 										}}
 									>
@@ -970,7 +979,7 @@ export const IndexPageTemplate = class extends React.Component {
 										</Fade>
 										 */}
 
-										<div style={{ padding: '1.5em', minWidth: '250px', flexWrap: "wrap" }}>
+										<div style={{ minWidth: '250px', flex: 1}}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.serviceHeaderRight}
 									</h2>
@@ -982,7 +991,7 @@ export const IndexPageTemplate = class extends React.Component {
 								
 
 
-									<div style={{ padding: '1.5em', minWidth: '250px', flex: 1 }}>
+									<div style={{ minWidth: '250px', flex: 1 }}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
 										{this.props.serviceHeaderLeft}
 									</h2>
@@ -1259,9 +1268,15 @@ const IndexPage = props => {
 	return (
 		<Layout location={location}>
 			<IndexPageTemplate
-				backgroundSectionImage={frontmatter.backgroundSectionImage}
-				backgroundSectionHeading={frontmatter.backgroundSectionHeading}
-				backgroundSectionContent={frontmatter.backgroundSectionContent}
+
+				
+
+
+				mainImage1={frontmatter.mainImage1}
+				mainImage2={frontmatter.mainImage2}
+				mainImage3={frontmatter.mainImage3}
+				mainHeader={frontmatter.mainHeader}
+				mainContent={frontmatter.mainContent}
 
 			
 				statementHeader={frontmatter.statementHeader}
@@ -1307,10 +1322,13 @@ export const pageQuery = graphql`
 			html
 			frontmatter {
 				templateKey
-				heroImage
-				backgroundSectionImage
-				backgroundSectionHeading
-				backgroundSectionContent
+		
+				mainImage1
+				mainImage2
+				mainImage3
+				mainHeader
+				mainContent
+				
 			
 				statementHeader
 				visionHeader
