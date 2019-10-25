@@ -67,9 +67,10 @@ const MenuItem = styled(Link)`
 
 	/* Effect 4: bottom border enlarge */
   &:hover{
-	color: ${props => props.isDark ? '#d0cba4' : '#1b1b1b'};
-    font-weight: bold;
-    padding-top: 1em;
+	  color: #e0e0e0;
+	/* color: ${props => props.isDark ? '#d0cba4' : '#1b1b1b'}; */
+    /* font-weight: bold; */
+    /* padding-top: 1em; */
     &::after{
       height: 2px;
 		opacity: 1;
@@ -174,6 +175,32 @@ const Navbar = class extends React.Component {
 		this.setState({ locale });
 	}
 
+
+	getMenuItem(str, locale){
+		if(locale == "en"){
+			return str.toUpperCase();
+
+		} else {
+
+			if(str == "about"){
+				return "เกี่ยวกับเรา"
+			} else if( str == "team"){
+				return "ทีมของเรา"
+			} else if (str == 'services'){
+				return "บริการ"
+			} else if (str == 'news'){
+				return "ข่าวสาร"
+			} else if( str == "contact"){
+				return 'ติดต่อ'
+			}
+
+
+		}
+	}
+
+
+
+
 	componentWillReceiveProps(newProps) {
 		if (newProps.locale != this.state.locale) {
 			this.setState({ locale: newProps.locale });
@@ -231,7 +258,7 @@ const Navbar = class extends React.Component {
       console.log(this.state.location)
 		return (
 			<NavbarWrapper 
-				isTransparent={this.state.pathname == "/"}
+				// isTransparent={this.state.pathname == "/" || this.state.pathname == "/th"}
 				className="navbar is-transparent "
 				role="navigation"
 				aria-label="main-navigation"
@@ -252,7 +279,7 @@ const Navbar = class extends React.Component {
 						>
 							<span />
 							<span />
-							<span />
+							<span /> 
 						</div>
 					</div>
 					<div id="navMenu" className={`navbar-menu ${this.state.navBarActiveClass}`}>
@@ -260,42 +287,42 @@ const Navbar = class extends React.Component {
 							<MenuItem
                 active={this.state.pathname == about}
 								to={about}
-								isDark={this.state.pathname == "/"}
+								// isDark={this.state.pathname == "/"}
 							>
-								{'ABOUT'}
+								{this.getMenuItem("about", this.state.locale)}
 							</MenuItem>
 
 							<MenuItem
                 active={this.state.pathname == team}
 								to={team}
-								isDark={this.state.pathname == "/"}
+							
 							>
-								TEAM
+								{this.getMenuItem("team", this.state.locale)}
 							</MenuItem>
 
 							<MenuItem
                 active={this.state.pathname == service}
 								to={service}
-								isDark={this.state.pathname == "/"}
+							
 
 							>
-								SERVICES
+								{this.getMenuItem("services", this.state.locale)}
 							</MenuItem>
 							<MenuItem
                 active={this.state.pathname == news}
 								to={news}
-								isDark={this.state.pathname == "/"}
+							
 	
 							>
-								NEWS
+								{this.getMenuItem("news", this.state.locale)}
 							</MenuItem>
 							<MenuItem
                 active={this.state.pathname == contact}
 								to={contact}
-								isDark={this.state.pathname == "/"}
+							
 				
 							>
-								CONTACT
+								{this.getMenuItem("contact", this.state.locale)}
 							</MenuItem>
 
 

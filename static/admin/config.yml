@@ -16,29 +16,36 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: Mottos, name: mottos, widget: object, fields: [{label: Motto, name: motto, widget: string}] }
+          - {label: Mottos, name: mottos, widget: list, fields: [{label: Motto, name: motto, widget: string}] }
 
           - {label: Hero Image, name: heroImage, widget: image}
          
           - {label: Background Section Image, name: backgroundSectionImage, widget: image}
           - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
           - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
-          - {label: Gallery, name: gallery, widget: object, fields: [{label: Image, name: image, widget: image}] }
+          - {label: Gallery, name: gallery, widget: list, fields: [{label: Image, name: image, widget: image}] }
+          - {label: "Statement Heading", name: "statementHeader", widget: "string"}
+          - {label: "Vision Heading", name: "visionHeader", widget: "string"}
+          - {label: "Mission Heading", name: "missionHeader", widget: "string"}
+          - {label: "Value Heading", name: "valueHeader", widget: "string"}
+
+          - {label: "Vision", name: "visionContent", widget: "string"}
+          - {label: "Mission", name: "missionContent", widget: "string"}
+          - {label: "Value", name: "valueContent", widget: "string"}
+
+          # - {label: Service Section Image, name: serviceSectionImage, widget: image}
+          # - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
+          - {label: Service Heading (Primary), name: serviceHeaderLeft, widget: string}
+          - {label: Service Content (Primary), name: serviceContentLeft, widget: markdown} 
+          - {label: Service Heading (Secondary), name: serviceHeaderRight, widget: string}
+          - {label: Service Content (Secondary), name: serviceContentRight, widget: markdown} 
 
 
-          - {label: Statement Section Background, name: statementSectionImage, widget: image}
-          - {label: "Vision", name: "vision", widget: "string"}
-          - {label: "Mission", name: "mission", widget: "string"}
-          - {label: "Value", name: "value", widget: "string"}
+          - {label: Team Section Header, name: teamHeader, widget: string}
 
-          - {label: Service Section Image, name: serviceSectionImage, widget: image}
-          - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
 
-          
-          - {label: Service Section Content, name: serviceSectionContent, widget: markdown} 
-
-          - {label: Team Section Background, name: image, widget: image}
-          - {label: Team Button Label, name: image, widget: "string"}
+          # - {label: Team Section Background, name: image, widget: image}
+          # - {label: Team Button Label, name: image, widget: "string"}
 
 
 
@@ -87,19 +94,30 @@ collections:
           - {label: Gallery, name: gallery, widget: list, fields: [{label: Image, name: image, widget: image}] }
 
 
-          - {label: Statement Section Background, name: statementSectionImage, widget: image}
-          - {label: "Vision", name: "vision", widget: "string"}
-          - {label: "Mission", name: "mission", widget: "string"}
-          - {label: "Value", name: "value", widget: "string"}
+          # - {label: Statement Section Background, name: statementSectionImage, widget: image}
 
-          - {label: Service Section Image, name: serviceSectionImage, widget: image}
-          - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
-          - {label: Service Section Content 1, name: serviceSectionContent, widget: markdown}
-          - {label: Service Section Content 2, name: serviceSectionContentSecondary, widget: markdown} 
+          - {label: "Statement Heading", name: "statementHeader", widget: "string"}
+          - {label: "Vision Heading", name: "visionHeader", widget: "string"}
+          - {label: "Mission Heading", name: "missionHeader", widget: "string"}
+          - {label: "Value Heading", name: "valueHeader", widget: "string"}
+
+          - {label: "Vision", name: "visionContent", widget: "string"}
+          - {label: "Mission", name: "missionContent", widget: "string"}
+          - {label: "Value", name: "valueContent", widget: "string"}
+
+          # - {label: Service Section Image, name: serviceSectionImage, widget: image}
+          # - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
+          - {label: Service Heading (Primary), name: serviceHeaderLeft, widget: string}
+          - {label: Service Content (Primary), name: serviceContentLeft, widget: markdown} 
+          - {label: Service Heading (Secondary), name: serviceHeaderRight, widget: string}
+          - {label: Service Content (Secondary), name: serviceContentRight, widget: markdown} 
 
 
-          - {label: Team Section Background, name: image, widget: image}
-          - {label: Team Button Label, name: image, widget: "string"}
+          - {label: Team Section Header, name: teamHeader, widget: string}
+
+
+          # - {label: Team Section Background, name: image, widget: image}
+          # - {label: Team Button Label, name: image, widget: "string"}
 
       - name: "about"
         label: "About"

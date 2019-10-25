@@ -9,12 +9,33 @@ const IndexPagePreview = ({ entry, getAsset }) => {
     return (
       <IndexPageTemplate
 
-        motto={data.motto}
-        heading={data.heading}
-        subheadding={data.subheadding}
-        motto={data.motto}
-        stories={data.stories || []}
+      backgroundSectionImage={data.backgroundSectionImage}
+      backgroundSectionHeading={data.backgroundSectionHeading}
+      backgroundSectionContent={data.backgroundSectionContent}
 
+    
+      statementHeader={data.statementHeader}
+      visionHeader={data.visionHeader}
+      missionHeader={data.missionHeader}
+      valueHeader={data.valueHeader}
+
+
+      visionContent={data.visionContent}
+      missionContent={data.missionContent}
+      valueContent={data.valueContent}
+
+
+      serviceHeaderLeft={data.serviceHeaderLeft}
+      serviceHeaderRight={data.serviceHeaderRight}
+      serviceContentLeft={data.serviceContentLeft}
+      serviceContentRight={data.serviceContentRight}
+
+
+      teamHeader={data.teamHeader}
+
+
+
+      gallery={data.gallery}
 
         // image={data.image}
         // title={data.title}

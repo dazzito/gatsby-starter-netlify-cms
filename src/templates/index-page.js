@@ -834,7 +834,7 @@ export const IndexPageTemplate = class extends React.Component {
 				  
 
 				  <h2 className="title is-size-2 is-bold-light text-tone-primary" style={{ fontFamily:'Playfair Display', fontWeight: 'normal',}}>
-					Statements and Principles
+					{this.props.statementHeader}
 					</h2>
 
 				  <div
@@ -856,7 +856,7 @@ export const IndexPageTemplate = class extends React.Component {
 							<Statement>
 							<Fade delay={400}>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleVision:!this.state.toggleVision})}>
-                    Vision
+                    {this.props.visionHeader}
                   </StatementButton>
 
 				  
@@ -867,7 +867,7 @@ export const IndexPageTemplate = class extends React.Component {
                   <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
                   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
                   */}
-                  <ReactMarkdown source={this.props.vision}/>
+                  <ReactMarkdown source={this.props.visionContent}/>
 
 
                   </div>
@@ -881,7 +881,7 @@ export const IndexPageTemplate = class extends React.Component {
 				  <Fade delay={1200}>
 
 <StatementButton color="#d0cba4"  onClick={()=> this.setState({toggleMission:!this.state.toggleMission})}>
-  Mission
+{this.props.missionHeader}
 </StatementButton>
 </Fade>
 
@@ -890,7 +890,7 @@ export const IndexPageTemplate = class extends React.Component {
 <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
   */}
-  <ReactMarkdown source={this.props.mission}/>
+  <ReactMarkdown source={this.props.missionContent}/>
   
 
   </div>
@@ -903,7 +903,7 @@ export const IndexPageTemplate = class extends React.Component {
 
                   <Fade delay={2000}>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleValue:!this.state.toggleValue})}>
-                    Value
+				  {this.props.valueHeader}
                   </StatementButton>
                   </Fade>
 
@@ -911,7 +911,7 @@ export const IndexPageTemplate = class extends React.Component {
 				  <div style={{maxWidth: '500px',padding:'1em', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
 {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
 */}
-<ReactMarkdown source={this.props.value}/>
+<ReactMarkdown source={this.props.valueContent}/>
 
 </div>
 
@@ -970,12 +970,12 @@ export const IndexPageTemplate = class extends React.Component {
 										</Fade>
 										 */}
 
-										<div style={{ padding: '1.5em', minWidth: '250px', flex: 1, flexWrap: "wrap" }}>
+										<div style={{ padding: '1.5em', minWidth: '250px', flexWrap: "wrap" }}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
-										{this.props.serviceSectionHeading}
+										{this.props.serviceHeaderRight}
 									</h2>
 
-											<ReactMarkdown source={this.props.serviceSectionContent} />
+											<ReactMarkdown source={this.props.serviceContentRight} />
 
 											
 										</div>
@@ -984,16 +984,9 @@ export const IndexPageTemplate = class extends React.Component {
 
 									<div style={{ padding: '1.5em', minWidth: '250px', flex: 1 }}>
 										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
-										Why us?
+										{this.props.serviceHeaderLeft}
 									</h2>
-
-											<p>Bangkok legal Consulting is a team of professionals
-specializing in the areas of Legal, Finance and
-Economics having over 15 years professional experience
-in these fields. The quality of consultations provided to
-our clients provides major benefits with regard to
-resolutions of problematic issues and new business
-generation.</p>
+									<ReactMarkdown source={this.props.serviceContentLeft} />
 
 											<button class="btn2 draw-border left">Read more</button>
 										</div>
@@ -1037,7 +1030,7 @@ generation.</p>
 
                 
 
-				  <button class="btn2 draw-border  btn2--big btn2--gold">Meet our team.</button>
+				  <button class="btn2 draw-border  btn2--big btn2--gold">{this.props.teamHeader}</button>
                   {/* <StatementButton color="#d0cba4">
                     Meet our team.
                   </StatementButton> */}
@@ -1069,7 +1062,7 @@ generation.</p>
 							<Story ref={ref}>
 								<Fade delay={200}>
 									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', fontWeight: 'normal', marginTop:'0.75em'}}>
-										Our Clients
+										OUR_CLIENT
 									</h2>
 								</Fade>
 
@@ -1211,7 +1204,7 @@ generation.</p>
 
 		<Fade delay={200} cascade>
 									<h2 ref={ref} className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', textAlign:'left' , marginTop:'0.75em'}}>
-										Latest News
+										LATEST_NEWS
 									</h2>
 
 									<NewsRoll style={{marginBottom: '5em'}} />
@@ -1269,13 +1262,29 @@ const IndexPage = props => {
 				backgroundSectionImage={frontmatter.backgroundSectionImage}
 				backgroundSectionHeading={frontmatter.backgroundSectionHeading}
 				backgroundSectionContent={frontmatter.backgroundSectionContent}
-				statementSectionImage={frontmatter.statementSectionImage}
-				vision={frontmatter.vision}
-				mission={frontmatter.mission}
-				value={frontmatter.value}
-				serviceSectionImage={frontmatter.serviceSectionImage}
-				serviceSectionHeading={frontmatter.serviceSectionHeading}
-				serviceSectionContent={frontmatter.serviceSectionContent}
+
+			
+				statementHeader={frontmatter.statementHeader}
+				visionHeader={frontmatter.visionHeader}
+				missionHeader={frontmatter.missionHeader}
+				valueHeader={frontmatter.valueHeader}
+
+
+				visionContent={frontmatter.visionContent}
+				missionContent={frontmatter.missionContent}
+				valueContent={frontmatter.valueContent}
+
+
+				serviceHeaderLeft={frontmatter.serviceHeaderLeft}
+				serviceHeaderRight={frontmatter.serviceHeaderRight}
+				serviceContentLeft={frontmatter.serviceContentLeft}
+				serviceContentRight={frontmatter.serviceContentRight}
+
+
+				teamHeader={frontmatter.teamHeader}
+
+
+
 				gallery={frontmatter.gallery}
 			/>
 		</Layout>
@@ -1303,13 +1312,22 @@ export const pageQuery = graphql`
 				backgroundSectionHeading
 				backgroundSectionContent
 			
-				statementSectionImage
-				vision
-				mission
-				value
-				serviceSectionImage
-				serviceSectionHeading
-				serviceSectionContent
+				statementHeader
+				visionHeader
+				missionHeader
+				valueHeader
+
+				visionContent
+				missionContent
+				valueContent
+
+
+				serviceHeaderLeft
+				serviceHeaderRight
+				serviceContentLeft
+				serviceContentRight
+
+				teamHeader
 			
 			}
 		}
