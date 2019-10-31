@@ -6,9 +6,13 @@ import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
-//STYLINGS
+
 import 'src/components/all.sass'
 import 'src/components/interactive.scss'
+
+//STYLINGS
+import 'src/scss/style.scss'
+
 import useSiteMetadata from '../components/SiteMetadata'
 import { withPrefix } from "gatsby"
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -110,6 +114,7 @@ const TemplateWrapper = ({ children, location }) => {
 
 
 const ContentContainer = styled.div`
+  min-height: 100vh;
    /* margin-top: 126px; */
    flex:1;
  

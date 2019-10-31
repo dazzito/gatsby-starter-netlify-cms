@@ -23,12 +23,14 @@ visionHeader: Vision
 missionHeader: Mission
 valueHeader: Value
 
-visionContent: to create a better every-day life for many people
+visionContent: >-
+  **" to create a better every-day life for many people "**
 missionContent: >-
-  to provide a high quality, creative, and result – oriented legal team to
+  **" to provide a high quassslity, creative, and result – oriented legal team to
   individuals and businesses, and serve as a primary resource and partner in all
-  aspects of clients’ business growth and development
-valueContent: Reliability – Loyalty – Commitment – Passion – Respect
+  aspects of clients’ business growth and development "**
+valueContent: >-
+  **" Reliability – Loyalty – Commitment – Passion – Respect "**
 
 serviceHeaderLeft: Why us?
 serviceHeaderRight: Our Services
@@ -39,9 +41,21 @@ serviceContentLeft:  >-
   Thailand and Abroad.
 
 serviceContentRight: >-
-  **Bangkok Legal Consulting** Co., Ltd. (B.L.C.) was established in 2015 by a
-  team of Legal Professionals having graduated from leading universities both in
-  Thailand and Abroad.
+  + Legal and Investment Consulting
+
+  + Intellectual Property and International Trade
+
+  + Labor Law Consultant and Documentation
+
+  + Contracts and Legal Documentation
+
+  + Litigation
+
+  + Property Management and Consulting
+
+  + Bankruptcy and Reorganization
+
+  + Accounting and Tax
 
 teamHeader: Meet Our Team
 statementSectionImage: /img/marble-white.jpg

@@ -38,6 +38,7 @@ const CloseButton = styled(Link)`
 
 const ModalContainer = styled.div`
   margin-top: 10rem;
+  color: white; 
 `;
 
 export const TeamPageTemplate = ({
@@ -50,7 +51,7 @@ export const TeamPageTemplate = ({
   position,
   email
 }) => (
-  <ModalContainer className="content">
+  <ModalContainer >
     <div className="container">
       <CloseButton to={"/team"}>
         <FontAwesomeIcon

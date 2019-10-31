@@ -1,7 +1,7 @@
 ---
 templateKey: team-page
-locale: en
-image: /img/scofield.jpg
+locale: th
+image: /img/blc_logo.png
 firstname: Prapas
 lastname: Chuprathet
 nickname: Leo

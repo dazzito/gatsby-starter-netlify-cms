@@ -14,11 +14,18 @@ import { ModalRoutingContext, Link } from 'gatsby-plugin-modal-routing'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faPhone, faEnvelope, faTimes, faFileExcel } from '@fortawesome/free-solid-svg-icons'
+
 
 import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { constants } from 'os';
+import {getLocalizedConstant} from 'shared/constant'
 
+import ReactMarkdown from 'react-markdown';
 
+import ReactModal from 'react-modal'
+
+import { Portal } from 'react-portal';
 
 const Header = styled.div`
  
@@ -37,34 +44,15 @@ font-family: 'Playfair Display',serif;
 
  const TeamPageWrapper = styled.div`
  
-    max-width: 1366px;
-    margin-left: auto;
-    margin-right: auto;
+
     margin-top: 126px;
     min-height: 400px;
     padding: 2.5em;
     color: lightgrey;
-    min-height: 100vh;
+ 
   
  `;
 
-
-const Member = styled.div`
-  overflow: hidden;
-  border-radius: 50%;
-  background: #fefefe; 
-  height: 220px;
-  width: 220px;
-  margin-left: auto;
-    margin-right: auto;
- 
-`;
-
-const MemberText = styled.h3`
-  text-align: center;
-  /* background: white;
-  transition: transform .5s, filter 1.5s ease-in-out; */
-`;
 
 
 
@@ -79,130 +67,109 @@ const breakpointColumnsObj = {
 
 
 
+const CloseButton = styled.div`
+  float: right;
+
+`
 
 
-// const TeamPage = ( {data} , asModal, closeTo) => {
-//   const { frontmatter } = data.markdownRemark;
-//   console.log(asModal);
-//   console.log(data)
+const MemberPortal = styled.div`
+ position: fixed;
+    top: 156px;
+    left: 0px;
+    right: 0px;
+    padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 966px;
+    background: transparent;
+    z-index: 2;
+    color: lightgrey;
+    display: flex;
+`;
 
-//   return (
-// <Layout>
+
+const PortalTextContainer = styled.div`
+  background: white;
+  margin: 1em;
+  flex: 1;
+
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.8s ease 0s;
+  background: ${props => props.portalIsOpen ? '#000000a4' : 'transparent'};
+  z-index: ${props => props.portalIsOpen ? 2 : 0};
+  padding: 5vh;
+
+  
+
+`
+
+
+// class MemberPortal extends React.Component {
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isOpen: false
+//     };
+//   }
+
+  
+
+
+
+// }
 
 
 
 
+const MemberContainer = styled.div`
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
 
-//   </Layout>
+    
+    
+
+`;
 
 
+const Member = styled.div`
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fefefe; 
+  height: 220px;
+  width: 220px;
+  margin: 1.5em;
+  border: solid;
+  cursor: pointer;
+
+  transition: all 0.2s ease 0.1s;
+  &:hover{
+    padding: 10px;  
+  }
  
-//   ); 
-// };
+ 
+`;
+
+const MemberText = styled.h5`
+  text-align: center;
+
+  /* background: white;
+  transition: transform .5s, filter 1.5s ease-in-out; */
+`;
 
 
-
-
-const ModalExamplePage = ({
-  image,
-  firstname,
-  lastname,
-  content,
-  expertise,
-  nickname,
-  position,
-  email
-}) => (
-  <ModalRoutingContext>
-    {({ modal, closeTo }) => (
-      <div>
-        {modal ? (
-          <>
-          <Link to={closeTo}> 
-            Close
-          </Link>
-          <div className="content">
-
-          <section className="section section--gradient">
-            <div className="container">
-              <div className="section">
-                <div className="columns">
-       
-                <div className="column is-5">
-                          
-                <div className="tile is-ancestor">
-                      <div className="tile is-vertical">
-        
-                        <div className="tile is-parent" >
-                          <article className="tile is-child" >
-                          <PreviewCompatibleImage
-                               imageInfo={{
-                                 image: image,
-                                 alt: "title"
-                               }}
-                             />
-                            {/* <PreviewCompatibleImage imageInfo={image} /> */}
-                            {/* <img src={image}/> */} 
-                          </article>
-                        </div>
-                      </div>
-                    </div>
-                   
-                  </div>
-       
-       
-       
-                  <div className="column is-7">
-                    {/* <h3 className="has-text-weight-semibold is-size-3">{heading}</h3> */}
-                    <h5 className="has-text-weight-semibold is-size-3 text-tone-primary">{firstname} {lastname} {nickname =! "" ? "(" + nickname +")" : ""}</h5>
-                    <h4 className="has-text-weight-semibold is-size-4">{position}</h4> 
-                    <p>{content}</p>
-       
-                    <h3 className="has-text-weight-semibold is-size-3">
-                          Expertise and Experiencewwv
-                        </h3>
-                        <p>{expertise}</p>
-       
-       
-                        <h5 className="has-text-weight-semibold is-size-4 text-tone-primary">
-                        <FontAwesomeIcon icon={faLinkedin} size="lg" style={{color:'#ffffff'}}/> <FontAwesomeIcon icon={faEnvelope} size="lg" style={{color:'#ffffff'}}/> {email}
-                        </h5>
-       
-                       
-                        
-                  </div>
-       
-       
-                </div>
-            
-              </div>
-            </div>
-          </section>
-       
-          <section
-              className="section section--gradient hero"
-              style={{ height: 150 }}
-            >
-              {" "}
-            </section>
-        </div>
-        </>
-       
-        ) : (
-          <header>
-            <h1>
-              Website Title
-            </h1>
-          </header>
-        )}
-
-        <h2>Modal Page</h2>
-
-        <Link to="/">Go back to the homepage</Link>
-      </div>
-    )}
-  </ModalRoutingContext>
-)
 
 
  class TeamPage extends React.Component {
@@ -210,7 +177,21 @@ const ModalExamplePage = ({
 
   constructor(props) {
     super(props)
+    this.state = {
+      isModalOpen: false,
+      modalIndex:0
+    }
+    
   }
+
+
+
+  toggleModal(){
+    this.setState(prevState => ({
+      isModalOpen: !prevState.isModalOpen
+    }))
+  }
+
 
   render() {
     console.log(this.props);
@@ -221,22 +202,34 @@ const ModalExamplePage = ({
     return (
       <Layout location={location}> 
 
+
+
+
 <TeamPageWrapper>
 
-<Header>OUR TEAM</Header>
+
+<h2 style={{textAlign: 'center'}}>OUR TEAM</h2>
+  
 
 
-<Masonry
-  breakpointCols={breakpointColumnsObj}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column">
- 
-            {posts &&
-          posts.map(({ node: post }) => (
 
 
-            <Fade>
-            <Link asModal  to={"/team/"+post.frontmatter.lastname.toLowerCase()}> 
+
+<MemberContainer>
+
+
+{posts &&
+          posts.map(({ node: post }, index) => (
+
+
+       
+           
+              <div onClick={() => this.setState({isModalOpen:true, modalIndex:index})}>
+              
+
+
+         
+           
             <Member>
             <PreviewCompatibleImage
                         imageInfo={{
@@ -247,18 +240,92 @@ const ModalExamplePage = ({
             {/* <img className="team-img" src={post.frontmatter.image} />  */}
             {/* <Img fluid={post.frontmatter.image.src} alt="image" /> */}
             
-            
+          
             </Member>
             <MemberText>{post.frontmatter.firstname} {post.frontmatter.lastname}</MemberText>
-            </Link> 
-         </Fade>
+          
+            </div>
+      
         
        
           
           ))}
+</MemberContainer>
 
-          
-    </Masonry>
+
+
+
+
+{this.state.isModalOpen && (<Portal>
+      
+      
+      <Overlay portalIsOpen={this.state.isModalOpen} onClick={() => this.setState({isModalOpen:false})}>
+
+
+
+    
+    
+
+</Overlay>
+
+
+       <MemberPortal>
+
+       <PreviewCompatibleImage
+                 imageInfo={{
+                   image: posts[this.state.modalIndex].node.frontmatter.image,
+                   alt: "title"
+                   
+                 }}
+               />
+
+         <PortalTextContainer>
+
+         <CloseButton onClick={() => this.setState({isModalOpen:false})}>
+         <FontAwesomeIcon
+          icon={faTimes}
+          size="lg"
+          style={{ color: "#ffffff" }}
+        />
+         </CloseButton>
+
+         <h5 className="has-text-weight-semibold is-size-3 text-tone-primary">
+         {posts[this.state.modalIndex].node.frontmatter.firstname} {posts[this.state.modalIndex].node.frontmatter.lastname}{" "}
+         {(posts[this.state.modalIndex].node.frontmatter.nickname =! "" ?  posts[this.state.modalIndex].node.frontmatter.nickname  : "")}
+       </h5>
+       <h4 className="has-text-weight-semibold is-size-4">{posts[this.state.modalIndex].node.frontmatter.position}</h4>
+       <ReactMarkdown source={posts[this.state.modalIndex].node.frontmatter.content}/>
+
+       <h3 className="has-text-weight-semibold is-size-3">
+         Expertise and Experience
+       </h3>
+       <ReactMarkdown source={posts[this.state.modalIndex].node.frontmatter.expertise}/>
+
+       <h5 className="has-text-weight-semibold is-size-4 text-tone-primary">
+         <FontAwesomeIcon
+           icon={faLinkedin}
+           size="lg"
+           style={{ color: "#ffffff" }}
+         />{" "}
+         <FontAwesomeIcon
+           icon={faEnvelope}
+           size="lg"
+           style={{ color: "#ffffff" }}
+         />{" "}
+         {posts[this.state.modalIndex].node.frontmatter.email}
+       </h5>
+
+
+         </PortalTextContainer>
+       
+
+
+
+     </MemberPortal>
+  
+
+   
+</Portal>)}
 
 
 </TeamPageWrapper>
@@ -273,10 +340,10 @@ const ModalExamplePage = ({
 export default (props) => (
   <StaticQuery
     query={graphql`
-      query MemberQuery($locale: String){  
+      query MemberQuery($langKey: String){  
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $locale } } }
+          filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $langKey } } }
         ) { 
           edges {
             node {
@@ -287,8 +354,8 @@ export default (props) => (
                 content
                 position
                 expertise
-                image 
-             
+                image
+
               }
             }
           }

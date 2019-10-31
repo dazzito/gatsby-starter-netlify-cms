@@ -39,13 +39,16 @@ import ReactPageScroller from "react-page-scroller";
 
 import root from 'window-or-global'
 
+import Img from "gatsby-image"
+
+
 
 
 const breakpointColumnsObj = {
-	default: 4,
-	1100: 3,
+	default: 3,
+	1100: 2,
 	700: 2,
-	500: 1
+	500: 2
   };
  
 
@@ -63,14 +66,33 @@ color: #212121;
 
 `;
 
-const Story = styled.div`
+
+const AboutSection = styled.div`
 width: 100%;
-padding: 0 8vw;
+
 /* margin-left: auto;
     margin-right: auto;
     max-width: 1300px; */
 	/* margin: 1.5em; */
 	/* max-width: 1300px; */
+`;
+
+const Story = styled.div`
+width: 100%;
+padding: 0 18vw;
+/* margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px; */
+	/* margin: 1.5em; */
+	/* max-width: 1300px; */
+`;
+
+const Gallery = styled.div`
+	flex: 1;
+	min-width: 300px;
+	flex-wrap: wrap;
+	flex-direction: column;
+
 `;
 
 const Item = styled.li`
@@ -145,16 +167,16 @@ const CardHeaderContent = styled.div`
 
 const StoryContainer = styled.div`
 
-
 	text-align: center;
 	color: #212121;
 	/* padding-top: 126px; */
 	position: relative;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	min-height: 450px;
 
 	/* background: #ffffff;
     box-shadow: 0px 0px 3px 0px black; */
@@ -216,7 +238,7 @@ const HeroContainer = styled.div`
 	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
-	min-height: 100vh;
+	min-height: 50vh;
 
 	align-items: center;
   
@@ -255,6 +277,7 @@ const ClientsWrapper = styled.div`
 
 	justify-content: center;
 	padding: 0 8vw;
+	display: flex;
   /* margin-bottom: 1.5em; */
   /* margin-left: auto;
   margin-right: auto;
@@ -264,15 +287,24 @@ const ClientsWrapper = styled.div`
 const Client = styled.div`
 	border: solid white 1px;
 	border-radius: 4px;
-	width: 320px;
-	height: 320px;
-	margin: 20px;
+
+	flex: 1;
+	margin: 1em;
 	display: inline-block;
-	
+
 	*{
-		width: 320px;
+		max-width: 240px;
 		
 	}
+
+	@media (max-width: 768px) {
+		*{
+		max-width: 80px;
+		
+	}
+ 	}
+	
+	
 `;
 
 const ArrowAnimation = keyframes`
@@ -332,6 +364,10 @@ const HeroImage = styled.img`
 `;
 
 
+const ImageWrapper = styled.div`
+	flex: 1; 
+`;
+
 
 
 const HeroButton = styled.h2`
@@ -382,8 +418,9 @@ const HeroButton = styled.h2`
 const Statement = styled.div`
 
   flex: 1;
+  text-align: center;
  
-  /* min-width: 300px; */
+  min-width: 300px;
   /* margin-left: auto;
   margin-right: auto; */
 `;
@@ -400,6 +437,7 @@ margin-bottom: 0.5rem;
     line-height: 1.125;
     font-family: 'Playfair Display';
     word-break: break-word;
+	color: #606060;
 
    
 
@@ -548,6 +586,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 	render() {
 
+		console.log(this.props)
 		
 
 		// const slideBackground = ["/img/sky.jpg", "/img/bg1-old.jpg", "/img/bg3.jpg"]
@@ -567,8 +606,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 				<Fade when={this.state.slide == 0}>
 	
-<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',background: '#000000c4', fontFamily: 'Playfair Display',
-    boxShadow: 'inset 0px 1px 4px 4px #252525' }}>Practical wisdom, trusted advice</h1>
+<h1 style={{textAlign: 'center', position: 'absolute', width: '100%', fontFamily: 'Playfair Display'}}>Practical wisdom, trusted advice</h1>
 
 
 	
@@ -580,8 +618,7 @@ export const IndexPageTemplate = class extends React.Component {
 
 
 <Fade when={this.state.slide == 1} >
-<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',background: '#000000c4', fontFamily: 'Playfair Display',
-    boxShadow: 'inset 0px 1px 4px 4px #252525' }}>"The people's good is the highest law." - Cicero</h1>
+<h1 style={{textAlign: 'center', position: 'absolute', width: '100%', fontFamily: 'Playfair Display' }}>"The people's good is the highest law." - Cicero</h1>
 
 
 
@@ -591,14 +628,13 @@ export const IndexPageTemplate = class extends React.Component {
 </Fade>
 
 <Fade when={this.state.slide == 2} >
-<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',background: '#000000c4',  fontFamily: 'Playfair Display',
-    boxShadow: 'inset 0px 1px 4px 4px #252525' }}>Experienced. Driven. Effective</h1>
+<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',  fontFamily: 'Playfair Display' }}>Experienced. Driven. Effective</h1>
 
 	
 
 </Fade>
 
-<HeroButton >Learn more</HeroButton>
+{/* <HeroButton >Learn more</HeroButton> */}
 
 
 
@@ -748,14 +784,14 @@ export const IndexPageTemplate = class extends React.Component {
 				</Fade> */}
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: 'white', color: '#212121' }}>
+					<StoryContainer style={{ background: '#303030', color: 'whitesmoke' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
 							}}
 						>
 							{({ inView, ref, entry }) => (
-								<Story ref={ref}>
+								<AboutSection ref={ref}>
 
 
 								
@@ -769,7 +805,12 @@ export const IndexPageTemplate = class extends React.Component {
 										
 										}}
 									>
-										<div style={{ flex: 1, minWidth:300, display: 'flex', flexWrap: 'wrap'}}>
+										<Gallery>
+
+
+
+
+									
 											{/* <img src={this.props.backgroundSectionImage} /> */}
 											{/* <Masonry
   breakpointCols={breakpointColumnsObj}
@@ -790,27 +831,68 @@ export const IndexPageTemplate = class extends React.Component {
 
 {/* 
 <img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" /> */}
-<img style={{width:'100%'}} src={this.props.mainImage3} />
-<img style={{width:'50%'}} src={this.props.mainImage1} />
-<img style={{width:'50%'}}  src={this.props.mainImage2} />
 
 
-										</div>
 
+
+<Masonry
+  breakpointCols={breakpointColumnsObj}
+  
+  >
+<ImageWrapper>
+<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+</ImageWrapper>
+
+
+<ImageWrapper>
+<Img fluid={this.props.mainImage2.childImageSharp.fluid} />
+
+</ImageWrapper>
+
+<ImageWrapper>
+
+<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
+</ImageWrapper>
+
+<ImageWrapper>
+
+<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
+</ImageWrapper>
+
+<ImageWrapper>
+
+<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
+</ImageWrapper>
+
+<ImageWrapper>
+
+<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
+</ImageWrapper>
+
+</Masonry>
+
+
+	</Gallery>
+
+
+
+
+										
 										{/* borderLeft: 'solid 7px #f6f6f6'
 										 */}
-										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1}}>
-										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
+										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 5vw'}}>
+										<h1>
 										{this.props.mainHeader}
-									</h2>
+									</h1>
 
 									
 
 											<ReactMarkdown source={this.props.mainContent} />
-											<button class="btn2 draw-border left">Read more</button>
+											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
 										</div>
 									</div>
-								</Story>
+								</AboutSection>
 							)}
 						</InView>
 
@@ -824,8 +906,15 @@ export const IndexPageTemplate = class extends React.Component {
 
 
 
+				<StoryContainer style={{background:'#f6f6f6'}}>
+
+
+
+				</StoryContainer>
+
+
 				<Fade>
-					<StoryContainer style={{ height: '600px', background:'#f6f6f6', borderTop: 'solid #f3f3f3'}}>
+					<StoryContainer style={{ background:'#f6f6f6', borderTop: 'solid #f3f3f3'}}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 1, entry);
@@ -842,7 +931,7 @@ export const IndexPageTemplate = class extends React.Component {
 				  </Fade> */}
 				  
 
-				  <h2 className="title is-size-2 is-bold-light text-tone-primary" style={{ fontFamily:'Playfair Display', fontWeight: 'normal',}}>
+				  <h2>
 					{this.props.statementHeader}
 					</h2>
 
@@ -851,7 +940,7 @@ export const IndexPageTemplate = class extends React.Component {
 											display: 'flex',
 								
 											textAlign: 'left',
-											padding: '1.5em',
+										
 											flexWrap: 'wrap' 
 									
 										}}
@@ -875,7 +964,9 @@ export const IndexPageTemplate = class extends React.Component {
 
                   <div style={{maxWidth: '500px',marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
                   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
-                  */}
+				  */}
+				  
+				  
                   <ReactMarkdown source={this.props.visionContent}/>
 
 
@@ -950,7 +1041,7 @@ export const IndexPageTemplate = class extends React.Component {
     
 
 				<Fade delay={200}>
-					<StoryContainer style={{ background: '#242424', color: 'white', borderTop:"solid #b5b090" }}>
+					<StoryContainer style={{ background: '#303030', color: 'white', borderTop:"solid #b5b090", paddingBottom: '1.5em' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 2, entry);
@@ -964,10 +1055,10 @@ export const IndexPageTemplate = class extends React.Component {
 									<div
 										style={{
 											display: 'flex',
-											flexDirection: 'row-reverse',
+											flexDirection: 'row',
 											textAlign: 'left',
 										
-											flexWrap: 'wrap-reverse',
+											flexWrap: 'wrap',
 										}}
 									>
 
@@ -980,7 +1071,7 @@ export const IndexPageTemplate = class extends React.Component {
 										 */}
 
 										<div style={{ minWidth: '250px', flex: 1}}>
-										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
+										<h2>
 										{this.props.serviceHeaderRight}
 									</h2>
 
@@ -992,9 +1083,9 @@ export const IndexPageTemplate = class extends React.Component {
 
 
 									<div style={{ minWidth: '250px', flex: 1 }}>
-										<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{marginTop: '1.5em', fontFamily:'Playfair Display', fontWeight: 'normal',}}>
+										<h1>
 										{this.props.serviceHeaderLeft}
-									</h2>
+									</h1>
 									<ReactMarkdown source={this.props.serviceContentLeft} />
 
 											<button class="btn2 draw-border left">Read more</button>
@@ -1068,9 +1159,9 @@ export const IndexPageTemplate = class extends React.Component {
 						}}
 					>
 						{({ inView, ref, entry }) => (
-							<Story ref={ref}>
+							<div ref={ref}>
 								<Fade delay={200}>
-									<h2 className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', fontWeight: 'normal', marginTop:'0.75em'}}>
+									<h2>
 										OUR_CLIENT
 									</h2>
 								</Fade>
@@ -1096,7 +1187,7 @@ export const IndexPageTemplate = class extends React.Component {
 										
 									</ClientsWrapper>
 								</Fade>
-							</Story>
+							</div>
 						)}
 					</InView>
 				</ClientSection>
@@ -1212,7 +1303,7 @@ export const IndexPageTemplate = class extends React.Component {
 						{({ inView, ref, entry }) => (
 
 		<Fade delay={200} cascade>
-									<h2 ref={ref} className="title is-size-2 is-bold-light text-tone-primary" style={{fontFamily:'Playfair Display', textAlign:'left' , marginTop:'0.75em'}}>
+									<h2 ref={ref}>
 										LATEST_NEWS
 									</h2>
 
@@ -1270,7 +1361,7 @@ const IndexPage = props => {
 			<IndexPageTemplate
 
 				
-
+				{...props}
 
 				mainImage1={frontmatter.mainImage1}
 				mainImage2={frontmatter.mainImage2}
@@ -1322,10 +1413,33 @@ export const pageQuery = graphql`
 			html
 			frontmatter {
 				templateKey
-		
-				mainImage1
-				mainImage2
-				mainImage3
+				
+				mainImage1 {
+					childImageSharp {
+						fluid(maxWidth: 1200) {
+						
+						...GatsbyImageSharpFluid
+						}
+					}
+				}
+				
+				mainImage2 {
+					childImageSharp {
+						fluid(maxWidth: 900) {
+						...GatsbyImageSharpFluid
+						}
+					}
+				}
+
+				
+				mainImage3 {
+					childImageSharp {
+						fluid(maxWidth: 600) {
+						...GatsbyImageSharpFluid
+						}
+					}
+				}
+			
 				mainHeader
 				mainContent
 				

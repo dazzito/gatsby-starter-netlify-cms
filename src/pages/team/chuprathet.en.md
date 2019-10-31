@@ -1,9 +1,9 @@
 ---
 templateKey: team-page
-locale: th
-image: /img/scofield.jpg
+locale: en
+image: /img/blc_logo.png
 firstname: Prapas
-lastname: Chuprathet
+lastname: Chuprathetaa
 nickname: Leo
 content: My name is leo
 position: Programmer
@@ -12,3 +12,4 @@ email: leo@hotmail.com
 linkedin: www.linkedin.com/in
 ---
 
+    

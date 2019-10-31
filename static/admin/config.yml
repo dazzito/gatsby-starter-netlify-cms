@@ -182,7 +182,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-page"}
       - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-      - {label: "Image", name: "image", widget: image}
+      - {label: "Image", name: image, widget: image}
       - {label: "Firstname", name: "firstname", widget: "string"}
       - {label: "Lastname", name: "lastname", widget: "string"}
       - {label: "Nickname", name: "nickname", widget: "string"}

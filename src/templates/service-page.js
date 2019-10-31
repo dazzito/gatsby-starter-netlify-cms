@@ -14,7 +14,7 @@ import styled from "styled-components"
 
 
 const Container = styled.div`
- max-width:1366px ;
+ max-width:966px ;
 margin-left: auto;
 margin-right: auto;
 /* margin-top: 5em; */
@@ -42,7 +42,7 @@ li:before {
 }
 `; 
 
-const BackgroundLayer = styled.div`
+const Wrapper = styled.div`
   background:#272727;
   width: 100%;
 
@@ -50,7 +50,7 @@ const BackgroundLayer = styled.div`
 
 
 const Section = styled.section`
-max-width:1366px ;
+max-width:966px ;
  margin-left: auto;
  margin-right: auto;
  min-height: 100vh;
@@ -85,7 +85,7 @@ span {
 }
 `;
 
-const Header = styled.div`
+const Header = styled.h1`
 font-family: 'Playfair Display', serif;
   width: 100%; 
 text-align: center; 
@@ -137,29 +137,29 @@ export const ServicePageTemplate = ({
 
   
   </Container> */}
-    <BackgroundLayer>
+    <Wrapper>
 
     
   <Section> 
             <Fade>
 
-            <Header>
-          <span>
-            {title.toUpperCase()}
-          </span>
+            <h2>
           
-        </Header>
+            {title.toUpperCase()}
+      
+          
+        </h2>
             {/* <SectionHeader>
               <span>SERVICES</span>
                  
                 </SectionHeader> */}
-                <PageContent className="content" content={content} />
+                <PageContent content={content} />
              
               </Fade> 
               
    </Section>
 
-   </BackgroundLayer>
+   </Wrapper>
 
   </>
 )}

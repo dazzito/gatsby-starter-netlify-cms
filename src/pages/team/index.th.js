@@ -60,7 +60,7 @@ const Member = styled.div`
  
 `;
 
-const MemberText = styled.h3`
+const MemberText = styled.h5`
   text-align: center;
   /* background: white;
   transition: transform .5s, filter 1.5s ease-in-out; */
@@ -223,7 +223,7 @@ const ModalExamplePage = ({
 
 <TeamPageWrapper>
 
-<Header>OUR TEAM</Header>
+<Header>ทีมของเรา</Header>
 
 
 <Masonry
@@ -236,7 +236,7 @@ const ModalExamplePage = ({
 
 
             <Fade>
-            <Link asModal  to={"/team/"+post.frontmatter.lastname.toLowerCase()}> 
+            <Link asModal replace to={"/team/th/"+post.frontmatter.lastname.toLowerCase()}> 
             <Member>
             <PreviewCompatibleImage
                         imageInfo={{

@@ -17,6 +17,8 @@ margin-right: auto;
 margin-top: 5em;
 margin-bottom: 5em;
 padding: 2.5em;
+color: white;
+padding-top: 3em;
 `;
 
 const Header = styled.div`
@@ -56,14 +58,16 @@ export const NewsPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section"> 
+   <Container>
+
+   
       {helmet || ''}
-      <div className="container content">
+      <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h2>
               {title}
-            </h1>
+            </h2>
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -81,7 +85,7 @@ export const NewsPostTemplate = ({
           </div>
         </div>
       </div>
-    </section>
+      </Container>
   )
 }
 

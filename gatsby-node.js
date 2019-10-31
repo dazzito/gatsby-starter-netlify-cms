@@ -104,7 +104,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
+  fmImagesToRelative(node) // convert image paths for gatsby images
   if (node.internal.type === `MarkdownRemark` && node.internal.fieldOwners.slug !== 'gatsby-plugin-i18n') {
     const value = createFilePath({ node, getNode })
     createNodeField({

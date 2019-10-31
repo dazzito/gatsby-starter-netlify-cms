@@ -45,10 +45,10 @@ const Statement = ({sectionId, changeSection}) => (
       <div>
         {/* <h2>{`Header inside viewport ${inView}.`}</h2> */}
       
-              <h1 ref={ref} className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary " style={{paddingTop:0}}>
+              <h1 ref={ref} style={{paddingTop:0}}>
                 OUR VISION
               </h1>
-              <div className="has-text-white is-size-4">
+              <div>
                 <p style={{ color: "#b9b9b9", marginBottom: "1.5rem" }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -57,7 +57,7 @@ const Statement = ({sectionId, changeSection}) => (
                 </p>
               </div>
 
-              <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
+              <h1>
                 OUR MISSION
               </h1>
               <div className="has-text-white is-size-4">
@@ -68,7 +68,7 @@ const Statement = ({sectionId, changeSection}) => (
                 </p>
               </div>
 
-              <h1 className="title is-size-2 has-text-weight-bold is-bold-light text-tone-primary ">
+              <h1>
                 OUR VALUE
               </h1>
               <div className="has-text-white is-size-4">

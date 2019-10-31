@@ -15,7 +15,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 
 
   const Content = styled(PageContent)`
-    max-width:1366px;
+    max-width:966px;
     padding:1.5em;
   `;
 
@@ -68,6 +68,29 @@ color: white;
 
 /* border: solid 2px #cfcaa3; */
 `;
+
+
+
+const Wrapper = styled.div`
+  width: 100%;
+
+`;
+
+const Section = styled.section`
+max-width:966px ;
+ margin-left: auto;
+ margin-right: auto;
+ min-height: 100vh;
+ /* margin-bottom: 5em; */
+
+  /* border: solid 2px #b7b28a;  */
+  margin-top: 126px;
+  min-height: 400px;
+  padding: 2.5em;
+  color: lightgrey;
+`;
+
+
 
   const Container = styled.div`
 
@@ -127,23 +150,27 @@ color: white;
  
         
     
-        <ContentContainer>
+        <Wrapper>
 
-    
-            <Fade >
-              <Header >
-                <span>
-                  {title}
-                </span>
-                
-              </Header>
-              <Content className="content" content={content} />
-              
-              </Fade> 
+            <Section>
 
 
           
-        </ContentContainer>
+    
+            <Fade >
+              <h2>
+         
+                  {title}
+              
+                
+              </h2>
+              <PageContent className="content" content={content} />
+              
+              </Fade> 
+
+              </Section>
+          
+        </Wrapper>
 
 
   );
