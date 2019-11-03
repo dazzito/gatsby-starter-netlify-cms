@@ -12,14 +12,14 @@ import Img from "gatsby-image/withIEPolyfill"
 const NewsHeader = styled.header`
     
     padding: 12px;
-    position: absolute;
+    
     bottom: 0;
     flex-direction: column;
     justify-content: space-between;
     display: flex;
     /* height: 100px; */
-    background: #212121;
-    width: 400px;
+    background: #1b1b1b;
+    
     bottom: 0;
     transition: background-color 0.2s ease;
     min-height:80px;
@@ -38,9 +38,10 @@ const NewsHeader = styled.header`
 
 const NewsBox = styled.article`
   width: 400px; 
-  height: 400px;
+ 
   /* height:350px; */
   margin: 1.25em;
+
   position: relative;
   /* box-shadow: 0px 0px 0px 1px #9f9f9f; */
 
@@ -50,6 +51,15 @@ const NewsBox = styled.article`
     transform: scale(1.05);
     cursor: pointer;
   } 
+
+  @media (max-width: 400px){
+    width: 100%;
+  }
+
+
+  /* @media (max-width: 468px) {
+    
+    } */
 
   /* header img:hover{
     background: white;
@@ -78,14 +88,14 @@ class NewsRoll extends React.Component {
           posts.map(({ node: post }) => (
            
            
-            <Link to={post.fields.slug}>
+            
               <NewsBox
               key={post.id}
                 className={` ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
-
+                  <Link to={post.fields.slug}>
                 
 
                 {post.frontmatter.featuredimage == null ? <img style={{width:400  }} src="https://via.placeholder.com/400x267"/> : 
@@ -167,8 +177,9 @@ class NewsRoll extends React.Component {
                     Read
                   </Link>
                 </p> */}
+                     </Link>
               </NewsBox>
-              </Link>
+         
          
            ))}
       </NewsRow>
@@ -204,6 +215,13 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
+                  featuredimage {
+                  childImageSharp {
+                    fluid(maxWidth: 400,quality: 100) {
+                      ...GatsbyImageSharpFluid 
+                    }
+                  }
+                }
                
                 
             

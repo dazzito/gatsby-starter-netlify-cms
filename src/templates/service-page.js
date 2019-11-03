@@ -57,9 +57,9 @@ max-width:966px ;
  /* margin-bottom: 5em; */
 
   /* border: solid 2px #b7b28a;  */
-  margin-top: 126px;
+
   min-height: 400px;
-  padding: 2.5em;
+  padding: 1.5em;
   color: lightgrey;
 `;
 

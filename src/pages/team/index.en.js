@@ -44,9 +44,9 @@ font-family: 'Playfair Display',serif;
  const TeamPageWrapper = styled.div`
  
 
-    margin-top: 126px;
+
     min-height: 400px;
-    padding: 2.5em;
+    padding: 1.5  em;
     color: lightgrey;
  
   
@@ -77,10 +77,10 @@ const CloseButton = styled.div`
 
 const MemberPortal = styled.div`
  position: absolute;
-    top: 156px;
+    top: 170px;
     left: 0px;
     right: 0px;
-    padding: 2em;
+    padding: 1em;
     margin-left: auto;
     margin-right: auto;
     max-width: 966px;
@@ -88,16 +88,22 @@ const MemberPortal = styled.div`
     z-index: 2;
     color: lightgrey;
     display: flex;
-    flex-wrap: wrap;
+  
+
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
 `;
 
 
 const PortalTextContainer = styled.div`
   background: #000000ba;
   margin-left: 1em;
-  padding: 2em;
+  padding: 1em;
   flex: 1;
-  min-width: 400px;
+
 
 `;
 
@@ -135,7 +141,7 @@ const Overlay = styled.div`
 
 const ImageWrapper = styled.div`
   flex:1;
-  min-width: 400px;
+
 `;
 
 const MemberContainer = styled.div`

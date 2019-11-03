@@ -53,16 +53,16 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-	@include fluid-type('font-size', 50rem, 80rem, 1.296rem, 3.998rem);
+	@include fluid-type('font-size', 50rem, 80rem, 1.596rem, 3.998rem);
 }
 h2 {
-	@include fluid-type('font-size', 50rem, 80rem, 1.215rem, 2.827rem);
+	@include fluid-type('font-size', 50rem, 80rem, 1.515rem, 2.827rem);
 }
 h3 {
-	@include fluid-type('font-size', 50rem, 80rem, 1.138rem, 1.999rem);
+	@include fluid-type('font-size', 50rem, 80rem, 1.438rem, 1.999rem);
 }
 h4 {
-	@include fluid-type('font-size', 50rem, 80rem, 1.067rem, 1.414rem);
+	@include fluid-type('font-size', 50rem, 80rem, 1.367rem, 1.414rem);
 }
 h5 {
 	@include fluid-type('font-size', 50rem, 80rem, 1rem, 1rem);

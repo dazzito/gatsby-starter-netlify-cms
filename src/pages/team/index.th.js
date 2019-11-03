@@ -46,7 +46,7 @@ font-family: 'Playfair Display',serif;
 
     margin-top: 126px;
     min-height: 400px;
-    padding: 2.5em;
+    padding: 1.5em;
     color: lightgrey;
  
   
@@ -94,8 +94,8 @@ const MemberPortal = styled.div`
 
 const PortalTextContainer = styled.div`
   background: #000000ba;
-  margin-left: 1em;
-  padding: 2em;
+
+  padding: 1.5em;
   flex: 1;
   min-width: 400px;
 

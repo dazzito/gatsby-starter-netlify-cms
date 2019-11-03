@@ -89,7 +89,7 @@ padding: 0 18vw;
 
 const Gallery = styled.div`
 	flex: 1;
-	min-width: 300px;
+	/* min-width: 300px; */
 	flex-wrap: wrap;
 	flex-direction: column;
 
@@ -420,7 +420,7 @@ const Statement = styled.div`
   flex: 1;
   text-align: center;
  
-  min-width: 300px;
+  /* min-width: 300px; */
   /* margin-left: auto;
   margin-right: auto; */
 `;
