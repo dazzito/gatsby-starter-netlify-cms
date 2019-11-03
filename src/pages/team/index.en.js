@@ -343,7 +343,7 @@ position: relative;
 export default (props) => (
   <StaticQuery
     query={graphql`
-      query MemberQuery($langKey: String){  
+      query MemberQueryEN($langKey: String){  
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $langKey } } }
