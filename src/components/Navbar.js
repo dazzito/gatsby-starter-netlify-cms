@@ -152,7 +152,7 @@ const LanguageMenuItem = styled(Link)`
 
 function getLocalePath(locale, path) {
 	if (locale == 'en') {
-		return '/' + path;
+		return '/en/' + path;
 	} else if (locale == 'th') {
 		return '/th/' + path;
 	}

@@ -37,7 +37,8 @@ const NewsHeader = styled.header`
  
 
 const NewsBox = styled.article`
-  width:400px; 
+  width: 400px; 
+  height: 400px;
   /* height:350px; */
   margin: 1.25em;
   position: relative;
@@ -77,7 +78,7 @@ class NewsRoll extends React.Component {
           posts.map(({ node: post }) => (
            
            
-        
+            <Link to={post.fields.slug}>
               <NewsBox
               key={post.id}
                 className={` ${
@@ -88,7 +89,7 @@ class NewsRoll extends React.Component {
                 
 
                 {post.frontmatter.featuredimage == null ? <img style={{width:400  }} src="https://via.placeholder.com/400x267"/> : 
-                <Link to={post.fields.slug}>
+               
                 
                 
                
@@ -99,7 +100,7 @@ class NewsRoll extends React.Component {
                 alt="https://via.placeholder.com/400x267" />
 
 
-                 </Link>
+              
                 
                 
                 // <PreviewCompatibleImage
@@ -167,7 +168,7 @@ class NewsRoll extends React.Component {
                   </Link>
                 </p> */}
               </NewsBox>
-            
+              </Link>
          
            ))}
       </NewsRow>

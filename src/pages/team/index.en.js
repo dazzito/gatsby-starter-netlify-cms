@@ -1,11 +1,9 @@
 import React from 'react'
 
-import Layout from '../../layouts'
+import Layout from 'src/layouts'
 import { graphql, StaticQuery } from 'gatsby'
 import Fade from 'react-reveal/Fade';
 import Masonry from 'react-masonry-css'
-
-import Avatar from '../../img/avatar-placeholder.png'
 import PreviewCompatibleImage from 'src/components/PreviewCompatibleImage'
 import Img from 'gatsby-image'
 
@@ -26,6 +24,7 @@ import ReactMarkdown from 'react-markdown';
 import ReactModal from 'react-modal'
 
 import { Portal } from 'react-portal';
+import TeamRoll from 'src/components/TeamRoll';
 
 const Header = styled.div`
  
@@ -68,13 +67,16 @@ const breakpointColumnsObj = {
 
 
 const CloseButton = styled.div`
-  float: right;
+  position: absolute;
+    top: 156px;
+    right: 5vw;
+    z-index: 2;
 
 `
 
 
 const MemberPortal = styled.div`
- position: fixed;
+ position: absolute;
     top: 156px;
     left: 0px;
     right: 0px;
@@ -86,13 +88,16 @@ const MemberPortal = styled.div`
     z-index: 2;
     color: lightgrey;
     display: flex;
+    flex-wrap: wrap;
 `;
 
 
 const PortalTextContainer = styled.div`
-  background: white;
-  margin: 1em;
+  background: #000000ba;
+  margin-left: 1em;
+  padding: 2em;
   flex: 1;
+  min-width: 400px;
 
 `;
 
@@ -102,7 +107,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  transition: all 0.8s ease 0s;
+  transition: all 2s ease 0s;
   background: ${props => props.portalIsOpen ? '#000000a4' : 'transparent'};
   z-index: ${props => props.portalIsOpen ? 2 : 0};
   padding: 5vh;
@@ -128,7 +133,10 @@ const Overlay = styled.div`
 // }
 
 
-
+const ImageWrapper = styled.div`
+  flex:1;
+  min-width: 400px;
+`;
 
 const MemberContainer = styled.div`
   display: flex;
@@ -137,7 +145,7 @@ const MemberContainer = styled.div`
     max-width: 1450px;
     margin-left: auto;
     margin-right: auto;
-
+    min-width: 220px;
     
     
 
@@ -156,7 +164,7 @@ const Member = styled.div`
 
   transition: all 0.2s ease 0.1s;
   &:hover{
-    padding: 10px;  
+    border: solid 6px #d0cba4;
   }
  
  
@@ -171,6 +179,12 @@ const MemberText = styled.h5`
 
 
 
+const Container = styled.div`
+
+position: relative;
+`;
+
+
 
  class TeamPage extends React.Component {
 
@@ -181,26 +195,27 @@ const MemberText = styled.h5`
       isModalOpen: false,
       modalIndex:0
     }
+
+    this.toggleModal = this.toggleModal.bind(this);
     
   }
 
 
 
-  toggleModal(){
+  toggleModal(index){
     this.setState(prevState => ({
-      isModalOpen: !prevState.isModalOpen
+      isModalOpen: !prevState.isModalOpen, modalIndex:index
     }))
   }
 
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     //const { data } = this.props
     const { edges: posts } = this.props.data.allMarkdownRemark
     const location = this.props.location
     console.log(posts);
     return (
-      <Layout location={location}> 
 
 
 
@@ -208,7 +223,10 @@ const MemberText = styled.h5`
 <TeamPageWrapper>
 
 
+<Fade>
 <h2 style={{textAlign: 'center'}}>OUR TEAM</h2>
+</Fade>
+
   
 
 
@@ -218,38 +236,9 @@ const MemberText = styled.h5`
 <MemberContainer>
 
 
-{posts &&
-          posts.map(({ node: post }, index) => (
 
 
-       
-           
-              <div onClick={() => this.setState({isModalOpen:true, modalIndex:index})}>
-              
-
-
-         
-           
-            <Member>
-            <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.image,
-                          alt: "title"
-                        }}
-                      />
-            {/* <img className="team-img" src={post.frontmatter.image} />  */}
-            {/* <Img fluid={post.frontmatter.image.src} alt="image" /> */}
-            
-          
-            </Member>
-            <MemberText>{post.frontmatter.firstname} {post.frontmatter.lastname}</MemberText>
-          
-            </div>
-      
-        
-       
-          
-          ))}
+<TeamRoll data={posts} handleCallback={this.toggleModal}/>
 </MemberContainer>
 
 
@@ -269,39 +258,45 @@ const MemberText = styled.h5`
 </Overlay>
 
 
-       <MemberPortal>
 
-       <PreviewCompatibleImage
-                 imageInfo={{
-                   image: posts[this.state.modalIndex].node.frontmatter.image,
-                   alt: "title"
-                   
-                 }}
-               />
-
-         <PortalTextContainer>
-
-         <CloseButton onClick={() => this.setState({isModalOpen:false})}>
+    
+<CloseButton onClick={() => this.setState({isModalOpen:false})}>
          <FontAwesomeIcon
           icon={faTimes}
           size="lg"
           style={{ color: "#ffffff" }}
         />
          </CloseButton>
+        
 
-         <h5 className="has-text-weight-semibold is-size-3 text-tone-primary">
+       <MemberPortal>
+   
+
+     
+
+          <ImageWrapper>
+
+          <Img fluid={posts[this.state.modalIndex].node.frontmatter.profileImage1.childImageSharp.fluid}/>
+          </ImageWrapper>
+          
+
+         <PortalTextContainer>
+
+     
+
+         <h3>
          {posts[this.state.modalIndex].node.frontmatter.firstname} {posts[this.state.modalIndex].node.frontmatter.lastname}{" "}
-         {(posts[this.state.modalIndex].node.frontmatter.nickname =! "" ?  posts[this.state.modalIndex].node.frontmatter.nickname  : "")}
-       </h5>
-       <h4 className="has-text-weight-semibold is-size-4">{posts[this.state.modalIndex].node.frontmatter.position}</h4>
+<span>( {posts[this.state.modalIndex].node.frontmatter.nickname} )</span>
+       </h3>
+       <h4>{posts[this.state.modalIndex].node.frontmatter.position}</h4>
        <ReactMarkdown source={posts[this.state.modalIndex].node.frontmatter.content}/>
 
-       <h3 className="has-text-weight-semibold is-size-3">
+       <h4>
          Expertise and Experience
-       </h3>
+       </h4>
        <ReactMarkdown source={posts[this.state.modalIndex].node.frontmatter.expertise}/>
 
-       <h5 className="has-text-weight-semibold is-size-4 text-tone-primary">
+       <h4>
          <FontAwesomeIcon
            icon={faLinkedin}
            size="lg"
@@ -313,12 +308,21 @@ const MemberText = styled.h5`
            style={{ color: "#ffffff" }}
          />{" "}
          {posts[this.state.modalIndex].node.frontmatter.email}
-       </h5>
+       </h4>
 
 
          </PortalTextContainer>
-       
+   
 
+
+
+       {/* <PreviewCompatibleImage
+                 imageInfo={{
+                   image: posts[this.state.modalIndex].node.frontmatter.image,
+                   alt: "title"
+                   
+                 }}
+               /> */}
 
 
      </MemberPortal>
@@ -331,7 +335,6 @@ const MemberText = styled.h5`
 </TeamPageWrapper>
       
 
-      </Layout> 
     ) 
   } 
 }
@@ -354,7 +357,13 @@ export default (props) => (
                 content
                 position
                 expertise
-                image
+                profileImage1 {
+                  childImageSharp {
+                    fluid(maxWidth: 1366, maxHeight: 1366, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
 
               }
             }
@@ -362,7 +371,7 @@ export default (props) => (
         }
       }
     `}
-    render={() => <TeamPage {...props} />}
+    render={() =><Layout location={props.location}><TeamPage {...props} /></Layout> }
   />
 )
 
@@ -374,6 +383,10 @@ export default (props) => (
 //   }
 // }
 
+
+// fixed(width: 220, height: 220, quality: 100) {
+//   ...GatsbyImageSharpFixed
+// }
 
 
 // export const query = graphql`

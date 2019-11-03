@@ -58,7 +58,7 @@ min-height: 100vh;
 margin-top: 126px;
 
 
-background: #272727;
+
 /* padding-top: 2em; */
 /* padding: 2.5em; */
 

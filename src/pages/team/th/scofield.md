@@ -1,8 +1,8 @@
 ---
 templateKey: team-page
-locale: en
+locale: th
 profileImage1: /img/scofield.jpg
-firstname: Michael
+firstname: Michael (Thai)
 lastname: Scofield
 nickname: Mike
 content: Content Body

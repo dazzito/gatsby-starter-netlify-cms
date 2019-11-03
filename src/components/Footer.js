@@ -25,16 +25,16 @@ const List = styled.ul`
  
   justify-content: center;
   flex: 1;
-  text-align: right;
+  text-align: left;
   border-right: solid #353535 1px;
-  padding: 15px;
-  margin:15px;
+  padding: 1em;
 
 `;
 
 const ListItem = styled.li`
    list-style: none;
    max-width: 20em;
+   min-width: 150px;
 `;
 
 const StyledLink = styled(Link)`
@@ -49,7 +49,7 @@ const StyledLink = styled(Link)`
 const FooterRow = styled(Row)`
   /* margin-left: 13em;
     margin-right: 0.5em; */
- 
+    flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
     /* padding-top: 13px; */
@@ -73,10 +73,15 @@ const FooterWrapper = styled(Col)`
 `;
 
 const ContactInfo = styled.div`
-  padding-top: 15px;
+  padding: 1em;
+  margin: 1em;  
   flex:1;
   text-align: left;
   color: lightgrey;
+
+  p{
+    padding: 0.4em;
+  }
 `;
 
 const Copyright = styled.div`
@@ -90,17 +95,68 @@ const Copyright = styled.div`
     }
 `;
 
+function getLocalePath(locale, path) {
+	if (locale == 'en') {
+		return '/en/' + path;
+	} else if (locale == 'th') {
+		return '/th/' + path;
+	}
+}
 
+function getMenuItem(str, locale){
+  if(locale == "en"){
+    return str.toUpperCase();
+
+  } else {
+
+
+    if(str == "home"){
+      return "หน้าหลัก"
+    }  else if( str == "about"){
+      return 'เกี่ยวกับเรา'
+    } else if( str == "team"){
+      return "ทีมของเรา"
+    } else if (str == 'services'){
+      return "บริการ"
+    } else if (str == 'news'){
+      return "ข่าวสาร"
+    } else if( str == "contact"){
+      return 'ติดต่อ'
+    }
+
+
+  }
+}
 
 
 const Footer = class extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
 
+      locale: this.props.locale
+    }
+  }
+
+
+
+    componentDidUpdate(prevProps){
+      if(prevProps.locale != this.props.locale){
+        this.setState({locale:this.props.locale})
+      }
+    }
 
 
 
   render() {
     const footerNav =  this.props.disableFooterNav;
+    let about = getLocalePath(this.state.locale, 'about')
+    let team = getLocalePath(this.state.locale, 'team')
+    let service = getLocalePath(this.state.locale, 'service')
+    let news = getLocalePath(this.state.locale, 'news')
+    let contact = getLocalePath(this.state.locale, 'contact')
+
   
     return (
       <FooterWrapper>
@@ -113,26 +169,22 @@ const Footer = class extends React.Component {
           <FooterRow>
           <List>
             <ListItem>
-              <StyledLink to="/">Home</StyledLink>
+              <StyledLink to={getLocalePath(this.state.locale, '/')} >{getMenuItem("home", this.state.locale)}</StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink to="/about">About</StyledLink>
+            <StyledLink to={getLocalePath(this.state.locale, 'about')} >{getMenuItem("about", this.state.locale)}</StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink to="/Services">Services</StyledLink>
+            <StyledLink to={getLocalePath(this.state.locale, 'service')} >{getMenuItem("service", this.state.locale)}</StyledLink>
             </ListItem>
          </List>
 
          <List> 
           <ListItem>
-              <StyledLink  to="/News">
-                News
-              </StyledLink>
+          <StyledLink to={getLocalePath(this.state.locale, 'news')} >{getMenuItem("news", this.state.locale)}</StyledLink>
             </ListItem>
             <ListItem>
-              <StyledLink  to="/gallery">
-                Our Team
-              </StyledLink>
+            <StyledLink to={getLocalePath(this.state.locale, 'team')} >{getMenuItem("team", this.state.locale)}</StyledLink>
             </ListItem>
         
             
@@ -145,23 +197,24 @@ const Footer = class extends React.Component {
 
           <ContactInfo>
           <ListItem>
-              <StyledLink to="/contact">Contact Us</StyledLink>
+          <StyledLink to={getLocalePath(this.state.locale, 'contact')} >{getMenuItem("contact", this.state.locale)}</StyledLink>
             </ListItem>
+            <p>
 
             <address>
               <FontAwesomeIcon icon={faMapMarkerAlt} />
               &nbsp;Address Example / 5534 Somewhere In. The World 22193
             </address>
 
-            <div>
-              <FontAwesomeIcon icon={faPhone} />
+       
+              {/* <FontAwesomeIcon icon={faPhone} /> */}
               &nbsp;(66)5050 9999
-            </div>
-
-            <div>
-              <FontAwesomeIcon icon={faEnvelope} />
+          
+              <br/>
+        
+              {/* <FontAwesomeIcon icon={faEnvelope} /> */}
               &nbsp;tl.leo90@hotmail.com
-            </div>
+              </p>
           </ContactInfo>
         </FooterRow>
 

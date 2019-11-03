@@ -22,7 +22,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 
 import Color from 'color';
 
-import Team from '../pages/team';
+
 
 import {darken} from 'polished'
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -238,7 +238,7 @@ const HeroContainer = styled.div`
 	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
-	min-height: 50vh;
+	min-height: 80vh;
 
 	align-items: center;
   
@@ -432,7 +432,7 @@ const StatementButton = styled.h2`
 margin-bottom: 0.5rem;
     /* color: #d0cba4; */
     color: ${props => (props.color ? props.color : 'black')};
-    font-size: 2.35rem;
+ 
   	text-align: center;
     line-height: 1.125;
     font-family: 'Playfair Display';
@@ -931,7 +931,7 @@ export const IndexPageTemplate = class extends React.Component {
 				  </Fade> */}
 				  
 
-				  <h2>
+				  <h2 style={{color:"#606060"}}>
 					{this.props.statementHeader}
 					</h2>
 

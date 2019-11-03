@@ -1,11 +1,9 @@
 import React from 'react'
 
-import Layout from '../../layouts'
+import Layout from 'src/layouts'
 import { graphql, StaticQuery } from 'gatsby'
 import Fade from 'react-reveal/Fade';
 import Masonry from 'react-masonry-css'
-
-import Avatar from '../../img/avatar-placeholder.png'
 import PreviewCompatibleImage from 'src/components/PreviewCompatibleImage'
 import Img from 'gatsby-image'
 
@@ -14,11 +12,19 @@ import { ModalRoutingContext, Link } from 'gatsby-plugin-modal-routing'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faPhone, faEnvelope, faTimes, faFileExcel } from '@fortawesome/free-solid-svg-icons'
+
 
 import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import { constants } from 'os';
+import {getLocalizedConstant} from 'shared/constant'
 
+import ReactMarkdown from 'react-markdown';
 
+import ReactModal from 'react-modal'
+
+import { Portal } from 'react-portal';
+import TeamRoll from 'src/components/TeamRoll';
 
 const Header = styled.div`
  
@@ -37,34 +43,15 @@ font-family: 'Playfair Display',serif;
 
  const TeamPageWrapper = styled.div`
  
-    max-width: 1366px;
-    margin-left: auto;
-    margin-right: auto;
+
     margin-top: 126px;
     min-height: 400px;
     padding: 2.5em;
     color: lightgrey;
-    min-height: 100vh;
+ 
   
  `;
 
-
-const Member = styled.div`
-  overflow: hidden;
-  border-radius: 50%;
-  background: #fefefe; 
-  height: 220px;
-  width: 220px;
-  margin-left: auto;
-    margin-right: auto;
- 
-`;
-
-const MemberText = styled.h5`
-  text-align: center;
-  /* background: white;
-  transition: transform .5s, filter 1.5s ease-in-out; */
-`;
 
 
 
@@ -79,130 +66,124 @@ const breakpointColumnsObj = {
 
 
 
+const CloseButton = styled.div`
+  position: absolute;
+    top: 156px;
+    right: 5vw;
+    z-index: 2;
+
+`
 
 
-// const TeamPage = ( {data} , asModal, closeTo) => {
-//   const { frontmatter } = data.markdownRemark;
-//   console.log(asModal);
-//   console.log(data)
+const MemberPortal = styled.div`
+ position: absolute;
+    top: 156px;
+    left: 0px;
+    right: 0px;
+    padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 966px;
+    background: transparent;
+    z-index: 2;
+    color: lightgrey;
+    display: flex;
+    flex-wrap: wrap;
+`;
 
-//   return (
-// <Layout>
+
+const PortalTextContainer = styled.div`
+  background: #000000ba;
+  margin-left: 1em;
+  padding: 2em;
+  flex: 1;
+  min-width: 400px;
+
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 2s ease 0s;
+  background: ${props => props.portalIsOpen ? '#000000a4' : 'transparent'};
+  z-index: ${props => props.portalIsOpen ? 2 : 0};
+  padding: 5vh;
+
+  
+
+`
+
+
+// class MemberPortal extends React.Component {
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isOpen: false
+//     };
+//   }
+
+  
 
 
 
+// }
 
 
-//   </Layout>
+const ImageWrapper = styled.div`
+  flex:1;
+  min-width: 400px;
+`;
+
+const MemberContainer = styled.div`
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 220px;
+    
+    
+
+`;
 
 
+const Member = styled.div`
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fefefe; 
+  height: 220px;
+  width: 220px;
+  margin: 1.5em;
+  border: solid;
+  cursor: pointer;
+
+  transition: all 0.2s ease 0.1s;
+  &:hover{
+    border: solid 6px #d0cba4;
+  }
  
-//   ); 
-// };
+ 
+`;
+
+const MemberText = styled.h5`
+  text-align: center;
+
+  /* background: white;
+  transition: transform .5s, filter 1.5s ease-in-out; */
+`;
 
 
 
+const Container = styled.div`
 
-const ModalExamplePage = ({
-  image,
-  firstname,
-  lastname,
-  content,
-  expertise,
-  nickname,
-  position,
-  email
-}) => (
-  <ModalRoutingContext>
-    {({ modal, closeTo }) => (
-      <div>
-        {modal ? (
-          <>
-          <Link to={closeTo}> 
-            Close
-          </Link>
-          <div className="content">
+position: relative;
+`;
 
-          <section className="section section--gradient">
-            <div className="container">
-              <div className="section">
-                <div className="columns">
-       
-                <div className="column is-5">
-                          
-                <div className="tile is-ancestor">
-                      <div className="tile is-vertical">
-        
-                        <div className="tile is-parent" >
-                          <article className="tile is-child" >
-                          <PreviewCompatibleImage
-                               imageInfo={{
-                                 image: image,
-                                 alt: "title"
-                               }}
-                             />
-                            {/* <PreviewCompatibleImage imageInfo={image} /> */}
-                            {/* <img src={image}/> */} 
-                          </article>
-                        </div>
-                      </div>
-                    </div>
-                   
-                  </div>
-       
-       
-       
-                  <div className="column is-7">
-                    {/* <h3 className="has-text-weight-semibold is-size-3">{heading}</h3> */}
-                    <h5 className="has-text-weight-semibold is-size-3 text-tone-primary">{firstname} {lastname} {nickname =! "" ? "(" + nickname +")" : ""}</h5>
-                    <h4 className="has-text-weight-semibold is-size-4">{position}</h4> 
-                    <p>{content}</p>
-       
-                    <h3 className="has-text-weight-semibold is-size-3">
-                          Expertise and Experiencewwv
-                        </h3>
-                        <p>{expertise}</p>
-       
-       
-                        <h5 className="has-text-weight-semibold is-size-4 text-tone-primary">
-                        <FontAwesomeIcon icon={faLinkedin} size="lg" style={{color:'#ffffff'}}/> <FontAwesomeIcon icon={faEnvelope} size="lg" style={{color:'#ffffff'}}/> {email}
-                        </h5>
-       
-                       
-                        
-                  </div>
-       
-       
-                </div>
-            
-              </div>
-            </div>
-          </section>
-       
-          <section
-              className="section section--gradient hero"
-              style={{ height: 150 }}
-            >
-              {" "}
-            </section>
-        </div>
-        </>
-       
-        ) : (
-          <header>
-            <h1>
-              Website Title
-            </h1>
-          </header>
-        )}
-
-        <h2>Modal Page</h2>
-
-        <Link to="/">Go back to the homepage</Link>
-      </div>
-    )}
-  </ModalRoutingContext>
-)
 
 
  class TeamPage extends React.Component {
@@ -210,61 +191,150 @@ const ModalExamplePage = ({
 
   constructor(props) {
     super(props)
+    this.state = {
+      isModalOpen: false,
+      modalIndex:0
+    }
+
+    this.toggleModal = this.toggleModal.bind(this);
+    
   }
 
+
+
+  toggleModal(index){
+    this.setState(prevState => ({
+      isModalOpen: !prevState.isModalOpen, modalIndex:index
+    }))
+  }
+
+
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     //const { data } = this.props
     const { edges: posts } = this.props.data.allMarkdownRemark
     const location = this.props.location
     console.log(posts);
     return (
-      <Layout location={location}> 
+
+
+
 
 <TeamPageWrapper>
 
-<Header>ทีมของเรา</Header>
+
+<Fade>
+<h2 style={{textAlign: 'center'}}>OUR TEAM</h2>
+</Fade>
+
+  
 
 
-<Masonry
-  breakpointCols={breakpointColumnsObj}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column">
- 
-            {posts &&
-          posts.map(({ node: post }) => (
 
 
-            <Fade>
-            <Link asModal replace to={"/team/th/"+post.frontmatter.lastname.toLowerCase()}> 
-            <Member>
-            <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.image,
-                          alt: "title"
-                        }}
-                      />
-            {/* <img className="team-img" src={post.frontmatter.image} />  */}
-            {/* <Img fluid={post.frontmatter.image.src} alt="image" /> */}
-            
-            
-            </Member>
-            <MemberText>{post.frontmatter.firstname} {post.frontmatter.lastname}</MemberText>
-            </Link> 
-         </Fade>
+
+<MemberContainer>
+
+
+
+
+<TeamRoll data={posts} handleCallback={this.toggleModal}/>
+</MemberContainer>
+
+
+
+
+
+{this.state.isModalOpen && (<Portal>
+      
+      
+      <Overlay portalIsOpen={this.state.isModalOpen} onClick={() => this.setState({isModalOpen:false})}>
+
+
+
+    
+    
+
+</Overlay>
+
+
+
+    
+<CloseButton onClick={() => this.setState({isModalOpen:false})}>
+         <FontAwesomeIcon
+          icon={faTimes}
+          size="lg"
+          style={{ color: "#ffffff" }}
+        />
+         </CloseButton>
         
-       
-          
-          ))}
 
+       <MemberPortal>
+   
+
+     
+
+          <ImageWrapper>
+
+          <Img fluid={posts[this.state.modalIndex].node.frontmatter.profileImage1.childImageSharp.fluid}/>
+          </ImageWrapper>
           
-    </Masonry>
+
+         <PortalTextContainer>
+
+     
+
+         <h3>
+         {posts[this.state.modalIndex].node.frontmatter.firstname} {posts[this.state.modalIndex].node.frontmatter.lastname}{" "}
+<span>( {posts[this.state.modalIndex].node.frontmatter.nickname} )</span>
+       </h3>
+       <h4>{posts[this.state.modalIndex].node.frontmatter.position}</h4>
+       <ReactMarkdown source={posts[this.state.modalIndex].node.frontmatter.content}/>
+
+       <h4>
+         Expertise and Experience
+       </h4>
+       <ReactMarkdown source={posts[this.state.modalIndex].node.frontmatter.expertise}/>
+
+       <h4>
+         <FontAwesomeIcon
+           icon={faLinkedin}
+           size="lg"
+           style={{ color: "#ffffff" }}
+         />{" "}
+         <FontAwesomeIcon
+           icon={faEnvelope}
+           size="lg"
+           style={{ color: "#ffffff" }}
+         />{" "}
+         {posts[this.state.modalIndex].node.frontmatter.email}
+       </h4>
+
+
+         </PortalTextContainer> 
+   
+
+
+
+       {/* <PreviewCompatibleImage
+                 imageInfo={{
+                   image: posts[this.state.modalIndex].node.frontmatter.image,
+                   alt: "title"
+                   
+                 }}
+               /> */}
+
+
+     </MemberPortal>
+  
+
+   
+</Portal>)}
 
 
 </TeamPageWrapper>
       
 
-      </Layout> 
     ) 
   } 
 }
@@ -273,10 +343,10 @@ const ModalExamplePage = ({
 export default (props) => (
   <StaticQuery
     query={graphql`
-      query MemberQueryTH($locale: String){  
+      query MemberQuery($langKey: String){  
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $locale } } }
+          filter: { frontmatter: {  templateKey: { eq: "team-page" }, locale: { eq: $langKey } } }
         ) { 
           edges {
             node {
@@ -287,15 +357,21 @@ export default (props) => (
                 content
                 position
                 expertise
-                image 
-             
+                profileImage1 {
+                  childImageSharp {
+                    fluid(maxWidth: 1366, maxHeight: 1366, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+
               }
             }
           }
         }
       }
     `}
-    render={() => <TeamPage {...props} />}
+    render={() =><Layout location={props.location}><TeamPage {...props} /></Layout> }
   />
 )
 
@@ -307,6 +383,10 @@ export default (props) => (
 //   }
 // }
 
+
+// fixed(width: 220, height: 220, quality: 100) {
+//   ...GatsbyImageSharpFixed
+// }
 
 
 // export const query = graphql`

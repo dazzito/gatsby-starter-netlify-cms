@@ -43,7 +43,7 @@ li:before {
 `; 
 
 const Wrapper = styled.div`
-  background:#272727;
+
   width: 100%;
 
 `;

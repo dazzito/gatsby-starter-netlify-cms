@@ -238,7 +238,7 @@ overflow-y: scroll; */
       
      
       {/* disableFooterNav={url == "/"} */}
-      <Footer  />
+      <Footer  locale={langKey}  />
 </Col>
 
 </Container>

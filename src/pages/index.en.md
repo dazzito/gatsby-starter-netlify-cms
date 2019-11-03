@@ -7,30 +7,23 @@ mainImage2: /img/blc_logo.png
 mainImage3: /img/blc_logo.png
 mainHeader: About Us
 mainContent: >-
-  **Bangkok Legal Consulting** Co., Ltd. (B.L.C.) was
+  Bangkok Legal Consulting Co., Ltd. (B.L.C.) was
   established in 2015 by a team of Legal Professionals
   having graduated from leading universities both in
-  Thailand and Abroad. Our team has over 15 years of
-  experience working with leading Legal firms and Major
-  business organizations. 
-  Bangkok Legal Consulting aims to provide consulting
-  and litigation with a focus in the areas related to
-  Business and Investment. Our clients are primarily
-  Investment companies located both in Thailand and
-  abroad.
+  Thailand and Abroad.
 statementHeader: Our Statements & Principles
 visionHeader: Vision
 missionHeader: Mission
 valueHeader: Value
 
 visionContent: >-
-  **" to create a better every-day life for many people "**
+  to create a better every-day life for many people
 missionContent: >-
-  **" to provide a high quassslity, creative, and result – oriented legal team to
+  to provide a high quassslity, creative, and result – oriented legal team to
   individuals and businesses, and serve as a primary resource and partner in all
-  aspects of clients’ business growth and development "**
+  aspects of clients’ business growth and development
 valueContent: >-
-  **" Reliability – Loyalty – Commitment – Passion – Respect "**
+  Reliability – Loyalty – Commitment – Passion – Respect
 
 serviceHeaderLeft: Why us?
 serviceHeaderRight: Our Services
