@@ -61,7 +61,7 @@ class TeamRoll extends PureComponent {
 
     return (
       <>
-           <Fade delay={500}>
+      
       {this.state.data &&
         this.state.data.map(({ node: post }, index) => (
 
@@ -69,7 +69,7 @@ class TeamRoll extends PureComponent {
      
      
 
-        
+        <Fade>
          
             <div onClick={() => {this.props.handleCallback(index)}}>
             
@@ -97,11 +97,11 @@ class TeamRoll extends PureComponent {
         
           </div>
     
-     
+          </Fade>
         
         
         ))}
-        </Fade>
+  
         </>
    
     )
