@@ -15,9 +15,8 @@ const Member = styled.div`
   overflow: hidden;
   border-radius: 50%;
   background: #fefefe; 
-  height: 220px;
-  width: 220px;
-  margin: 1.5em;
+
+  margin: 0.75em;
   border: solid;
   cursor: pointer;
 
@@ -25,12 +24,38 @@ const Member = styled.div`
   &:hover{
     border: solid 6px #d0cba4;
   }
+
+
+  @media (min-width: 768px){
+    min-height:220px;
+    min-width: 220px;
+  }
+
+
+  @media (max-width: 768px){
+    min-height: 110px;
+    min-width: 110px;
+  }
  
  
 `;
 
 const MemberText = styled.h5`
   text-align: center;
+  overflow-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px){
+
+    min-width: 220px;
+  }
+
+
+  @media (max-width: 768px){
+
+    min-width: 110px;
+  }
 
   /* background: white;
   transition: transform .5s, filter 1.5s ease-in-out; */

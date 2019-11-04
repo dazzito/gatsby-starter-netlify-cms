@@ -7,6 +7,10 @@ import Headroom from 'react-headroom';
 import Location from '@reach/router';
 
 import locales from 'src/shared/locales';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faBars
+} from "@fortawesome/free-solid-svg-icons";
 
 import styled from 'styled-components';
 
@@ -42,25 +46,113 @@ const ActiveMenuItem = styled(Link)`
 
 
 
-const NavbarWrapper = styled.nav`
-background: ${props => props.isTransparent ? 'transparent !important' : '#1b1b1b'};
-		/* box-shadow: inset 0px -1px 5px 0px #252525; */
+const LogoImage = styled.img`
+	height: 100%;
+
+
 `;
 
+
+const NavbarWrapper = styled.nav`
+z-index: 4;
+display: flex;
+height: 126px;
+font-family: 'Playfair Display', sans-serif;
+background: ${props => props.isTransparent ? 'transparent !important' : '#1b1b1b'};
+		/* box-shadow: inset 0px -1px 5px 0px #252525; */
+@media screen and (max-width: 768px){
+	height: 90px;
+	top: 0;
+    right: 0;
+    left: 0;
+
+    position: fixed;
+}
+`;
+
+
+const MenuWrapper = styled.div`
+	display: flex;
+	justify-content: flex-end;
+    align-items: center;
+	flex: 1;
+	margin-right: 2em;
+
+`
+
+
+
+
+const BurgerMenuWrapper = styled.div`
+
+	z-index: 3;
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	display: none;
+
+
+  
+  a{
+	  padding: 1em;
+	  margin: 0px;
+	  display: block;
+	  text-align: center;
+	  background: #262626;
+
+
+  }
+
+  a:hover{
+	  background: #2a2a2a;
+	  color: #e0e0e0;
+  }
+
+  @media screen and (max-width: 768px) {
+	display: ${props => props.isActive ? 'block' : 'none'};
+  }
+  	
+`;
+
+
+const Burger = styled.div`
+	display: none;
+	color: #d9d9d9;
+	font-size: 30px;
+
+
+	  @media screen and (max-width: 768px) {
+	display: block;
+  }
+  
+
+
+`;
+
+
+const BurgerMenuItem = styled(Link)`
+  position: relative;
+  transition: all 0.2s ease 0s;
+  color: ${props => props.isDark ? '#1b1b1b' : '#d0cba4'};
+  margin: 0 1.15em;
+
+`;
 
 const MenuItem = styled(Link)`
   position: relative;
   transition: all 0.2s ease 0s;
   color: ${props => props.isDark ? '#1b1b1b' : '#d0cba4'};
- 
-
-  
-  height: fit-content;
-  font-family: "Playfair Display";
-  padding: 1.25em;
-  font-size:1.1rem;
+  margin: 0 1.15em;
 
 
+
+
+
+  @media screen and (max-width: 768px) {
+	display: none;
+  }
   
 
 
@@ -72,7 +164,12 @@ const MenuItem = styled(Link)`
     /* font-weight: bold; */
     /* padding-top: 1em; */
     &::after{
-      height: 2px;
+		position: absolute;
+		bottom: -25%;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 4px;
 		opacity: 1;
 		-webkit-transform: translateY(0px);
 		-moz-transform: translateY(0px);
@@ -84,10 +181,11 @@ const MenuItem = styled(Link)`
   &::after {
 
 		position: absolute;
-		top: 80%;
+		bottom: -25%;
 		left: 0;
+		right: 0;
 		width: 100%;
-		height: 1px;
+		height: 4px;
      background: #d0cba4; 
 		content: '';
 		opacity: 0;
@@ -103,7 +201,7 @@ const MenuItem = styled(Link)`
 
 height: '2px',
 opacity: 1,
-top: '100%'
+top: '150%'
 
 })}
 	}
@@ -152,7 +250,7 @@ const LanguageMenuItem = styled(Link)`
 
 function getLocalePath(locale, path) {
 	if (locale == 'en') {
-		return '/en/' + path;
+		return '/' + path;
 	} else if (locale == 'th') {
 		return '/th/' + path;
 	}
@@ -163,16 +261,23 @@ const Navbar = class extends React.Component {
 		super(props);
 		this.state = {
 			active: false,
+			isBurgerActive: false,
 			navBarActiveClass: '',
       locale: this.props.locale,
       pathname: this.props.pathname
 		};
 
 		this.setLocale = this.setLocale.bind(this);
+		this.toggleHamburger = this.toggleHamburger.bind(this);
 	}
 
 	setLocale(locale) {
 		this.setState({ locale });
+	}
+
+	toggleHamburger(){
+	
+		this.setState({isBurgerActive: !this.state.isBurgerActive})
 	}
 
 
@@ -181,8 +286,11 @@ const Navbar = class extends React.Component {
 			return str.toUpperCase();
 
 		} else {
+			if(str == "home"){
+				return "หน้าหลัก"
+			}
 
-			if(str == "about"){
+			else if(str == "about"){
 				return "เกี่ยวกับเรา"
 			} else if( str == "team"){
 				return "ทีมของเรา"
@@ -213,25 +321,29 @@ const Navbar = class extends React.Component {
 
 	}
 
-	toggleHamburger = () => {
-		// toggle the active boolean in the state
-		this.setState(
-			{
-				active: !this.state.active,
-			},
-			// after state has been updated,
-			() => {
-				// set the class in state for the navbar accordingly
-				this.state.active
-					? this.setState({
-							navBarActiveClass: 'is-active',
-					  })
-					: this.setState({
-							navBarActiveClass: '',
-					  });
-			}
-		);
-	};
+	// toggleHamburger() {
+
+
+		
+
+	// 	// toggle the active boolean in the state
+	// 	// this.setState(
+	// 	// 	{
+	// 	// 		active: !this.state.active,
+	// 	// 	},
+	// 	// 	// after state has been updated,
+	// 	// 	() => {
+	// 	// 		// set the class in state for the navbar accordingly
+	// 	// 		this.state.active
+	// 	// 			? this.setState({
+	// 	// 					navBarActiveClass: 'is-active',
+	// 	// 			  })
+	// 	// 			: this.setState({
+	// 	// 					navBarActiveClass: '',
+	// 	// 			  });
+	// 	// 	}
+	// 	// );
+	// };
 
 	render() {
 		// const links = this.props.langs.map((lang, index) =>
@@ -246,7 +358,9 @@ const Navbar = class extends React.Component {
 
     // );
     
-    let about = getLocalePath(this.state.locale, 'about')
+	
+	let home = getLocalePath(this.state.locale, '')
+	let about = getLocalePath(this.state.locale, 'about')
     let team = getLocalePath(this.state.locale, 'team')
     let service = getLocalePath(this.state.locale, 'service')
     let news = getLocalePath(this.state.locale, 'news')
@@ -257,34 +371,30 @@ const Navbar = class extends React.Component {
 
       console.log(this.state.location)
 		return (
+			<>
 			<NavbarWrapper 
-				// isTransparent={this.state.pathname == "/" || this.state.pathname == "/th"}
-				className="navbar is-transparent "
+	
 				role="navigation"
 				aria-label="main-navigation"
-				// style={this.props.isScrolled ? this.props.scrolled : this.props.unscrolled}
+		
 			>
-				<div className="container">
-					<div className="navbar-brand">
-						<Link to={getLocalePath(this.state.locale, '/')} className="navbar-item" title="Logo">
-							{/* <h1  style={{marginBottom: 6, color: this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color, fontWeight:'bolder'}}>[ Logo ]</h1>
-							 */}
-							<img src={logo} alt="BLC" />
-						</Link>
-						{/* Hamburger menu */}
-						<div
-							className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-							data-target="navMenu"
-							onClick={() => this.toggleHamburger()}
-						>
-							<span />
-							<span />
-							<span /> 
-						</div>
-					</div>
-					<div id="navMenu" className={`navbar-menu ${this.state.navBarActiveClass}`}>
-						<div className="navbar-end has-text-centered">
-							<MenuItem
+
+				<Link to={home}>
+				<LogoImage src={logo}/>
+				</Link>
+				
+
+				<MenuWrapper>
+
+				<MenuItem
+                active={this.state.pathname == home}
+								to={home}
+								// isDark={this.state.pathname == "/"}
+							>
+								{this.getMenuItem("home", this.state.locale)}
+							</MenuItem>
+
+				<MenuItem
                 active={this.state.pathname == about}
 								to={about}
 								// isDark={this.state.pathname == "/"}
@@ -325,8 +435,13 @@ const Navbar = class extends React.Component {
 								{this.getMenuItem("contact", this.state.locale)}
 							</MenuItem>
 
+							<Burger onClick={this.toggleHamburger}><FontAwesomeIcon icon={faBars} /></Burger>
 
+				</MenuWrapper>
+			
 
+		
+{/* 
               <LanguageSelector>
               <LanguageMenuItem replace to="/th" active={this.state.locale == "th"}>
 								TH
@@ -336,39 +451,66 @@ const Navbar = class extends React.Component {
 								EN
 							</LanguageMenuItem>
 
-              </LanguageSelector>
+              </LanguageSelector> */}
 						
 
-							{/* 
-              <Link className="navbar-item" to={location.pathname} style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                TH
-              </Link> */}
-							{/* 
-            <Link  className="navbar-item" to={this} style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                            CONTACT
-            </Link>
-              <button onClick={()=> this.setLocale("th")}>TH</button>
-              <button onClick={()=> this.setLocale("en")}>EN</button> */}
 
-							{/* <Link className="navbar-item" to="/contact/examples" style={{color:this.props.isScrolled ? this.props.scrolled.color : this.props.unscrolled.color}}>
-                Form Examples
-              </Link> */}
-						</div>
-						{/* <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div> */}
-					</div>
-				</div>
 			</NavbarWrapper>
+
+<BurgerMenuWrapper isActive={this.state.isBurgerActive}>
+
+<BurgerMenuItem
+                active={this.state.pathname == home}
+								to={home}
+								// isDark={this.state.pathname == "/"}
+							>
+								{this.getMenuItem("home", this.state.locale)}
+							</BurgerMenuItem>
+
+
+<BurgerMenuItem
+                active={this.state.pathname == about}
+								to={about}
+								// isDark={this.state.pathname == "/"}
+							>
+								{this.getMenuItem("about", this.state.locale)}
+							</BurgerMenuItem>
+
+							<BurgerMenuItem
+                active={this.state.pathname == team}
+								to={team}
+							
+							>
+								{this.getMenuItem("team", this.state.locale)}
+							</BurgerMenuItem>
+
+							<BurgerMenuItem
+                active={this.state.pathname == service}
+								to={service}
+							
+
+							>
+								{this.getMenuItem("services", this.state.locale)}
+							</BurgerMenuItem>
+							<BurgerMenuItem
+                active={this.state.pathname == news}
+								to={news}
+							
+	
+							>
+								{this.getMenuItem("news", this.state.locale)}
+							</BurgerMenuItem>
+							<BurgerMenuItem
+                active={this.state.pathname == contact}
+								to={contact}
+							
+				
+							>
+								{this.getMenuItem("contact", this.state.locale)}
+							</BurgerMenuItem>
+</BurgerMenuWrapper>
+
+</>
 		);
 	}
 };

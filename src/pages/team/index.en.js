@@ -162,8 +162,7 @@ const Member = styled.div`
   overflow: hidden;
   border-radius: 50%;
   background: #fefefe; 
-  height: 220px;
-  width: 220px;
+
   margin: 1.5em;
   border: solid;
   cursor: pointer;

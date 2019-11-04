@@ -117,6 +117,11 @@ const ContentContainer = styled.div`
   min-height: 100vh;
    /* margin-top: 126px; */
    flex:1;
+
+   @media screen and (max-width: 768px){
+    margin-top: 90px;
+   }
+  
  
    /* max-width: 1300px;
   margin-left: auto;

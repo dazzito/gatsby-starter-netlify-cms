@@ -97,7 +97,7 @@ const Copyright = styled.div`
 
 function getLocalePath(locale, path) {
 	if (locale == 'en') {
-		return '/en/' + path;
+		return '/' + path;
 	} else if (locale == 'th') {
 		return '/th/' + path;
 	}
