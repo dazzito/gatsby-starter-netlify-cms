@@ -6,6 +6,9 @@ import Fade from "react-reveal/Fade";
 import { GoogleMap, LoadScript } from '@react-google-maps/api'
 
 import styled from "styled-components"
+import GoogleMapReact from 'google-map-react';
+
+
 
 
 const Container = styled.div`
@@ -28,15 +31,25 @@ max-width:1366px ;
     display: flex;
     flex-wrap: wrap;
 
+    @media screen and (max-width:768px){
+      flex-direction: column;
+    }
+
   `
 
   const MapWrapper = styled.div`
     flex: 1;
-    min-width: 400px;
-    #example-map{
+    min-height: 400px;
+
+
+    div{
       width: 100%;
-      height: 100%;
+      height: 400px !important;
     
+    }
+
+    @media screen and (min-width: 768px){
+      width: 100%;
     }
     
 
@@ -44,35 +57,12 @@ max-width:1366px ;
 
   const FormWrapper = styled.div`
     flex: 1; 
-    min-width: 400px;
+
     padding: 2em;
   `;
 
 
-const Header = styled.div`
 
-font-family: 'Playfair Display', serif;
-
-  width: 100%; 
-text-align: center; 
-border-bottom: 2px solid #d0cba4; 
-line-height: 0.1em;
-margin: 10px 0 20px; 
-color: #d0cba4;
-line-height: 0;
-font-size: 2.5rem;
-word-break: break-word;
-margin-top: 0.5em;
-
-span { 
-/* background: url("/img/bg2.png"); */
-background: #3f3f3f;
-border: solid;
-/* background: url('/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg');
-background-size: auto; */
- padding:0 10px; 
-}
-`;  
 
 
 
@@ -85,6 +75,13 @@ function encode(data) {
 }
 
 export default class Index extends React.Component {
+
+  static defaultProps = {
+    center: {lat: 40.73, lng: -73.93}, 
+    zoom: 12
+ }
+
+
   constructor(props) {
     super(props)
     this.state = { isValidated: false }
@@ -130,7 +127,7 @@ export default class Index extends React.Component {
 
 
   <MapWrapper>
-  <LoadScript
+  {/* <LoadScript
         id="script-loader"
         googleMapsApiKey="AIzaSyDo5LF2ODnq7x_aLhD-_qCT1us57ILA0dc"
        
@@ -141,7 +138,21 @@ export default class Index extends React.Component {
         >
           ...Your map components
         </GoogleMap>
-      </LoadScript>
+      </LoadScript> */}
+
+{/* <GoogleMapReact  
+   bootstrapURLKeys={{
+      key: "AIzaSyDo5LF2ODnq7x_aLhD-_qCT1us57ILA0dc"
+   }}
+   defaultCenter={{lat: 13.743807, lng: 100.561945}}
+   center={{lat: 13.743807, lng: 100.561945}}
+   defaultZoom={15}
+  //  onChildMouseEnter={this.onChildMouseEnter}
+  //  onChildMouseLeave={this.onChildMouseLeave}
+></GoogleMapReact> */}
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5806768225966!2d100.55972375112863!3d13.743818401132192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29fd190d85345%3A0x7400e1ec5501fd13!2sBangkok%20Legal%20Consulting%20co%20ltd!5e0!3m2!1sth!2sth!4v1572890834644!5m2!1sth!2sth" width="600" height="450" frameborder="0"  allowfullscreen=""></iframe>
 
   </MapWrapper>
 

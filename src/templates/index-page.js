@@ -802,6 +802,7 @@ export const IndexPageTemplate = class extends React.Component {
 											textAlign: 'left',
 											
 											flexWrap: 'wrap-reverse',
+											alignItems: 'center'
 										
 										}}
 									>
@@ -941,7 +942,8 @@ export const IndexPageTemplate = class extends React.Component {
 								
 											textAlign: 'left',
 										
-											flexWrap: 'wrap' 
+											flexWrap: 'wrap' ,
+											alignItems: 'center'
 									
 										}}
 									>
@@ -1057,6 +1059,7 @@ export const IndexPageTemplate = class extends React.Component {
 											display: 'flex',
 											flexDirection: 'row',
 											textAlign: 'left',
+											alignItems: 'center',
 										
 											flexWrap: 'wrap',
 										}}

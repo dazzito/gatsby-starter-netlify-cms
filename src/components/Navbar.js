@@ -29,7 +29,7 @@ const ActiveMenuItem = styled(Link)`
   transition: all 0.2s ease 0s;
   color:#d0cba4;
   height: fit-content;
-  font-family: 'Playfair Display', sans-serif;
+  font-family: 'Playfair Display','Kanit', sans-serif;
   padding: 0.5em;
 
   &::after{
@@ -57,7 +57,7 @@ const NavbarWrapper = styled.nav`
 z-index: 4;
 display: flex;
 height: 126px;
-font-family: 'Playfair Display', sans-serif;
+font-family: 'Playfair Display', 'Kanit', sans-serif;
 background: ${props => props.isTransparent ? 'transparent !important' : '#1b1b1b'};
 		/* box-shadow: inset 0px -1px 5px 0px #252525; */
 @media screen and (max-width: 768px){
@@ -213,19 +213,18 @@ top: '150%'
 const LanguageSelector = styled.div`
     display:flex;
     flex-direction: row;
-    padding-left: 10px; 
+    margin-right: 1em; 
 `;
 
 const LanguageMenuItem = styled(Link)`
-  margin-left: 0.2em;
-  margin-right: 0.2em;
+margin: 0.25em;
+padding: 0.3em;
   background-color: ${props => props.active ? '#c5cba4' : 'transparent'};
   color: ${props => props.active ? '#212121' : '#c5cba4'};
   border-radius:4px;
 	display: block;
-	line-height: 1.5;
-	padding: 0.5rem 0.275rem;
-	height: 1.2em;
+	
+
 	align-self: center;
 	cursor: pointer;
   transition: all 0.2s ease 0s;
@@ -435,23 +434,24 @@ const Navbar = class extends React.Component {
 								{this.getMenuItem("contact", this.state.locale)}
 							</MenuItem>
 
+							
+							<LanguageSelector>
+               <LanguageMenuItem replace to="/th" active={this.state.locale == "th"}>
+ 								TH
+ 							</LanguageMenuItem>
+
+ 							<LanguageMenuItem replace to="/" active={this.state.locale == "en"}>
+ 								EN
+ 							</LanguageMenuItem>
+
+              </LanguageSelector> 
+
 							<Burger onClick={this.toggleHamburger}><FontAwesomeIcon icon={faBars} /></Burger>
 
 				</MenuWrapper>
 			
 
-		
-{/* 
-              <LanguageSelector>
-              <LanguageMenuItem replace to="/th" active={this.state.locale == "th"}>
-								TH
-							</LanguageMenuItem>
 
-							<LanguageMenuItem replace to="/" active={this.state.locale == "en"}>
-								EN
-							</LanguageMenuItem>
-
-              </LanguageSelector> */}
 						
 
 

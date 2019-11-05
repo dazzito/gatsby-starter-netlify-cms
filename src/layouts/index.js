@@ -115,6 +115,7 @@ const TemplateWrapper = ({ children, location }) => {
 
 const ContentContainer = styled.div`
   min-height: 100vh;
+  background: #1b1b1b;
    /* margin-top: 126px; */
    flex:1;
 

@@ -10,7 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faMapMarkerAlt,
   faPhone,
-  faEnvelope
+  faEnvelope,
+  faFax
 } from "@fortawesome/free-solid-svg-icons";
 
 import styled from "styled-components";
@@ -26,7 +27,7 @@ const List = styled.ul`
   justify-content: center;
   flex: 1;
   text-align: left;
-  border-right: solid #353535 1px;
+
   padding: 1em;
 
 `;
@@ -62,7 +63,7 @@ const FooterRow = styled(Row)`
 const FooterWrapper = styled(Col)`
   z-index:2;
   background: #212121;
-  border-right: solid 1px #3f3f3f;
+  /* border-right: solid 1px #3f3f3f; */
     text-align: end;
     /* padding: 1em; */
 /* 
@@ -105,7 +106,7 @@ function getLocalePath(locale, path) {
 
 function getMenuItem(str, locale){
   if(locale == "en"){
-    return str.toUpperCase();
+    return str.charAt(0).toUpperCase() + str.slice(1);
 
   } else {
 
@@ -199,22 +200,31 @@ const Footer = class extends React.Component {
           <ListItem>
           <StyledLink to={getLocalePath(this.state.locale, 'contact')} >{getMenuItem("contact", this.state.locale)}</StyledLink>
             </ListItem>
-            <p>
+           
+           <p>
+
+            <StyledLink to={contact}>
 
             <address>
               <FontAwesomeIcon icon={faMapMarkerAlt} />
-              &nbsp;Address Example / 5534 Somewhere In. The World 22193
+              &emsp;Fl 3rd Unit 301, Mid Town Asoke Bldg, 189/1 Sukhumvit 21 Rd, Klong-Toey Nua, Wattana, Bangkok 10110
             </address>
-
-       
-              {/* <FontAwesomeIcon icon={faPhone} /> */}
-              &nbsp;(66)5050 9999
+          </StyledLink>
+           
           
-              <br/>
-        
-              {/* <FontAwesomeIcon icon={faEnvelope} /> */}
-              &nbsp;tl.leo90@hotmail.com
+       
+              <FontAwesomeIcon icon={faPhone} />
+              &emsp;+668 6060 5225&emsp;
+              
+              <FontAwesomeIcon icon={faFax} />
+              &emsp;(66) 2258 9091-3
+          
+              
+            <br/>
+              <FontAwesomeIcon icon={faEnvelope} />
+              &emsp;info@bangkoklegalconsulting.com
               </p>
+            
           </ContactInfo>
         </FooterRow>
 

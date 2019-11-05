@@ -1,7 +1,7 @@
 ---
 templateKey: service-page
-locale: en
-title: OUR SERVICES
+locale: th
+title: บริการ
 ---
 ##### LEGAL AND INVESTMENT CONSULTING
 
