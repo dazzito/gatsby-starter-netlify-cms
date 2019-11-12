@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import github from '../img/github-icon.svg';
-import logo from './../../public/img/logot.png';
+import logo from './../../public/img/BLC-Logo.png';
 import { navigate } from 'gatsby';
 import Headroom from 'react-headroom';
 import Location from '@reach/router';
@@ -56,7 +56,7 @@ const LogoImage = styled.img`
 const NavbarWrapper = styled.nav`
 z-index: 4;
 display: flex;
-height: 126px;
+height: 206px;
 font-family: 'Playfair Display', 'Kanit', sans-serif;
 background: ${props => props.isTransparent ? 'transparent !important' : '#1b1b1b'};
 		/* box-shadow: inset 0px -1px 5px 0px #252525; */
