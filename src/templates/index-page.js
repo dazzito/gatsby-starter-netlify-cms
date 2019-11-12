@@ -79,7 +79,7 @@ width: 100%;
 
 const Story = styled.div`
 width: 100%;
-padding: 0 18vw;
+/* padding: 0 6vw; */
 /* margin-left: auto;
     margin-right: auto;
     max-width: 1300px; */
@@ -89,6 +89,7 @@ padding: 0 18vw;
 
 const Gallery = styled.div`
 	flex: 1;
+	width: 100%;
 	/* min-width: 300px; */
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -172,7 +173,7 @@ const StoryContainer = styled.div`
 	/* padding-top: 126px; */
 	position: relative;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -228,17 +229,44 @@ const ParallaxContainer = styled.div`
 	}
 `;
 
+
+
+
+const ResponsiveContainer = styled.div`
+max-width: 720px;
+    min-width: 250px;
+    flex: 1 1 0%;
+    padding: 0px 2vw;
+/* min-width: 250px;
+margin-left: auto;
+margin-right: auto;
+padding: 0px 2vw;
+width: fit-content;
+flex: 1;
+
+> * {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+} */
+
+
+`;
+
 const HeroContainer = styled.div`
+border-top: solid;
+    border-bottom: solid;
 
 	align-items: center;
 	display: flex;
 	position: relative;
 	background-attachment: fixed;
-	background:url("/img/sky.jpg");
+	/* background:url("/img/sky.jpg"); */
+	background: #1b1b1b;
 	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
-	min-height: 80vh;
+	min-height: 40vh;
 
 	align-items: center;
   
@@ -417,8 +445,11 @@ const HeroButton = styled.h2`
 
 const Statement = styled.div`
 
-  flex: 1;
-  text-align: center;
+max-width: 720px;
+    min-width: 250px;
+    flex: 1 1 0%;
+    padding: 0px 2vw;
+	color: whitesmoke;
  
   /* min-width: 300px; */
   /* margin-left: auto;
@@ -783,8 +814,8 @@ export const IndexPageTemplate = class extends React.Component {
 					</StoryContainer>
 				</Fade> */}
 
-				<Fade delay={200}>
-					<StoryContainer style={{ background: '#303030', color: 'whitesmoke' }}>
+			
+					<StoryContainer style={{ background: '#1b1b1b', color: 'whitesmoke' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
@@ -802,44 +833,159 @@ export const IndexPageTemplate = class extends React.Component {
 											textAlign: 'left',
 											
 											flexWrap: 'wrap-reverse',
-											alignItems: 'center'
+											alignItems: 'center',
+											padding: '0 6vw'
 										
 										}}
 									>
-										<Gallery>
 
 
 
+										
+										{/* borderLeft: 'solid 7px #f6f6f6'
+										 */}
+										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<Fade delay={200}>
+										<h1>
+										{this.props.mainHeader}
+									</h1>
 
 									
-											{/* <img src={this.props.backgroundSectionImage} /> */}
-											{/* <Masonry
-  breakpointCols={breakpointColumnsObj}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column"
-  >
-  <div><img src={this.props.backgroundSectionImage} /></div>
-  <div><img src={this.props.backgroundSectionImage} /></div>
-  <div><img src={this.props.backgroundSectionImage} /></div>
-  <div><img src={this.props.backgroundSectionImage} /></div>
-  <div><img src={this.props.backgroundSectionImage} /></div>
-  <div><img src={this.props.backgroundSectionImage} /></div>
 
-</Masonry> */}
+											<ReactMarkdown source={this.props.mainContent} />
+											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
+											</Fade>
+										</div>
 
 
-{/* src={this.props.backgroundSectionImage} */}
+										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<Fade delay={200}>
+										<h1>
+										Meet Our Team
+									</h1>
 
-{/* 
-<img style={{width:'50%'}} src="https://dummyimage.com/500x500/1c1c1c/ffffff.png" /> */}
+									
+
+											<ReactMarkdown source={this.props.mainContent} />
+											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
+											</Fade>
+										</div>
+
+										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<Fade delay={200}>
+										<h1>
+										Contact Us
+									</h1>
+
+									
+
+											<ReactMarkdown source={this.props.mainContent} />
+											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
+											</Fade>
+										</div>
+
+									</div>
+								</AboutSection>
+							)}
+						</InView>
+
+						{/* {BackgroundCarousel(this.props.gallery)} */}
 
 
+					
+					</StoryContainer>
+	
+
+
+
+
+				
+					<StoryContainer style={{ background: '#1b1b1b', color: 'white', borderTop:"solid #212121", paddingBottom: '1.5em' }}>
+						<InView
+							onChange={(inView, entry) => {
+								this.changeSection(inView, 2, entry);
+							}}
+						>
+							{({ inView, ref, entry }) => (
+								<Story ref={ref}>
+
+
+<div
+										style={{
+											display: 'flex',
+											flexDirection: 'row',
+											textAlign: 'left',
+											
+											flexWrap: 'wrap-reverse',
+											alignItems: 'center',
+											padding: '0 6vw'
+										
+										}}
+									>
+
+
+										{/* <Fade>
+										<div style={{ flex: 1, minWidth:300}}>
+											<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" />
+										</div>
+
+										</Fade>
+										 */}
+
+<Fade delay={200}>
+										<ResponsiveContainer>
+									
+										<h2>
+										{this.props.serviceHeaderRight}
+									</h2>
+
+											<ReactMarkdown source={this.props.serviceContentRight} />
+
+											
+										</ResponsiveContainer>
+										</Fade>
+
+
+										<Fade delay={200}>
+										<ResponsiveContainer>
+										<h1>
+										{this.props.serviceHeaderLeft}
+									</h1>
+									<ReactMarkdown source={this.props.serviceContentLeft} />
+
+											<button class="btn2 draw-border left">Read more</button>
+										
+										
+										</ResponsiveContainer>
+										</Fade>
+										</div>
+
+								</Story>
+							)}
+						</InView>
+
+					
+
+
+					
+					</StoryContainer>
+			
+
+
+
+
+
+
+
+				<StoryContainer style={{background:'#f6f6f6'}}>
+
+				<Gallery>
 
 
 <Masonry
-  breakpointCols={breakpointColumnsObj}
-  
-  >
+breakpointCols={breakpointColumnsObj}
+
+>
 <ImageWrapper>
 <Img fluid={this.props.mainImage1.childImageSharp.fluid} />
 
@@ -874,48 +1020,13 @@ export const IndexPageTemplate = class extends React.Component {
 </Masonry>
 
 
-	</Gallery>
-
-
-
-
-										
-										{/* borderLeft: 'solid 7px #f6f6f6'
-										 */}
-										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 5vw'}}>
-										<h1>
-										{this.props.mainHeader}
-									</h1>
-
-									
-
-											<ReactMarkdown source={this.props.mainContent} />
-											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
-										</div>
-									</div>
-								</AboutSection>
-							)}
-						</InView>
-
-						{/* {BackgroundCarousel(this.props.gallery)} */}
-
-
-					
-					</StoryContainer>
-				</Fade>
-
-
-
-
-				<StoryContainer style={{background:'#f6f6f6'}}>
-
-
+</Gallery>
 
 				</StoryContainer>
 
 
 				<Fade>
-					<StoryContainer style={{ background:'#f6f6f6', borderTop: 'solid #f3f3f3'}}>
+					<StoryContainer style={{ background:'#f6f6f6', borderTop: 'solid #212121'}}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 1, entry);
@@ -932,19 +1043,20 @@ export const IndexPageTemplate = class extends React.Component {
 				  </Fade> */}
 				  
 
-				  <h2 style={{color:"#606060"}}>
+				  <h2 >
 					{this.props.statementHeader}
 					</h2>
 
-				  <div
+					<div
 										style={{
 											display: 'flex',
-								
+											flexDirection: 'row',
 											textAlign: 'left',
+											
+											flexWrap: 'wrap-reverse',
+											alignItems: 'center',
+											padding: '0 6vw'
 										
-											flexWrap: 'wrap' ,
-											alignItems: 'center'
-									
 										}}
 									>
 
@@ -1042,117 +1154,9 @@ export const IndexPageTemplate = class extends React.Component {
 		
     
 
-				<Fade delay={200}>
-					<StoryContainer style={{ background: '#303030', color: 'white', borderTop:"solid #b5b090", paddingBottom: '1.5em' }}>
-						<InView
-							onChange={(inView, entry) => {
-								this.changeSection(inView, 2, entry);
-							}}
-						>
-							{({ inView, ref, entry }) => (
-								<Story ref={ref}>
-
-
-								
-									<div
-										style={{
-											display: 'flex',
-											flexDirection: 'row',
-											textAlign: 'left',
-											alignItems: 'center',
-										
-											flexWrap: 'wrap',
-										}}
-									>
-
-										{/* <Fade>
-										<div style={{ flex: 1, minWidth:300}}>
-											<img src="https://dummyimage.com/600x400/1c1c1c/ffffff.png" />
-										</div>
-
-										</Fade>
-										 */}
-
-										<div style={{ minWidth: '250px', flex: 1}}>
-										<h2>
-										{this.props.serviceHeaderRight}
-									</h2>
-
-											<ReactMarkdown source={this.props.serviceContentRight} />
-
-											
-										</div>
-								
-
-
-									<div style={{ minWidth: '250px', flex: 1 }}>
-										<h1>
-										{this.props.serviceHeaderLeft}
-									</h1>
-									<ReactMarkdown source={this.props.serviceContentLeft} />
-
-											<button class="btn2 draw-border left">Read more</button>
-										</div>
-										</div>
-
-
-								</Story>
-							)}
-						</InView>
-
-					
-
-
-					
-					</StoryContainer>
-				</Fade>
-
-
-
-
-
     
     
-    
-				<Fade>
-					<StoryContainer style={{ height: '100vh', background:'white'}}>
-						<InView
-							onChange={(inView, entry) => {
-								this.changeSection(inView, 3, entry);
-							}}
-						>
-							{({ inView, ref, entry }) => (
-               
-								<Story ref={ref}>
 
-                  {/* <Fade delay={200}>
-									<h2 className="title is-size-3 has-text-weight-bold is-bold-light text-tone-primary">
-										Our Statement
-									</h2>
-                  </Fade> */}
-
-                
-
-				  <button class="btn2 draw-border  btn2--big btn2--gold">{this.props.teamHeader}</button>
-                  {/* <StatementButton color="#d0cba4">
-                    Meet our team.
-                  </StatementButton> */}
-                  
-               
-
-
-
-
-								</Story>
-                
-                	
-							)}
-						</InView>
-					</StoryContainer>
-				</Fade>
-
-    
-	
     
     
     		<ClientSection>
