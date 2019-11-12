@@ -55,6 +55,7 @@ const LogoImage = styled.img`
 
 const NavbarWrapper = styled.nav`
 z-index: 4;
+
 display: flex;
 height: 206px;
 font-family: 'Playfair Display', 'Kanit', sans-serif;
