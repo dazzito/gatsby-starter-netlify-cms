@@ -41,6 +41,8 @@ import root from 'window-or-global'
 
 import Img from "gatsby-image"
 
+import {Row, Col} from 'src/shared/styled'
+
 
 
 
@@ -193,8 +195,20 @@ const StoryContainer = styled.div`
 	}
 `;
 
+
+const HeroBackgroundWrapper = styled.div`
+	background-attachment: fixed;
+	background:url("/img/sky.jpg");
+
+	background-size: cover;
+	background-position: bottom;
+`;
+
 const ClientSection = styled(StoryContainer)`
-	/* background: white; */
+    border-top: solid rgb(33, 33, 33);
+	min-height: 75vh
+
+	background: #1b1b1b;
 	margin: 0px;
 	* {
 		max-width: unset;
@@ -237,6 +251,7 @@ max-width: 720px;
     min-width: 250px;
     flex: 1 1 0%;
     padding: 0px 2vw;
+	text-align: center;
 /* min-width: 250px;
 margin-left: auto;
 margin-right: auto;
@@ -313,8 +328,7 @@ const ClientsWrapper = styled.div`
 `;
 
 const Client = styled.div`
-	border: solid white 1px;
-	border-radius: 4px;
+
 
 	flex: 1;
 	margin: 1em;
@@ -393,7 +407,9 @@ const HeroImage = styled.img`
 
 
 const ImageWrapper = styled.div`
-	flex: 1; 
+flex: 1;
+	align-self: flex-start;
+	padding: 5px;
 `;
 
 
@@ -464,11 +480,11 @@ margin-bottom: 0.5rem;
     /* color: #d0cba4; */
     color: ${props => (props.color ? props.color : 'black')};
  
-  	text-align: center;
+  	text-align: left;
     line-height: 1.125;
     font-family: 'Playfair Display';
     word-break: break-word;
-	color: #606060;
+	color: whitesmoke;
 
    
 
@@ -507,10 +523,12 @@ const MottoContainer = styled.div`
 
 const NewsSection = styled(StoryContainer)`
 text-align: left;
-background: #242424;
-*{
+background: #1b1b1b;
+border-top: solid rgb(33, 33, 33);
+
+/* *{
 	max-width:1366px;
-}
+} */
 /* 
   	
 	align-items: flex-start;
@@ -625,6 +643,9 @@ export const IndexPageTemplate = class extends React.Component {
 		return (
 			<IndexWrapper>
 				
+				<HeroBackgroundWrapper>
+
+			
 				<HeroContainer>
 			{/* <HeroContainer background={slideBackground[this.state.slide]}> */}
 
@@ -815,7 +836,7 @@ export const IndexPageTemplate = class extends React.Component {
 				</Fade> */}
 
 			
-					<StoryContainer style={{ background: '#1b1b1b', color: 'whitesmoke' }}>
+					<StoryContainer style={{ background: 'transparent', color: 'whitesmoke' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
@@ -832,7 +853,7 @@ export const IndexPageTemplate = class extends React.Component {
 											flexDirection: 'row',
 											textAlign: 'left',
 											
-											flexWrap: 'wrap-reverse',
+											flexWrap: 'wrap',
 											alignItems: 'center',
 											padding: '0 6vw'
 										
@@ -889,7 +910,7 @@ export const IndexPageTemplate = class extends React.Component {
 							)}
 						</InView>
 
-						{/* {BackgroundCarousel(this.props.gallery)} */}
+				
 
 
 					
@@ -897,10 +918,10 @@ export const IndexPageTemplate = class extends React.Component {
 	
 
 
-
+					</HeroBackgroundWrapper>
 
 				
-					<StoryContainer style={{ background: '#1b1b1b', color: 'white', borderTop:"solid #212121", paddingBottom: '1.5em' }}>
+					<StoryContainer style={{ background: '#1b1b1b', color: 'white', borderTop:"solid #212121", paddingBottom: '1.5em', minHeight: '100vh' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 2, entry);
@@ -918,6 +939,7 @@ export const IndexPageTemplate = class extends React.Component {
 											
 											flexWrap: 'wrap-reverse',
 											alignItems: 'center',
+											justifyContent: 'center',
 											padding: '0 6vw'
 										
 										}}
@@ -932,18 +954,6 @@ export const IndexPageTemplate = class extends React.Component {
 										</Fade>
 										 */}
 
-<Fade delay={200}>
-										<ResponsiveContainer>
-									
-										<h2>
-										{this.props.serviceHeaderRight}
-									</h2>
-
-											<ReactMarkdown source={this.props.serviceContentRight} />
-
-											
-										</ResponsiveContainer>
-										</Fade>
 
 
 										<Fade delay={200}>
@@ -951,9 +961,14 @@ export const IndexPageTemplate = class extends React.Component {
 										<h1>
 										{this.props.serviceHeaderLeft}
 									</h1>
+
+									<h2>Experienced. Driven. Effective</h2>
+
+								
+
 									<ReactMarkdown source={this.props.serviceContentLeft} />
 
-											<button class="btn2 draw-border left">Read more</button>
+											<button class="btn2 draw-border">Read more</button>
 										
 										
 										</ResponsiveContainer>
@@ -971,62 +986,138 @@ export const IndexPageTemplate = class extends React.Component {
 					</StoryContainer>
 			
 
+										 
+					<StoryContainer style={{ background: '#1b1b1b', color: 'whitesmoke' }}>
+						<InView
+							onChange={(inView, entry) => {
+								this.changeSection(inView, 0, entry);
+							}}
+						>
+							{({ inView, ref, entry }) => (
+								<AboutSection ref={ref}>
+
+
+								
+									<div
+										style={{
+											display: 'flex',
+											flexDirection: 'row',
+											textAlign: 'left',
+											justifyContent: 'center',
+											flexWrap: 'wrap-reverse',
+											alignItems: 'center',
+											padding: '0 6vw'
+										
+										}}
+									>
 
 
 
+										
+										{/* borderLeft: 'solid 7px #f6f6f6'
+										 */}
+	
+
+										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<Fade delay={200}>
+										<h1>
+										Our Services
+									</h1>
+
+										<h3>Practical wisdom, trusted advice</h3>
+
+											<ReactMarkdown source={this.props.mainContent} />
+
+											<h3>Our Expertise</h3>
+										
+											<ReactMarkdown source={this.props.serviceContentRight} />
+											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
+											</Fade>
+										</div>
+
+										<div style={{ maxWidth: '720px', flex: 1, padding: '0 2vw'}}>
+										<Fade delay={200}>
+								
+								
+										 <ImageWrapper>
+
+										 <Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+										 </ImageWrapper>
 
 
+										 <Row>
+										 <ImageWrapper>
 
-				<StoryContainer style={{background:'#f6f6f6'}}>
-
-				<Gallery>
-
-
-<Masonry
-breakpointCols={breakpointColumnsObj}
-
->
-<ImageWrapper>
 <Img fluid={this.props.mainImage1.childImageSharp.fluid} />
-
 </ImageWrapper>
 
 
 <ImageWrapper>
-<Img fluid={this.props.mainImage2.childImageSharp.fluid} />
 
+<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
 </ImageWrapper>
 
-<ImageWrapper>
+										 </Row>
+										 
+									
 
-<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
-</ImageWrapper>
+										
+											</Fade>
 
-<ImageWrapper>
-
-<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
-</ImageWrapper>
-
-<ImageWrapper>
-
-<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
-</ImageWrapper>
-
-<ImageWrapper>
-
-<Img fluid={this.props.mainImage3.childImageSharp.fluid} />
-</ImageWrapper>
-
-</Masonry>
+											
+										</div>
 
 
-</Gallery>
+								
 
-				</StoryContainer>
+									</div>
+								</AboutSection>
+							)}
+						</InView>
+
+				
 
 
-				<Fade>
-					<StoryContainer style={{ background:'#f6f6f6', borderTop: 'solid #212121'}}>
+					
+					</StoryContainer>
+
+	
+
+			
+
+
+
+
+{/* 
+
+				<StoryContainer style={{ background: '#1b1b1b', color: 'white', borderTop:"solid #212121", paddingBottom: '1.5em', flexDirection: 'row'}}>
+
+				<ImageWrapper >
+					<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+					</ImageWrapper>
+					<ImageWrapper>
+					<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+					</ImageWrapper>
+					<ImageWrapper>
+					<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+					</ImageWrapper>
+					<ImageWrapper>
+					<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+					</ImageWrapper>
+					<ImageWrapper>
+					<Img fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+					</ImageWrapper>
+
+				</StoryContainer> */}
+
+
+			
+					<StoryContainer style={{ background:'#1b1b1b', borderTop: 'solid #212121'}}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 1, entry);
@@ -1042,31 +1133,31 @@ breakpointCols={breakpointColumnsObj}
 									</h2>
 				  </Fade> */}
 				  
-
+		
+<Fade>
 				  <h2 >
 					{this.props.statementHeader}
 					</h2>
-
+					</Fade>
 					<div
 										style={{
 											display: 'flex',
 											flexDirection: 'row',
 											textAlign: 'left',
-											
-											flexWrap: 'wrap-reverse',
-											alignItems: 'center',
+											justifyContent: 'center',
+											flexWrap: 'wrap',
+											alignItems: 'flex-start',
 											padding: '0 6vw'
 										
 										}}
 									>
 
 
-			
 
 
 
 							<Statement>
-							<Fade delay={400}>
+							<Fade>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleVision:!this.state.toggleVision})}>
                     {this.props.visionHeader}
                   </StatementButton>
@@ -1074,7 +1165,7 @@ breakpointCols={breakpointColumnsObj}
 				  
                   </Fade>
 
-                  <Fade delay={800}  >
+                  <Fade>
 
                   <div style={{maxWidth: '500px',marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
                   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
@@ -1092,14 +1183,14 @@ breakpointCols={breakpointColumnsObj}
            
 
 				  <Statement>
-				  <Fade delay={1200}>
+				  <Fade >
 
 <StatementButton color="#d0cba4"  onClick={()=> this.setState({toggleMission:!this.state.toggleMission})}>
 {this.props.missionHeader}
 </StatementButton>
 </Fade>
 
-<Fade delay={1600} >
+<Fade >
 
 <div style={{maxWidth: '500px', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
   {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
@@ -1115,13 +1206,13 @@ breakpointCols={breakpointColumnsObj}
 
 				  <Statement>
 
-                  <Fade delay={2000}>
+                  <Fade>
                   <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleValue:!this.state.toggleValue})}>
 				  {this.props.valueHeader}
                   </StatementButton>
                   </Fade>
 
-                  <Fade delay={2400} >
+                  <Fade>
 				  <div style={{maxWidth: '500px', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
 {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
 */}
@@ -1149,7 +1240,7 @@ breakpointCols={breakpointColumnsObj}
 							)}
 						</InView>
 					</StoryContainer>
-				</Fade>
+			
 
 		
     
@@ -1169,27 +1260,14 @@ breakpointCols={breakpointColumnsObj}
 							<div ref={ref}>
 								<Fade delay={200}>
 									<h2>
-										OUR_CLIENT
+										Clients
 									</h2>
 								</Fade>
 
 								<Fade delay={400} cascade>
 									<ClientsWrapper>
-										<Client><img src="/img/blc_logo.png" /></Client>
-										<Client><img src="/img/blc_logo.png" /></Client>
-
-										<Client><img src="/img/blc_logo.png" /></Client>
-										<Client><img src="/img/blc_logo.png" /></Client>
-										
-
-										<Client><img src="/img/blc_logo.png" /></Client>
-										<Client><img src="/img/blc_logo.png" /></Client>
-										
-
-										<Client><img src="/img/blc_logo.png" /></Client>
-										<Client><img src="/img/blc_logo.png" /></Client>
-										
-										<Client><img src="/img/blc_logo.png" /></Client>
+										<Client><img src="/img/BLC-Logo.png" /></Client>
+										<Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client><Client><img src="/img/BLC-Logo.png" /></Client>
 							
 										
 									</ClientsWrapper>
@@ -1311,7 +1389,7 @@ breakpointCols={breakpointColumnsObj}
 
 		<Fade delay={200} cascade>
 									<h2 ref={ref}>
-										LATEST_NEWS
+										News
 									</h2>
 
 									<NewsRoll style={{marginBottom: '5em'}} />
