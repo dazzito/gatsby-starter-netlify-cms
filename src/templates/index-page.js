@@ -124,6 +124,19 @@ const Layer1 = styled.div`
 	right: 0;
 `;
 
+const ResponsiveSection = styled.div`
+	 max-width: 768px;
+	 min-width: 768px;
+	flex: 1;
+	 padding: 0 2vw;
+
+	 @media screen and (max-width: 768px) {
+		 width: 100%;
+		 min-width: unset;
+	 }
+
+`;
+
 const Section = styled.section`
 	padding: 2rem 1.5rem;
 	padding-left: 15em;
@@ -216,7 +229,7 @@ const BackgroundWrapper = styled.div`
 
 const ClientSection = styled(StoryContainer)`
     border-top: solid rgb(33, 33, 33);
-	min-height: 75vh
+	min-height: 75vh;
 
 	background: #1b1b1b;
 	margin: 0px;
@@ -550,10 +563,33 @@ margin-bottom: 0.5rem;
 
 const MottoContainer = styled.div`
 	width: 100%;
-	position: absolute;
-	z-index: 1;
+	position: relative;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 
 	
+`;
+
+const Motto = styled.h1`
+
+  text-align: center;
+
+
+
+`;
+
+const SlideImg = styled(Img)`
+	z-index: -1;
+  	position: absolute !important;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+
 `;
 
 const NewsSection = styled(StoryContainer)`
@@ -581,30 +617,25 @@ border-top: solid rgb(33, 33, 33);
 
 
 const params = {
-	slidesPerView: 3,
-	spaceBetween: 0,
-	pagination: {
-	  el: '.swiper-pagination',
-	  clickable: true
-	},
-	breakpoints: {
-	  1024: {
-		slidesPerView: 3,
-		spaceBetween: 40
-	  },
-	  768: {
-		slidesPerView: 1,
-		spaceBetween: 30
-	  },
-	  640: {
-		slidesPerView: 1,
-		spaceBetween: 20
-	  },
-	  320: {
-		slidesPerView: 1,
-		spaceBetween: 10
-	  }
-	}
+	speed: 1200,
+	clickable: true,
+	slidesPerView: 1,
+	effect: 'fade',
+
+	  spaceBetween: 0,
+	  autoplay: {
+        delay: 4000,
+        disableOnInteraction: false
+      },
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+     }
   }
 
 
@@ -706,70 +737,83 @@ export const IndexPageTemplate = class extends React.Component {
 			<IndexWrapper>
 				
 			
-				<BackgroundWrapper background="/img/marble.jpg">
 			
-				<HeroContainer>
-			{/* <HeroContainer background={slideBackground[this.state.slide]}> */}
+<Fade>
 
-			<Fade delay={500} >
 
+
+					
 			<Swiper {...params} style={{height:'50vh'}}>
-        <div>Slide #1</div>
-        <div>Slide #2</div>
-        <div>Slide #3</div>
-        <div>Slide #4</div>
-        <div>Slide #5</div>
-        <div>Slide #6</div>
-        <div>Slide #7</div>
-        <div>Slide #8</div>
-      </Swiper>
+				<MottoContainer>
 
-</Fade>
-
-
-
-
-{/* 
-				<Fade when={this.state.slide == 0}>
-	
-<h1 style={{textAlign: 'center', position: 'absolute', width: '100%', fontFamily: 'Playfair Display'}}>Practical wisdom, trusted advice</h1>
-
-
-	
-
-
-
-	
-</Fade>
-
-
-<Fade when={this.state.slide == 1} >
-<h1 style={{textAlign: 'center', position: 'absolute', width: '100%', fontFamily: 'Playfair Display' }}>"The people's good is the highest law." - Cicero</h1>
-
-
-
-}
-
-
-</Fade>
-
-<Fade when={this.state.slide == 2} >
-<h1 style={{textAlign: 'center', position: 'absolute', width: '100%',  fontFamily: 'Playfair Display' }}>Experienced. Driven. Effective</h1>
-
-	
-
-</Fade> */}
-
-
-
-
-
-				</HeroContainer>
-
-
-
-
+		
+				<SlideImg fluid={this.props.mainImage1.childImageSharp.fluid} />
 				
+
+			
+				<Motto>
+			
+				Experienced. Driven. Effective
+				
+				</Motto>
+				
+				
+				
+
+
+
+				</MottoContainer>
+
+				<MottoContainer>
+
+		
+<SlideImg fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+
+
+<Motto>
+
+Practical wisdom, trusted advice
+</Motto>
+
+
+
+
+
+
+
+</MottoContainer>
+
+
+
+<MottoContainer>
+
+		
+<SlideImg fluid={this.props.mainImage1.childImageSharp.fluid} />
+
+
+
+<Motto>
+
+Our Mission is Your Success
+
+</Motto>
+
+
+
+
+
+
+</MottoContainer>
+			
+
+
+      </Swiper>
+			
+	
+
+
+	  </Fade>			
 		
 				{/* 
 <CardHeaderFrame>
@@ -872,7 +916,7 @@ export const IndexPageTemplate = class extends React.Component {
 					</StoryContainer>
 				</Fade> */}
 
-			
+<BackgroundWrapper background={"img/office.jpg"} style={{backgroundPosition: 'top', backgroundSize: 'cover'}} >
 					<StoryContainer style={{ background: 'transparent', color: 'whitesmoke' }}>
 						<InView
 							onChange={(inView, entry) => {
@@ -893,7 +937,7 @@ export const IndexPageTemplate = class extends React.Component {
 											flexWrap: 'wrap',
 											alignItems: 'center',
 											padding: '0 6vw',
-											background: '#1b1b1b'
+											background: '#0f0f0fd9'
 										
 										}}
 									>
@@ -904,7 +948,7 @@ export const IndexPageTemplate = class extends React.Component {
 										{/* borderLeft: 'solid 7px #f6f6f6'
 										 */}
 										<HeroBox>
-										
+										<Fade delay={200}>
 										<h1>
 										{this.props.mainHeader}
 										</h1>
@@ -913,12 +957,12 @@ export const IndexPageTemplate = class extends React.Component {
 
 											<ReactMarkdown source={this.props.mainContent} />
 											<StyledLink to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</StyledLink>
-											
+											</Fade>
 										</HeroBox>
 
 
 										<HeroBox>
-										<Fade delay={200}>
+										<Fade delay={300}>
 										<h1>
 										Meet Our Team
 									</h1>
@@ -931,7 +975,7 @@ export const IndexPageTemplate = class extends React.Component {
 										</HeroBox>
 
 										<HeroBox>
-										<Fade delay={200}>
+										<Fade delay={400}>
 										<h1>
 										Contact Us
 									</h1>
@@ -956,9 +1000,9 @@ export const IndexPageTemplate = class extends React.Component {
 	
 
 	
-					</BackgroundWrapper>
+			
 
-				<BackgroundWrapper background={"img/office.jpg"} style={{backgroundPosition: 'top', backgroundSize: 'cover'}} >
+			
 
 			
 					<StoryContainer style={{ background: '#101010ad', color: 'white', paddingBottom: '1.5em', minHeight: '100vh' }}>
@@ -1079,7 +1123,7 @@ export const IndexPageTemplate = class extends React.Component {
 											</Fade>
 										</div>
 
-										<div style={{ maxWidth: '720px', flex: 1, padding: '0 2vw'}}>
+										<ResponsiveSection >
 										<Fade delay={200}>
 								
 								
@@ -1109,7 +1153,7 @@ export const IndexPageTemplate = class extends React.Component {
 											</Fade>
 
 											
-										</div>
+										</ResponsiveSection>
 
 
 								

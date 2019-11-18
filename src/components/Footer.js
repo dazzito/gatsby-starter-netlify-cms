@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import logo from "../img/logo.svg";
+import logo from './../../public/img/BLC-Logo.png';
 import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
 import twitter from "../img/social/twitter.svg";
@@ -28,8 +28,14 @@ const List = styled.ul`
   flex: 1;
   text-align: left;
 
-  padding: 1em;
+  padding: 0 1em;
+  margin: 0 1em;
 
+`;
+
+
+const Logo = styled.img`
+  
 `;
 
 const ListItem = styled.li`
@@ -54,6 +60,7 @@ const FooterRow = styled(Row)`
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    padding: 2em 0;
     /* padding-top: 13px; */
    
     /* padding-bottom: 13px; */
@@ -62,10 +69,14 @@ const FooterRow = styled(Row)`
 `;
 
 const FooterWrapper = styled(Col)`
+  
   z-index:2;
   background: #212121;
   /* border-right: solid 1px #3f3f3f; */
     text-align: end;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     /* padding: 1em; */
 /* 
     position: fixed;
@@ -75,9 +86,9 @@ const FooterWrapper = styled(Col)`
 `;
 
 const ContactInfo = styled.div`
-  padding: 1em;
-  margin: 1em;  
-  flex:1;
+  padding: 0 1em;
+  margin: 0 1em;  
+  flex:2;
   text-align: left;
   color: lightgrey;
 
@@ -118,7 +129,7 @@ function getMenuItem(str, locale){
       return 'เกี่ยวกับเรา'
     } else if( str == "team"){
       return "ทีมของเรา"
-    } else if (str == 'services'){
+    } else if (str == 'service'){
       return "บริการ"
     } else if (str == 'news'){
       return "ข่าวสาร"
@@ -163,12 +174,16 @@ const Footer = class extends React.Component {
     return (
       <FooterWrapper>
 
+    
+
 
       {!this.props.disableFooterNav ?  
         <FooterRow >
 
 
-          <FooterRow>
+   
+          {/* <img src={logo} /> */}
+
           <List>
             <ListItem>
               <StyledLink to={getLocalePath(this.state.locale, '/')} >{getMenuItem("home", this.state.locale)}</StyledLink>
@@ -191,11 +206,6 @@ const Footer = class extends React.Component {
         
             
           </List>
-
-          </FooterRow>
-         
-
-         
 
           <ContactInfo>
           <ListItem>
@@ -227,6 +237,13 @@ const Footer = class extends React.Component {
               </p>
             
           </ContactInfo>
+
+        
+         
+
+         
+
+       
         </FooterRow>
 
  : <></>}

@@ -14,11 +14,11 @@ import styled from 'styled-components'
 const Container = styled.div`
 margin-left: auto;
 margin-right: auto;
-margin-top: 5em;
-margin-bottom: 5em;
-padding: 2.5em;
+
+
+padding: 0 1.5em;
 color: white;
-padding-top: 3em;
+
 `;
 
 const Header = styled.div`
