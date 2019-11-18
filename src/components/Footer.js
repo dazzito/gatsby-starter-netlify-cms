@@ -53,6 +53,7 @@ const FooterRow = styled(Row)`
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
     /* padding-top: 13px; */
    
     /* padding-bottom: 13px; */

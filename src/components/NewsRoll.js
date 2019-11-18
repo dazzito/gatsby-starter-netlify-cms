@@ -88,7 +88,7 @@ class NewsRoll extends React.Component {
                   />
                 ) : (
                   <Img
-                    fixed={post.frontmatter.featuredimage.childImageSharp.fixed}
+                    fluid={post.frontmatter.featuredimage.childImageSharp.fluid}
                    
                     imgStyle={{ transition: "all 0.2s ease 0s" }}
                   
@@ -190,9 +190,9 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fixed(width: 400, height: 285, quality: 100) {
-                      ...GatsbyImageSharpFixed
-                    }
+                     fluid(maxWidth: 400,quality: 100) {
+                      ...GatsbyImageSharpFluid
+                     }
                   }
                 }
               }

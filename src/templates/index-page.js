@@ -22,6 +22,9 @@ import { StickyContainer, Sticky } from 'react-sticky';
 
 import Color from 'color';
 
+import Swiper from 'react-id-swiper';
+import "swiper/css/swiper.css";
+
 
 
 import {darken} from 'polished'
@@ -179,7 +182,7 @@ const StoryContainer = styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	min-height: 450px;
+	
 
 	/* background: #ffffff;
     box-shadow: 0px 0px 3px 0px black; */
@@ -199,10 +202,17 @@ const StoryContainer = styled.div`
 const HeroBackgroundWrapper = styled.div`
 	background-attachment: fixed;
 	background:url("/img/sky.jpg");
-
 	background-size: cover;
 	background-position: bottom;
 `;
+
+
+const BackgroundWrapper = styled.div`
+	background:  ${props => props.background ? `url(${props.background})`: "white" };
+
+`;
+
+
 
 const ClientSection = styled(StoryContainer)`
     border-top: solid rgb(33, 33, 33);
@@ -268,16 +278,41 @@ flex: 1;
 
 `;
 
+
+
+const StyledLink = styled(Link)`
+
+`;
+
+const HeroBox = styled.div`
+
+max-width: 720px;
+
+min-width: 250px;
+
+flex: 1;
+ padding: 2vw;
+
+ /* &:hover & {
+	color: #d0cba4;
+	
+ } */
+
+
+`;
+
 const HeroContainer = styled.div`
-border-top: solid;
-    border-bottom: solid;
+/* border-top: solid; */
+    /* border-bottom: solid; */
 
 	align-items: center;
 	display: flex;
 	position: relative;
 	background-attachment: fixed;
+	/* background: rgba(0, 0, 0, 0.77); */
+	/* background: url("/img/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg"); */
 	/* background:url("/img/sky.jpg"); */
-	background: #1b1b1b;
+	/* background: #1b1b1b; */
 	/* background:  ${props => props.background ? `url(${props.background})`: "red" }; */
 	background-size: cover;
 	background-position: bottom;
@@ -545,6 +580,33 @@ border-top: solid rgb(33, 33, 33);
 `;
 
 
+const params = {
+	slidesPerView: 3,
+	spaceBetween: 0,
+	pagination: {
+	  el: '.swiper-pagination',
+	  clickable: true
+	},
+	breakpoints: {
+	  1024: {
+		slidesPerView: 3,
+		spaceBetween: 40
+	  },
+	  768: {
+		slidesPerView: 1,
+		spaceBetween: 30
+	  },
+	  640: {
+		slidesPerView: 1,
+		spaceBetween: 20
+	  },
+	  320: {
+		slidesPerView: 1,
+		spaceBetween: 10
+	  }
+	}
+  }
+
 
 const BackgroundCarousel = (images) => {
 	const handleOnDragStart = e => e.preventDefault();
@@ -643,19 +705,31 @@ export const IndexPageTemplate = class extends React.Component {
 		return (
 			<IndexWrapper>
 				
-				<HeroBackgroundWrapper>
-
+			
+				<BackgroundWrapper background="/img/marble.jpg">
 			
 				<HeroContainer>
 			{/* <HeroContainer background={slideBackground[this.state.slide]}> */}
 
 			<Fade delay={500} >
 
+			<Swiper {...params} style={{height:'50vh'}}>
+        <div>Slide #1</div>
+        <div>Slide #2</div>
+        <div>Slide #3</div>
+        <div>Slide #4</div>
+        <div>Slide #5</div>
+        <div>Slide #6</div>
+        <div>Slide #7</div>
+        <div>Slide #8</div>
+      </Swiper>
 
 </Fade>
-<MottoContainer>
 
 
+
+
+{/* 
 				<Fade when={this.state.slide == 0}>
 	
 <h1 style={{textAlign: 'center', position: 'absolute', width: '100%', fontFamily: 'Playfair Display'}}>Practical wisdom, trusted advice</h1>
@@ -684,56 +758,19 @@ export const IndexPageTemplate = class extends React.Component {
 
 	
 
-</Fade>
-
-{/* <HeroButton >Learn more</HeroButton> */}
-
-
-
-</MottoContainer>
+</Fade> */}
 
 
 
 
-{/* 
-				<HeroCarousel  
-		duration={750}
-		buttonsDisabled 
-		dotsDisabled 
-		stagePadding={{
-			paddingLeft: 0,
-			paddingRight: 0,
-		}}
-		// fadeOutAnimation={true}
-		autoPlay={true}
-		autoPlayInterval={5000}
-		onSlideChange={(e) => this.setState({slide:e.slide})}
 
-		responsive={{
-			0: {
-				items: 3,
-			}
-		}}
-
-		>
-
-
-		
-		<img style={{height:'100vh', width:'100vw', padding:'0px', maxWidth:'unset'}} src={"/img/sky.jpg"}/>
-		<img  style={{height:'100vh', width:'100vw', padding:'0px', maxWidth:'unset'}} src={"/img/bg1-old.jpg"}/>
-		<img  style={{height:'100vh', width:'100vw', padding:'0px', maxWidth:'unset'}} src={"/img/marble-white.jpg"}/>
-
-
-		</HeroCarousel>
-
-	 */}
-
-		
-			
-
-					{/* <img src="/img/logot.png" /> */}
 				</HeroContainer>
 
+
+
+
+				
+		
 				{/* 
 <CardHeaderFrame>
 
@@ -855,7 +892,8 @@ export const IndexPageTemplate = class extends React.Component {
 											
 											flexWrap: 'wrap',
 											alignItems: 'center',
-											padding: '0 6vw'
+											padding: '0 6vw',
+											background: '#1b1b1b'
 										
 										}}
 									>
@@ -865,21 +903,21 @@ export const IndexPageTemplate = class extends React.Component {
 										
 										{/* borderLeft: 'solid 7px #f6f6f6'
 										 */}
-										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
-										<Fade delay={200}>
+										<HeroBox>
+										
 										<h1>
 										{this.props.mainHeader}
-									</h1>
+										</h1>
 
 									
 
 											<ReactMarkdown source={this.props.mainContent} />
-											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
-											</Fade>
-										</div>
+											<StyledLink to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</StyledLink>
+											
+										</HeroBox>
 
 
-										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<HeroBox>
 										<Fade delay={200}>
 										<h1>
 										Meet Our Team
@@ -890,9 +928,9 @@ export const IndexPageTemplate = class extends React.Component {
 											<ReactMarkdown source={this.props.mainContent} />
 											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
 											</Fade>
-										</div>
+										</HeroBox>
 
-										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<HeroBox>
 										<Fade delay={200}>
 										<h1>
 										Contact Us
@@ -903,7 +941,7 @@ export const IndexPageTemplate = class extends React.Component {
 											<ReactMarkdown source={this.props.mainContent} />
 											<Link to={this.props.pageContext.langKey +"/about"} className="btn2 draw-border left">Read more</Link>
 											</Fade>
-										</div>
+										</HeroBox>
 
 									</div>
 								</AboutSection>
@@ -917,11 +955,13 @@ export const IndexPageTemplate = class extends React.Component {
 					</StoryContainer>
 	
 
+	
+					</BackgroundWrapper>
 
-					</HeroBackgroundWrapper>
+				<BackgroundWrapper background={"img/office.jpg"} style={{backgroundPosition: 'top', backgroundSize: 'cover'}} >
 
-				
-					<StoryContainer style={{ background: '#1b1b1b', color: 'white', borderTop:"solid #212121", paddingBottom: '1.5em', minHeight: '100vh' }}>
+			
+					<StoryContainer style={{ background: '#101010ad', color: 'white', paddingBottom: '1.5em', minHeight: '100vh' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 2, entry);
@@ -940,7 +980,7 @@ export const IndexPageTemplate = class extends React.Component {
 											flexWrap: 'wrap-reverse',
 											alignItems: 'center',
 											justifyContent: 'center',
-											padding: '0 6vw'
+											padding: '6vw'
 										
 										}}
 									>
@@ -986,8 +1026,12 @@ export const IndexPageTemplate = class extends React.Component {
 					</StoryContainer>
 			
 
+					</BackgroundWrapper>
+
+
+				
 										 
-					<StoryContainer style={{ background: '#1b1b1b', color: 'whitesmoke' }}>
+					<StoryContainer style={{ background: '#101010', color: 'whitesmoke', minHeight: '100vh' }}>
 						<InView
 							onChange={(inView, entry) => {
 								this.changeSection(inView, 0, entry);
@@ -1006,7 +1050,7 @@ export const IndexPageTemplate = class extends React.Component {
 											justifyContent: 'center',
 											flexWrap: 'wrap-reverse',
 											alignItems: 'center',
-											padding: '0 6vw'
+											padding: '6vw'
 										
 										}}
 									>
@@ -1018,7 +1062,7 @@ export const IndexPageTemplate = class extends React.Component {
 										 */}
 	
 
-										<div style={{ maxWidth: '720px', minWidth: '250px', flex: 1, padding: '0 2vw'}}>
+										<div style={{ maxWidth: '720px', minWidth: '250px', width: '100%', padding: '0 2vw'}}>
 										<Fade delay={200}>
 										<h1>
 										Our Services
@@ -1082,7 +1126,7 @@ export const IndexPageTemplate = class extends React.Component {
 					</StoryContainer>
 
 	
-
+					
 			
 
 
@@ -1116,137 +1160,6 @@ export const IndexPageTemplate = class extends React.Component {
 				</StoryContainer> */}
 
 
-			
-					<StoryContainer style={{ background:'#1b1b1b', borderTop: 'solid #212121'}}>
-						<InView
-							onChange={(inView, entry) => {
-								this.changeSection(inView, 1, entry);
-							}}
-						>
-							{({ inView, ref, entry }) => (
-               
-								<Story ref={ref}>
-
-                  {/* <Fade delay={200}>
-									<h2 className="title is-size-3 has-text-weight-bold is-bold-light text-tone-primary">
-										Our Statement
-									</h2>
-				  </Fade> */}
-				  
-		
-<Fade>
-				  <h2 >
-					{this.props.statementHeader}
-					</h2>
-					</Fade>
-					<div
-										style={{
-											display: 'flex',
-											flexDirection: 'row',
-											textAlign: 'left',
-											justifyContent: 'center',
-											flexWrap: 'wrap',
-											alignItems: 'flex-start',
-											padding: '0 6vw'
-										
-										}}
-									>
-
-
-
-
-
-							<Statement>
-							<Fade>
-                  <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleVision:!this.state.toggleVision})}>
-                    {this.props.visionHeader}
-                  </StatementButton>
-
-				  
-                  </Fade>
-
-                  <Fade>
-
-                  <div style={{maxWidth: '500px',marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
-                  {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
-				  */}
-				  
-				  
-                  <ReactMarkdown source={this.props.visionContent}/>
-
-
-                  </div>
-
-                  </Fade>
-
-							</Statement>
-           
-
-				  <Statement>
-				  <Fade >
-
-<StatementButton color="#d0cba4"  onClick={()=> this.setState({toggleMission:!this.state.toggleMission})}>
-{this.props.missionHeader}
-</StatementButton>
-</Fade>
-
-<Fade >
-
-<div style={{maxWidth: '500px', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
-  {/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
-  */}
-  <ReactMarkdown source={this.props.missionContent}/>
-  
-
-  </div>
- 
-</Fade>
-
-				  </Statement>
-
-				  <Statement>
-
-                  <Fade>
-                  <StatementButton color="#d0cba4" onClick={()=> this.setState({toggleValue:!this.state.toggleValue})}>
-				  {this.props.valueHeader}
-                  </StatementButton>
-                  </Fade>
-
-                  <Fade>
-				  <div style={{maxWidth: '500px', marginBottom: '2em', marginLeft: 'auto', marginRight: 'auto'}}>
-{/* <p>to provide a high quality, creative, and result – oriented legal team to individuals and businesses, and serve as a primary resource and partner in all aspects of clients’ business growth and development.</p>
-*/}
-<ReactMarkdown source={this.props.valueContent}/>
-
-</div>
-
-
-
-
-</Fade>
-
-				  </Statement>
-
-
-      
-
-
-</div>
-
-{/* <button class="btn2 draw-border left">Read more</button> */}
-								</Story>
-                
-                	
-							)}
-						</InView>
-					</StoryContainer>
-			
-
-		
-    
-
-    
-    
 
     
     

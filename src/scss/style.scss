@@ -29,7 +29,7 @@
 
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Playfair+Display|Roboto|Kanit:300&display=swap');
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.2.0/css/swiper.min.css");
 /* Modular Scale located here: https://www.modularscale.com/?1,1140,12&em&1.3 */
 
 
@@ -37,7 +37,7 @@
 
  html, body {
 	line-height: 1.4;
-	font-size: 1em;
+	font-size: 0.97em;
     font-family: 'Noto Sans', 'Kanit', sans-serif; 
 }
 
@@ -53,10 +53,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-	@include fluid-type('font-size', 50rem, 80rem, 1.596rem, 3.998rem);
+	@include fluid-type('font-size', 50rem, 80rem, 1.596rem, 3.398rem);
 }
 h2 {
-	@include fluid-type('font-size', 50rem, 80rem, 1.515rem, 2.827rem);
+	@include fluid-type('font-size', 50rem, 80rem, 1.515rem, 2.627rem);
 }
 h3 {
 	@include fluid-type('font-size', 50rem, 80rem, 1.438rem, 1.999rem);
@@ -69,4 +69,12 @@ h5 {
 }
 h6 {
 	@include fluid-type('font-size', 50rem, 80rem, 0.937rem, 0.707rem);
+}
+
+
+
+
+
+.swiper-container{
+	height: 500px;
 }
