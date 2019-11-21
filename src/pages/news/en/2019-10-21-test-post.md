@@ -4,7 +4,7 @@ locale: en
 title: Test Post
 date: 2019-10-21T05:11:58.602Z
 description: A test
-featuredpost: true
+featuredpost: false
 featuredimage: /img/blc_logo.png
 tags:
   - Test
