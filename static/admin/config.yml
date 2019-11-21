@@ -6,7 +6,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-
   - name: "EN"
     label: "English"
     files:
@@ -14,47 +13,79 @@ collections:
         label: "Landing"
         name: "index"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: Mottos, name: mottos, widget: list, fields: [{label: Motto, name: motto, widget: string}] }
-          
-          - {label: Hero Image, name: heroImage, widget: image}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - { label: "Locale", name: "locale", widget: "hidden", default: "en" }
+          - {
+              label: Mottos,
+              name: mottos,
+              widget: list,
+              fields: [{ label: Motto, name: motto, widget: string }],
+            }
 
-          - {label: Main Section Image1, name: mainImage1, widget: image}
-          - {label: Main Section Image2, name: mainImage2, widget: image}
-          - {label: Main Section Image3, name: mainImage3, widget: image}
-          - {label: Main Section Heading, name: mainHeader, widget: string}
-          - {label: Main Section Content, name: mainContent, widget: markdown}
+          - { label: Hero Image, name: heroImage, widget: image }
 
-          - {label: Gallery, name: gallery, widget: list, fields: [{label: Image, name: image, widget: image}] }
+          - { label: Main Section Image1, name: mainImage1, widget: image }
+          - { label: Main Section Image2, name: mainImage2, widget: image }
+          - { label: Main Section Image3, name: mainImage3, widget: image }
+          - { label: Main Section Heading, name: mainHeader, widget: string }
+          - { label: Main Section Content, name: mainContent, widget: markdown }
 
-          - {label: "Statement Heading", name: "statementHeader", widget: "string"}
-          - {label: "Vision Heading", name: "visionHeader", widget: "string"}
-          - {label: "Mission Heading", name: "missionHeader", widget: "string"}
-          - {label: "Value Heading", name: "valueHeader", widget: "string"}
+          - {
+              label: Gallery,
+              name: gallery,
+              widget: list,
+              fields: [{ label: Image, name: image, widget: image }],
+            }
 
-          - {label: "Vision", name: "visionContent", widget: "string"}
-          - {label: "Mission", name: "missionContent", widget: "string"}
-          - {label: "Value", name: "valueContent", widget: "string"}
+          - {
+              label: "Statement Heading",
+              name: "statementHeader",
+              widget: "string",
+            }
+          - { label: "Vision Heading", name: "visionHeader", widget: "string" }
+          - {
+              label: "Mission Heading",
+              name: "missionHeader",
+              widget: "string",
+            }
+          - { label: "Value Heading", name: "valueHeader", widget: "string" }
+
+          - { label: "Vision", name: "visionContent", widget: "string" }
+          - { label: "Mission", name: "missionContent", widget: "string" }
+          - { label: "Value", name: "valueContent", widget: "string" }
 
           # - {label: Service Section Image, name: serviceSectionImage, widget: image}
           # - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
-          - {label: Service Heading (Primary), name: serviceHeaderLeft, widget: string}
-          - {label: Service Content (Primary), name: serviceContentLeft, widget: markdown} 
-          - {label: Service Heading (Secondary), name: serviceHeaderRight, widget: string}
-          - {label: Service Content (Secondary), name: serviceContentRight, widget: markdown} 
+          - {
+              label: Service Heading (Primary),
+              name: serviceHeaderLeft,
+              widget: string,
+            }
+          - {
+              label: Service Content (Primary),
+              name: serviceContentLeft,
+              widget: markdown,
+            }
+          - {
+              label: Service Heading (Secondary),
+              name: serviceHeaderRight,
+              widget: string,
+            }
+          - {
+              label: Service Content (Secondary),
+              name: serviceContentRight,
+              widget: markdown,
+            }
 
-
-          - {label: Team Section Header, name: teamHeader, widget: string}
-
+          - { label: Team Section Header, name: teamHeader, widget: string }
 
           # - {label: Team Section Background, name: image, widget: image}
           # - {label: Team Button Label, name: image, widget: "string"}
-
-
-
-          
- 
           # - {label: "Motto", name: "motto", widget: "string"}
           # - {label: Stories, name: stories, widget: list, fields: [{label: Heading, name: heading, widget: string}, {label: Content, name: content, widget: markdown}]}
           # - {label: Image1, name: image1, widget: image}
@@ -64,20 +95,28 @@ collections:
         label: "About"
         file: "src/pages/about/index.md"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
+          - { label: "Locale", name: "locale", widget: "hidden", default: "en" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/service/index.md"
         label: "Services"
         name: "service"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Content", name: "content", widget: "markdown"}
-      
-      
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Locale", name: "locale", widget: "hidden", default: "en" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Content", name: "content", widget: "markdown" }
 
   - name: "TH"
     label: "Thai"
@@ -86,37 +125,85 @@ collections:
         label: "Landing"
         name: "index"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-          - {label: Mottos, name: mottos, widget: list, fields: [{label: Motto, name: motto, widget: string}] }
-          - {label: Hero Image, name: heroImage, widget: image} 
-          - {label: Background Section Image, name: backgroundSectionImage, widget: image}
-          - {label: Background Section Heading, name: backgroundSectionHeading, widget: string}
-          - {label: Background Section Content, name: backgroundSectionContent, widget: markdown}
-          - {label: Gallery, name: gallery, widget: list, fields: [{label: Image, name: image, widget: image}] }
-
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - { label: "Locale", name: "locale", widget: "hidden", default: "en" }
+          - {
+              label: Mottos,
+              name: mottos,
+              widget: list,
+              fields: [{ label: Motto, name: motto, widget: string }],
+            }
+          - { label: Hero Image, name: heroImage, widget: image }
+          - {
+              label: Background Section Image,
+              name: backgroundSectionImage,
+              widget: image,
+            }
+          - {
+              label: Background Section Heading,
+              name: backgroundSectionHeading,
+              widget: string,
+            }
+          - {
+              label: Background Section Content,
+              name: backgroundSectionContent,
+              widget: markdown,
+            }
+          - {
+              label: Gallery,
+              name: gallery,
+              widget: list,
+              fields: [{ label: Image, name: image, widget: image }],
+            }
 
           # - {label: Statement Section Background, name: statementSectionImage, widget: image}
 
-          - {label: "Statement Heading", name: "statementHeader", widget: "string"}
-          - {label: "Vision Heading", name: "visionHeader", widget: "string"}
-          - {label: "Mission Heading", name: "missionHeader", widget: "string"}
-          - {label: "Value Heading", name: "valueHeader", widget: "string"}
+          - {
+              label: "Statement Heading",
+              name: "statementHeader",
+              widget: "string",
+            }
+          - { label: "Vision Heading", name: "visionHeader", widget: "string" }
+          - {
+              label: "Mission Heading",
+              name: "missionHeader",
+              widget: "string",
+            }
+          - { label: "Value Heading", name: "valueHeader", widget: "string" }
 
-          - {label: "Vision", name: "visionContent", widget: "string"}
-          - {label: "Mission", name: "missionContent", widget: "string"}
-          - {label: "Value", name: "valueContent", widget: "string"}
+          - { label: "Vision", name: "visionContent", widget: "string" }
+          - { label: "Mission", name: "missionContent", widget: "string" }
+          - { label: "Value", name: "valueContent", widget: "string" }
 
           # - {label: Service Section Image, name: serviceSectionImage, widget: image}
           # - {label: Service Section Heading, name: serviceSectionHeading, widget: string}
-          - {label: Service Heading (Primary), name: serviceHeaderLeft, widget: string}
-          - {label: Service Content (Primary), name: serviceContentLeft, widget: markdown} 
-          - {label: Service Heading (Secondary), name: serviceHeaderRight, widget: string}
-          - {label: Service Content (Secondary), name: serviceContentRight, widget: markdown} 
+          - {
+              label: Service Heading (Primary),
+              name: serviceHeaderLeft,
+              widget: string,
+            }
+          - {
+              label: Service Content (Primary),
+              name: serviceContentLeft,
+              widget: markdown,
+            }
+          - {
+              label: Service Heading (Secondary),
+              name: serviceHeaderRight,
+              widget: string,
+            }
+          - {
+              label: Service Content (Secondary),
+              name: serviceContentRight,
+              widget: markdown,
+            }
 
-
-          - {label: Team Section Header, name: teamHeader, widget: string}
-
+          - { label: Team Section Header, name: teamHeader, widget: string }
 
           # - {label: Team Section Background, name: image, widget: image}
           # - {label: Team Button Label, name: image, widget: "string"}
@@ -125,72 +212,66 @@ collections:
         label: "About"
         file: "src/pages/about/index.th.md"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
+          - { label: "Locale", name: "locale", widget: "hidden", default: "th" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/service/index.th.md"
         label: "Services"
         name: "service"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "service-page"}
-          - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Content", name: "content", widget: "markdown"}
-
-
-
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "service-page",
+            }
+          - { label: "Locale", name: "locale", widget: "hidden", default: "th" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Content", name: "content", widget: "markdown" }
 
   - name: "news-en"
     label: "News (EN)"
-    folder: "src/pages/news/en"
+    folder: "src/pages/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-post"}
-      - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-  - name: "news-th"
-    label: "News (TH)"
-    folder: "src/pages/news/th"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "news-post"}
-      - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"} 
-      - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
 
-
-#TEAM
+  #TEAM
   - name: "team-en"
     label: "Team Members (EN)"
     folder: "src/pages/team/en"
     identifier_field: lastname
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-page"}
-      - {label: "Locale", name: "locale", widget: "hidden", default: "en"}
-      - {label: "Image", name: "profileImage1", widget: image}
-      - {label: "Firstname", name: "firstname", widget: "string"}
-      - {label: "Lastname", name: "lastname", widget: "string"}
-      - {label: "Nickname", name: "nickname", widget: "string"}
-      - {label: "Content", name: "content", widget: "markdown"}
-      - {label: "Position", name: "position", widget: "string"}
-      - {label: "Expertise", name: "expertise", widget: "string"}
-      - {label: "Email", name: "email", widget: "string"}
-      - {label: "LinkedIn", name: "linkedin", widget: "string"}
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "team-page",
+        }
+      - { label: "Locale", name: "locale", widget: "hidden", default: "en" }
+      - { label: "Image", name: "profileImage1", widget: image }
+      - { label: "Firstname", name: "firstname", widget: "string" }
+      - { label: "Lastname", name: "lastname", widget: "string" }
+      - { label: "Nickname", name: "nickname", widget: "string" }
+      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Position", name: "position", widget: "string" }
+      - { label: "Expertise", name: "expertise", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "LinkedIn", name: "linkedin", widget: "string" }
 
   - name: "team-th"
     label: "Team Members (TH)"
@@ -198,35 +279,35 @@ collections:
     identifier_field: lastname
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team-page"}
-      - {label: "Locale", name: "locale", widget: "hidden", default: "th"}
-      - {label: "Image", name: "image", widget: image}
-      - {label: "Firstname", name: "firstname", widget: "string"}
-      - {label: "Lastname", name: "lastname", widget: "string"}
-      - {label: "Nickname", name: "nickname", widget: "string"}
-      - {label: "Content", name: "content", widget: "markdown"}
-      - {label: "Position", name: "position", widget: "string"}
-      - {label: "Expertise", name: "expertise", widget: "string"}
-      - {label: "Email", name: "email", widget: "string"}
-      - {label: "LinkedIn", name: "linkedin", widget: "string"}
-
-      
-
-          # - {label: "Statement", name: "statement", widget: "markdown"}
-          # - {label: "History", name: "history", widget: "markdown"}
-          # - {label: "Client", name: "client", widget: "markdown"}
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "team-page",
+        }
+      - { label: "Locale", name: "locale", widget: "hidden", default: "th" }
+      - { label: "Image", name: "image", widget: image }
+      - { label: "Firstname", name: "firstname", widget: "string" }
+      - { label: "Lastname", name: "lastname", widget: "string" }
+      - { label: "Nickname", name: "nickname", widget: "string" }
+      - { label: "Content", name: "content", widget: "markdown" }
+      - { label: "Position", name: "position", widget: "string" }
+      - { label: "Expertise", name: "expertise", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "LinkedIn", name: "linkedin", widget: "string" }
+        # - {label: "Statement", name: "statement", widget: "markdown"}
+        # - {label: "History", name: "history", widget: "markdown"}
+        # - {label: "Client", name: "client", widget: "markdown"}
 
       # - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
       # - {label: Images, name: images, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}
- 
-    
+
   - name: "client"
     folder: "src/collection/client"
     label: "Clients"
     identifier_field: alias
     create: true
     fields:
-      - {label: "Alias", name: "alias", widget: "string"}
-      - {label: "Logo", name: "logo", widget: image}
-      - {label: "Detail", name: "detail", widget: "string"}
-         
+      - { label: "Alias", name: "alias", widget: "string" }
+      - { label: "Logo", name: "logo", widget: image }
+      - { label: "Detail", name: "detail", widget: "string" }

@@ -4,7 +4,7 @@ import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import PlaceholderImg from "src/img/avatar-placeholder.png";
 import styled from "styled-components";
-
+import Fade from "react-reveal/Fade";
 import { Row, Col } from "shared/styled";
 import Img from "gatsby-image/withIEPolyfill";
 
@@ -74,6 +74,11 @@ class NewsRoll extends React.Component {
       <NewsRow>
         {posts &&
           posts.map(({ node: post }) => (
+
+            <Fade>
+
+          
+
             <NewsBox
               key={post.id}
               className={` ${
@@ -154,6 +159,8 @@ class NewsRoll extends React.Component {
                 </p> */}
               </Link>
             </NewsBox>
+          
+            </Fade>
           ))}
       </NewsRow>
     );

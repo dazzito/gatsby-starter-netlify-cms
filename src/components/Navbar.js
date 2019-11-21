@@ -61,7 +61,7 @@ height: 206px;
 font-family: 'Playfair Display', 'Kanit', sans-serif;
 background: ${props => props.isTransparent ? 'transparent !important' : '#1b1b1b'};
 		/* box-shadow: inset 0px -1px 5px 0px #252525; */
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1024px){
 	height: 90px;
 	top: 0;
     right: 0;
@@ -78,6 +78,7 @@ const MenuWrapper = styled.div`
     align-items: center;
 	flex: 1;
 	margin-right: 2em;
+	
 
 `
 
@@ -111,8 +112,9 @@ const BurgerMenuWrapper = styled.div`
 	  color: #e0e0e0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
 	display: ${props => props.isActive ? 'block' : 'none'};
+	position: fixed;
   }
   	
 `;
@@ -124,9 +126,11 @@ const Burger = styled.div`
 	font-size: 30px;
 
 
-	  @media screen and (max-width: 768px) {
+	  @media screen and (max-width: 1024px) {
 	display: block;
-  }
+	position: absolute;
+	right: 20px;
+  }	
   
 
 
@@ -147,11 +151,11 @@ const MenuItem = styled(Link)`
   color: ${props => props.isDark ? '#1b1b1b' : '#d0cba4'};
   margin: 0 1.15em;
 
+  white-space: nowrap;
 
 
 
-
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
 	display: none;
   }
   
@@ -215,6 +219,13 @@ const LanguageSelector = styled.div`
     display:flex;
     flex-direction: row;
     margin-right: 1em; 
+
+	@media screen and (max-width: 1024px) {
+	
+	position: absolute;
+	right: 50px;
+  }	
+
 `;
 
 const LanguageMenuItem = styled(Link)`
@@ -296,9 +307,9 @@ const Navbar = class extends React.Component {
 				return "ทีมของเรา"
 			} else if (str == 'services'){
 				return "บริการ"
-			} else if (str == 'news'){
+			} else if (str == 'news'){ 
 				return "ข่าวสาร"
-			} else if( str == "contact"){
+			} else if( str == "contact"){ 
 				return 'ติดต่อ'
 			}
 

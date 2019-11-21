@@ -35,7 +35,7 @@ export default class NewsIndexPage extends React.Component {
   <h2 style={{textAlign: 'center'}}>NEWS</h2>
   </Fade>
  
-    <NewsRoll/>
+   
 
 </Container>
       </Layout>
