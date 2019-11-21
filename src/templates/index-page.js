@@ -607,6 +607,7 @@ const params = {
 	}
   }
 
+  
 
 const BackgroundCarousel = (images) => {
 	const handleOnDragStart = e => e.preventDefault();
