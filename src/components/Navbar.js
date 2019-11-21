@@ -307,7 +307,7 @@ const Navbar = class extends React.Component {
 				return "ทีมของเรา"
 			} else if (str == 'services'){
 				return "บริการ"
-			} else if (str == 'news'){
+			} else if (str == 'news'){ 
 				return "ข่าวสาร"
 			} else if( str == "contact"){ 
 				return 'ติดต่อ'
