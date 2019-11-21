@@ -309,7 +309,7 @@ const Navbar = class extends React.Component {
 				return "บริการ"
 			} else if (str == 'news'){
 				return "ข่าวสาร"
-			} else if( str == "contact"){
+			} else if( str == "contact"){ 
 				return 'ติดต่อ'
 			}
 
