@@ -73,7 +73,7 @@
     "sassline": "^2.1.2",
     "scroll-background": "^1.0.5",
     "styled-components": "^4.4.0",
-    "swiper": "^5.2.0",
+    "swiper": "^6.5.1",
     "uuid": "^3.3.3",
     "window-or-global": "^1.0.1"
   },
